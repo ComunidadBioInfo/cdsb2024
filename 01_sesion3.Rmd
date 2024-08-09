@@ -1,0 +1,13 @@
+# Buenas prácticas de configuración y mantenimiento de espacios de trabajo
+
+Joselyn Cristina Chávez Fuentes
+
+28 de octubre de 2024
+
+## Diapositivas
+
+[
+```{r,echo=FALSE}
+knitr::include_url("https://comunidadbioinfo.github.io/cdsb2023/dia1_sesion1_slides.html", height = "380px")
+```
+](https://comunidadbioinfo.github.io/cdsb2023/dia1_sesion1_slides.html)

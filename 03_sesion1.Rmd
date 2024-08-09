@@ -1,0 +1,13 @@
+# Diseño de pruebas
+
+Mirna Vázquez Rosas-Landa
+
+30 de octubre de 2024
+
+## Diapositivas
+
+[
+```{r,echo=FALSE}
+knitr::include_url("https://comunidadbioinfo.github.io/cdsb2023/Pruebas_04_sesion01.html", height = "380px")
+```
+](https://comunidadbioinfo.github.io/cdsb2023/Pruebas_04_sesion01.html)

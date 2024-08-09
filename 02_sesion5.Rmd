@@ -1,0 +1,345 @@
+# Documentación de funciones
+
+Instructor/a:
+
+29 de octubre de 2024
+
+## Diapositivas
+
+[
+```{r,echo=FALSE}
+knitr::include_url("https://comunidadbioinfo.github.io/cdsb2023/Documentacion_slides_03_sesion5.html", height = "380px")
+```
+](https://comunidadbioinfo.github.io/cdsb2023/Documentacion_slides_03_sesion5.html)
+
+
+## Links importantes:
+
+Esta lección está basada en algunos manuales sobre documentación:
+
++  [Una viñeta del cranproject](https://cran.r-project.org/web/packages/roxygen2/vignettes/rd.html)
++  [El manual de paqutes de r](https://r-pkgs.org/man.html#sec-man-key-md-features)
++  [En esta viñeta de cranproject](https://combine-australia.github.io/r-pkg-dev/documenting-functions.html)
+
+## ¿Qué es la documentación de una función y por qué es importante?
+
+1.  🙇️ Es la información complementaria que el desarrollador escribe sobre una
+función y que se accede con `?` seguido el nombre de una función actual de un
+paquete p.ej. `?unafuncion`.
+
+2.  📁 La documentación se almacena como un archivo .Rd ("R documentation) en la
+carpeta `man/`.
+
+3.  🔎 La documentación usa una síntesis especial, que es distinta a la de r y 
+que está ligeramente basada en LaTeX.
+
+4.  📄 Se puede renderizar como html, pdf o texto sin formato según se necesite.
+
+## Generacion de la documentacion con ayuda del paquete roxygen
+
+En un paquete de r y en cualquier ecosistema de devtools no editamos un 
+documento `.Rd` manualmente. La documentación usa una síntesis parecida a LaTex 
+que puede ser fácil de estropear. Por ventaja existen paquetes como roxigen2. 
+Usar roxigen nos permite usar comentarios especiales sobre el inicio de la
+función, esto nos da un par de ventajas:
+
+1.  ✅ La documentación y la función estarán en un mismo lugar, por lo que si 
+editas la función será mas fácil recordar actualizar la documentcion también.
+2.  🎉 Puedes usar markdown en lugar de la síntesis especial para los archivos
+``.Rd``
+
+## Antes de empezar...✏️
+
+Vamos a crear un función para nuestro paquete. Supongamos que para nuestro 
+paquete necesitamos una función que calcule la moda. Esta es una forma sencilla 
+de calcular la moda:
+
+```{r, fig.align='center'}
+getmode <- function(serievector) {
+  uniqv <- unique(serievector)
+  uniqv[which.max(tabulate(match(serievector, uniqv)))]
+}
+```
+
+* ``unique(serievector)``: Crea un vector que contiene únicamente los valores únicos 
+de la serie de números serievector.
++ ``match(serievector, uniqv)``: Encuentra la posición de cada valor de serievector 
+en el vector único uniqv.
++ ``tabulate(match(serievector, uniqv))``: Cuenta cuántas veces aparece cada valor en
+la serie serievector.
+* ``which.max(tabulate(match(serievector, uniqv)))``: Encuentra el índice del valor 
+máximo en el vector de frecuencias.
++ ``uniqv[which.max(tabulate(match(serievector, uniqv)))]``: Devuelve el valor 
+correspondiente al índice calculado, que es la moda.
+
+Creamos un ejemplo para ver que funcione:
+
+```{r, fig.align='center'}
+serie_numeros <- c(1, 2, 2, 2, 2, 3, 3, 4, 4, 4)
+resultado <- getmode(serie_numeros)
+print(resultado)
+```
+Bien ahora si podemos podemos empezar a usar el paquete de roxygen para documentar nuestra función.. comencemos.
+
+## Generacion de un bloque de documentacion con ayuda del paquete roxygen.
+
+Podemos insertar un esqueleto de comentarios de roxygen para ver su síntesis. Colocamos el cursor en algún lugar de la definición de nuestra función y buscamos en la pestaña Código > Insertar Roxygen Skeleton.
+
+```{r, fig.align='center'}
+#' Title
+#'
+#' @param serievector 
+#'
+#' @return
+#' @export
+#'
+#' @examples
+
+getmode <- function(serievector) {
+  uniqv <- unique(serievector)
+  uniqv[which.max(tabulate(match(serievector, uniqv)))]
+}
+```
+
+
+Ahora ya tenemos un esqueleto de la documentación que nos da una ventaja para su creación.
+Las líneas de comentarios de Roxygen siempre comienzan con ``#'``, el habitual para un comentario ``#`` mas un ``'``
+
+Veamos los comentarios de uno por uno:
+
+Empezamos con el titulo. Se sugiere poner en el titulo las acciones principales que realiza la función en este caso por ejemplo podremos usar:
+
+```{r, fig.align='center'}
+#' @title Encontrar la Moda de una Serie de Números
+#'
+#' @param serievector 
+#'
+#' @return
+#' @export
+#'
+#' @examples
+
+getmode <- function(serievector) {
+  uniqv <- unique(serievector)
+  uniqv[which.max(tabulate(match(serievector, uniqv)))]
+}
+```
+
+Muy bien!.
+El siguiente comentario que podemos ver es ``@param``. Pero antes, vamos a añadir una pequeña descripción de la función y como usarla. Primero añadimos la pequeña descripción con ``@description``:
+
+```{r, fig.align='center'}
+#' @title Encontrar la Moda de una Serie de Números
+#'
+#' @description Esta función lee una serie de números en forma de vector y
+#' encuentra el elemento que mas se repite, es decir la moda.
+#' @param serievector
+#'
+#' @return
+#' @export
+#'
+#' @examples
+
+getmode <- function(serievector) {
+  uniqv <- unique(serievector)
+  uniqv[which.max(tabulate(match(serievector, uniqv)))]
+}
+```
+
+Ahora vamos a añadir el comentario `@usage` que nos indica como puedes mandar a llamar la función.
+
+```{r, fig.align='center'}
+#' @title Encontrar la Moda de una Serie de Números
+#'
+#' @description Esta función lee una serie de números en forma de vector y
+#' encuentra el elemento que mas se repite, es decir la moda.
+#' @usage getmode(serievector)
+#' @param serievector
+#'
+#' @return
+#' @export
+#'
+#' @examples
+
+getmode <- function(serievector) {
+  uniqv <- unique(serievector)
+  uniqv[which.max(tabulate(match(serievector, uniqv)))]
+}
+```
+
+Ahora si vamos a añadir una pequeña descripción de nuestros argumentos. Si tuviéramos mas de un parámetro en nuestra función podríamos llamar las veces que sea necesario el comentario de parámetro con ``@param``, veamoslo.
+
+Ahora añadimos una pequeña descripción a nuestro único parámetro que es serievector:
+
+```{r, fig.align='center'}
+#' @title Encontrar la Moda de una Serie de Números
+#'
+#' @description Esta función lee una serie de números en forma de vector y
+#' encuentra el elemento que mas se repite, es decir la moda.
+#' 
+#' @param serievector Es una serie de números en forma de  un vector simple de r.
+#'
+#' @return
+#' @export
+#'
+#' @examples
+
+getmode <- function(serievector) {
+  uniqv <- unique(serievector)
+  uniqv[which.max(tabulate(match(serievector, uniqv)))]
+}
+```
+
+Después, podemos añadir un comentario de detalles de la función con ``@details``.
+Por ejemplo, si en nuestro ejemplo tuviéramos ciertos valores no numéricos en nuestro vector de entrada, por ejemplo letras, ¿nuestra función podría leerlas?, o si le diéramos un vector sin caracteres ¿que pasaría?, veamos:
+
+```{r, fig.align='center'}
+serie_numeros <- c(0,2,2,"d", "d","d")
+resultado <- getmode(serie_numeros)
+print(resultado)
+```
+```{r, fig.align='center'}
+serie_numeros <- c()
+resultado <- getmode(serie_numeros)
+print(resultado)
+```
+Entonces, esto es un ejemplo de lo que podríamos poner en el comentario
+``@details``. Hagamoslo describiendo esto. En details podemos agregar detalles 
+un poco mas específicos que en la descripción de la función 
+
+```{r, fig.align='center'}
+#' @title Encontrar la Moda de una Serie de Números
+#'
+#' @description Esta función lee una serie de números en forma de vector y
+#' encuentra el elemento que mas se repite, es decir la moda.
+#' 
+#' @param serievector Es una serie de números en forma de  un vector simple de r.
+#'
+#' @details si tu vector de entrada puede ser interpretado alternando números y 
+#' letras escritas entre comillas "". Si un vector esta vacío, dará como 
+#' resultado un NULL.
+#' @return
+#' @export
+#'
+#' @examples
+
+getmode <- function(serievector) {
+  uniqv <- unique(serievector)
+  uniqv[which.max(tabulate(match(serievector, uniqv)))]
+}
+```
+
+Ya casi terminamos de llenar nuestra documentación, pero antes vamos a ver algunos 
+otros arrobas que pudieran ser importantes.
+El ```@import``` e ``@importfrom`` importan funciones de otros paquetes en caso 
+de que las necesitemos, el primero importa todas las funciones del paquete que
+que solicites, y el segundo importa solo algunas funciones especificas. 
+En nuestra función no necesitamos llamar funciones de otros paquetes puesto que 
+todas las que usamos están en r base. Pero imaginemos que tu función, por 
+ejemplo necesita leer un archivo ``.tsv`` con la función read_tsv del paquete 
+readr y después reconvertir la tabla resultante en un archivo con ``write.table`` 
+pero solo necesitas esa función del paquete ``utils``, entonces haríamos:
+
+```{r, fig.align='center'}
+#' @title Encontrar la Moda de una Serie de Números
+#'
+#' @description Esta función lee una serie de números en forma de vector y
+#' encuentra el elemento que mas se repite, es decir la moda.
+#' 
+#' @param serievector Es una serie de números en forma de  un vector simple de r.
+#'
+#' @details si tu vector de entrada puede ser interpretado alternando números y 
+#' letras escritas entre comillas "". Si un vector esta vacío, dará como 
+#' resultado un NULL.
+#' @import readr
+#' @importFrom utils write.table
+#' @return
+#' @export
+#'
+#' @examples
+
+getmode <- function(serievector) {
+  uniqv <- unique(serievector)
+  uniqv[which.max(tabulate(match(serievector, uniqv)))]
+}
+```
+
+Así podemos importar las funciones que necesitemos de otros paquetes y se 
+incluirán en la documentación y se cargaran automáticamente al cargar tu paquete.
+
+:eyes::exclamation: Para un correcto funcionamiento de tu paquete y al estar los
+paquetes necesarios incluidos en la documentación, no será necesario llamarlos 
+de la forma ``library("apackage")```.
+
+Entonces llegamos a la sección ``@return``. Esta descripción le servirá al 
+usuario del paquete para conocer cual sera el resultado de la función, que puede
+ser un archivo, una tabla, un numero,etc. Entonces retomando la función que 
+usamos al inicio, vamos a escribir una descripción corta del resultado de la 
+función ``getmode()``.
+
+```{r, fig.align='center'}
+#' @title Encontrar la Moda de una Serie de Números
+#'
+#' @description Esta función lee una serie de números en forma de vector y
+#' encuentra el elemento que mas se repite, es decir la moda.
+#' 
+#' @param serievector Es una serie de números en forma de  un vector simple de r.
+#'
+#' @details si tu vector de entrada puede ser interpretado alternando números y 
+#' letras escritas entre comillas "". Si un vector esta vacío, dará como 
+#' resultado un NULL.
+#' @return El carácter con mas frecuencia de el vector de entrada.
+#' @export
+#'
+#' @examples
+
+getmode <- function(serievector) {
+  uniqv <- unique(serievector)
+  uniqv[which.max(tabulate(match(serievector, uniqv)))]
+}
+```
+
+Por ultimo tenemos ``@export`` que es el encargado de renderizar la documentación 
+para que pueda aparecer en la ventana de Ayuda (abajo a la derecha). esta opción la dejamos para funciones principales que el usuario va a utilizar, aunque puede que existan alguna funciones internas que no queremos que el usuario vea. En ese caso vamos a usar 
+``@noRd`` en lugar de este.
+
+Antes de terminar podemos incluir ejemplos de como funciona nuestra función para
+un mejor entendimiento, pongamos los que ya realizamos:
+
+```{r, fig.align='center'}
+#' @title Encontrar la Moda de una Serie de Números
+#'
+#' @description Esta función lee una serie de números en forma de vector y
+#' encuentra el elemento que mas se repite, es decir la moda.
+#' 
+#' @param serievector Es una serie de números en forma de  un vector simple de r.
+#'
+#' @details si tu vector de entrada puede ser interpretado alternando números y 
+#' letras escritas entre comillas "". Si un vector esta vacío, dará como 
+#' resultado un NULL.
+#' @return El carácter con mas frecuencia de el vector de entrada.
+#' @export
+#'
+#' @examples
+#' serie_números <- c(1, 2, 2, 2, 2, 3, 3, 4, 4, 4)
+#' resultado <- getmode(serie_números)
+#' print(resultado)
+
+getmode <- function(serievector) {
+  uniqv <- unique(serievector)
+  uniqv[which.max(tabulate(match(serievector, uniqv)))]
+}
+```
+
+Ahora si, una vez teniendo listo el bloque de comentarios para la documentación, vamos a ejecutar ``devtools::load_all()`` para cargar nuestras funciones y hecho esto, ejecutamos
+ ``devtools::document()`` o presionamos  Ctrl/Cmd + Shift + D  para convertir los comentarios en archivo ``.Rd`` y poder renderizarlo.
+
+💯 Listo, tenemos nuestra documentación para una función. Así se verá cuando el paquete esté terminado.
+
+## Otros campos de la documentacion.
+
++ ``@seealso`` para indicar funciones relacionadas y facilitar la búsqueda de funciones.
+
++ ```@references``` añade algunas referencias.
+
++ ``@author`` para especificar el autor de la función.

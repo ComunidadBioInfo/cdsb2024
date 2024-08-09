@@ -1,0 +1,465 @@
+# Control de versiones con GitHub y RStudio
+
+Dra. Alejandra Medina Rivera
+
+29 de octubre de 2024
+
+<style>
+
+div.color { 
+border-radius: 5px; 
+padding: 20px;
+margin: 30px 0px 30px;}
+
+div.red { background-color:#f67155; }
+
+div.orange{ background-color:#f0BB51;}
+
+div.pair { 	
+display: flex;
+flex-direction: row;
+justify-content: center;
+text-align:center;
+padding:0px}
+
+div.inside { width: 49%; padding: 0px}
+
+div.scroll { 
+max-height: 400px; 
+overflow-y: auto; 
+background: #111111;
+border-radius:5px;
+padding: 10px;
+margin: 30px 0px 30px;
+color: #999999;}
+
+div.alert{color:#bd475d; background-color:transparent}
+</style>
+
+
+- Este documento se basa en "Happy Git with R" de Jenny Bryan, los STAT 545 TAs, Jim Hester
+
+
+https://happygitwithr.com
+
+## Diapositivas
+
+[
+```{r,echo=FALSE}
+knitr::include_url("https://amedina-liigh.github.io/GitHubIntroSlides/GitHubIntro.html", height = "380px")
+```
+](https://amedina-liigh.github.io/GitHubIntroSlides/GitHubIntro.html)
+
+## ¿Por qué hacer control de versiones de nuestros proyectos?
+
+1. ✅ Los proyectos suelen cambiar y crecer.
+2. 💾 Es díficil saber cuáles fueron todos los cambios a lo largo del tiempo (en especial tiempos largos, hazlo por tu yo del **futuro!**).
+3. 🤔 Las colaboraciones se pueden complicar sin un buen control de versiones.
+4. 🔐 Seguridad.
+
+```{r,echo=FALSE, fig.align='center'}
+knitr::include_graphics("img/git_why.png")
+```
+
+## Git
+
+- Git es un sistema de control de versiones
+- Git funciona con GitHub, Bitbucket o GitLab
+
+**¿Por qué usar Git en vez de solo renombrar los archivos?**
+
+✅✅Por qué es mejor tener una filogenia del archivo.
+
+>Git es un sistema de control de versiones distribuido, gratuito y de código abierto, diseñado para manejar todo tipo de proyectos, desde los más pequeños hasta los más grandes, con rapidez y eficiencia.
+
+>Git es fácil de aprender y ocupa poco espacio con un rendimiento rapidísimo. Supera a las herramientas SCM como Subversion, CVS, Perforce y ClearCase con características como la ramificación local barata, las cómodas áreas de preparación y los múltiples flujos de trabajo.
+
+### **Git vs controles de versión a mano**
+
+```{r,echo=FALSE, fig.align='center'}
+knitr::include_graphics("img/git_vers.png")
+```
+
+Con Git cada contribuidor tiene una copia del repositorio central, con todos los archivos y la historia de los cambios por los que han pasado. 
+
+>Excuse me, do you have a moment to talk about version control?, Jennifer Bryan, 2017
+
+<div class="alert">
+
+⚠️ **NO OLVIDES TENER INSTALADO Git**, en caso de que aún no lo hayas instalado, lo puedes descargar en el siguiente enlace [https://git-scm.com/downloads](https://git-scm.com/downloads). 
+
+Para conocer la localización y la versión de Git que tienes en tu computadora, corre el siguiente comando en la terminal: `which git` y `git --version`
+
+
+</div> 
+
+## Recomendaciones para sus proyectos
+
+- Dedicar un directorio
+- Es mejor organizarlo en un RStudio Project
+- Hacer un repositorio de Git
+- Trabajen como siempre, solo además de guardar, recuerden hacer commit
+- De vez en vez hagan push de sus cambios cuando los hayan **verificado**.
+
+## Proyectos colaborativos
+
+- GitHub se parece más a un GoogleDoc que a un Word Document.
+- Es fácil que los colaboradores hagan cambios y también es fácil saber quién hizo que.
+- El owner del proyecto puede dar permisos a los diferentes colaboradores.
+- También existen organizaciones, esto puede ser útil para manejar los permisos de grupos grandes de colaboración.
+
+## GitHub
+
+[GitHub](https://github.com/about) es una plataforma para guardar proyectos, hace uso de Git. Su principal utilidad es para generar código fuente de programas. 
+
+<div class="alert">
+
+⚠️ **NO OLVIDES TENER UNA CUENTA EN GITHUB**, en caso de que aún no lo hayas hecho, puedes ir la página de [GitHub](https://github.com) y seleccionar `join`. 
+Es indispensable tu usuario para los ejercicios que siguen.
+</div> 
+
+También existen otras plataformas como [Bitbucked](https://bitbucket.org/product/) y [GitLab](https://about.gitlab.com), las cuales funcionan de manera similar a GitHub. 
+
+## Manual de sobreviviencia con Git Y GitHub en RStudio (en caso de ser necesario)
+
+- Por cualquier problema con la conexión entre RStudio y Git, siempre ten en cuenta la ubicación de dónde se instaló Git. 
+    - Puedes usar en la terminal `which git` (Mac y Linux)
+    - O bien usar en la terminal `where git` (Windows)
+    
+- Recuerda que la terminal (o línea de comandos ó consola ó shell ó bash) es un programa en tu computadora que funciona para correr otros programas. Desde RStudio puedes abrir la **terminal**, lo cual es muy conveniente si estás trabajando en un proyecto. Puedes abrir una terminal con:
+    - *Tools > Terminal* (abre la terminal dentro del IDE de RStudio)
+    - *Tools > Shell* (abre una terminal externa a RStudio)
+
+## Cómo clonar un repositorio y tener conección/permisos para modificarlo? 
+
+- Git puede comunicarse con un servidor remoto usando uno de dos protocolos, HTTPS o SSH, y cada protocolo usa credenciales diferentes.
+
+- La recomendación actual de **GitHub** es usar *HTTPS* porque es la manera más fácil de configurar y tiene operabilidad en multiples redes y plataformas.  
+    - Es menos probable que HTTPS sea bloqueado por un firewall.
+    - Una conexión HTTPS permite que `credential.helper` almacene en caché su contraseña. (por tanto puedes configurar tu usuario y contraseña en tu equipo de uso)
+    - Es más sencillo acceder a un repositorio desde cualquier lugar, ya que solo necesitas los detalles de tu cuenta (no se requieren claves SSH) para escribir en el repositorio.
+    
+- Usualmente cuando inicies un proyecto colaborativo con GitHub inicializa el ropositorio con un README. Copia el HTTPS URL para clonar el repositorio en la *terminal* `git clone https://github.com/TU-USUARIO/TU-REPOSITORIO.git`. 
+    
+## Credenciales HTTPS en **Cache**
+
+Para usar HTTPS debes crear un token de acceso personal, **PAT** (*PERSONAL ACCESS TOKEN*), esa será tu credencial para HTTPS. Es una alternativa al uso de contraseñas para la autenticación en GitHub.
+
+Como precaución de seguridad, GitHub elimina automáticamente los tokens de acceso personales que no se han usado durante un año. 
+
+
+**¿Cómo crear un token?**
+
+1. Ve a tu perfil de GitHub, dale click a la imagen de perfil (usualmente en la esquina superior derecha), y busca la opción de *settings* ó *configuración* según sea la configuración de idioma que tengas. 
+
+2. Da click a continuación en *Developer settings* ó *Parámetros del desarrollador*. 
+
+3. En la barra lateral izquierda da click en *Tokens de acceso personal*. 
+
+4. Haz click en *Generar un nuevo token*.
+
+5. Asígna un nombre descriptivo a tu token. 
+
+6. Selecciona los alcances o permisos que deseas otorgarle a este token. Para usar tu token para acceder a repositorios desde la línea de comando, selecciona repo. (Recomendados: repo, user, workflow )
+
+7. Finalmente haz click en *generar token*.
+
+8. Listo, copia y pega tu token en el lugar dónde siempre lo puedas volver a copiar, ya que por razones de seguridad, una vez salgas de la página no podrás volver a ver el token. 
+
+- Nota: Preserva tus tokens de la misma manera que tus contraseñas y no se las reveles a nadie. 
+
+Una vez que tengas un token, puedes ingresarlo en lugar de tu contraseña cuando realices operaciones de Git a través de HTTPS.
+
+El punto final es que una vez configurada una PAT, varios paquetes de R, incluidos *usethis* y *gh*, podrán trabajar con la API de GitHub en su nombre, de forma automática. Por lo tanto, una PAT configurada correctamente significa que todo esto funcionará a la perfección:
+
+    - Operaciones HTTPS remotas a través de la línea de comando Git y, por lo tanto, a través de RStudio
+    - Operaciones HTTPS remotas a través del paquete gert R y, por lo tanto, usethis
+    - Operaciones de la API de GitHub a través del paquete gh R y, por lo tanto, usethis
+
+**Probar el repositorio Clonado**
+
+Después de hacer *clone*
+Usa estos comandos para verificar tu repositorio y revisar desde dónde se está sincorinzando.
+ 
+
+```{bash eval=FALSE, echo=TRUE}
+cd myrepo
+ls -la
+head README.md
+git remote show origin
+
+```
+
+**Probemos haciendo un cambio en el README**
+
+```{bash eval=FALSE, echo=TRUE}
+echo "Something I want to add to the README in my local computer" >> README.md
+git status
+```
+
+- Qué pasó?
+
+- Ahora tenemos que decirle a git que queremos seguir los cambios de ese archivo
+- Vamos a *commit* los cambios y luego a subir (*push*) los mismos a GitHub
+
+```{bash eval=FALSE, echo=TRUE}
+git add README.md
+git commit -m "A commit from my local computer"
+git push
+```
+*Recuerda tu TOKEN!!*
+
+
+**¿Cómo crear un token desde R?**
+
+Puedes ir directamente a la página de GitHub a la parte para generar tu token de acceso personal mediante la siguiente función: 
+
+```{r, eval=FALSE}
+usethis::create_github_token()
+```
+Y con las opciones que se mencionaban anteriormente puedes configurar y crear tu **PAT**. 
+
+Si lo que quieres es especificar tu **PAT** en RStudio, las siguientes funciones te serán útiles:
+
+```{r, eval=FALSE}
+
+library(gitcreds)
+
+gitcreds_set()
+
+```
+
+```{r, eval=FALSE}
+
+library(credentials)
+
+set_github_pat()
+
+```
+
+Para eliminar credenciales utiliza la función `credentials::git_credential_forget()`
+
+### Actividad
+Ejecuta los códigos y genera tu PAT, recuerda no perderlo!
+
+
+## Conectando RStudio con Git y Github.
+
+```{r,echo=FALSE, out.width='80%', fig.align='center'}
+knitr::include_graphics("img/github_rstudio.png")
+```
+
+<div class = "red color">
+
+Para lo que sigue a continuación, deberías tener esto:
+
+1. Tener una cuenta en GitHub
+2. **R** y **RStudio** actualizados
+3. Git instalado
+4. Saber que desde la terminal puedes hacer **push** y **pull**
+
+</div>
+
+
+## GitHub primero, RStudio después...
+
+1. Crea un repositorio en GitHub: `mi_repositorio` > *Public* > *YES* initialize this repository with a *README* > `click`en el gran botón verde "Create repository"
+2. En RStudio crea un nuevo proyecto: *File* > *New Project* > *Version Control* > *Git*. Ahi pega el URL del repositorio `https://github.com/mi_usuario/mi_repositorio.git`. Da click en *Create Project*. 
+
+Esto nos generará los siguientes elementos:
+
+- Un directorio nuevo
+- Un repositorio Git enlazado a al repositorio de GitHub
+- Un proyecto en RStudio
+
+Con este procedimiento ya no es necesario preocuparse por configurar controles remotos Git
+y rastrear ramas en la línea de comandos.
+
+### Actividad
+
+<div class = "orange color">
+
+- Genera un repositorio con el nombre que desees. Y conéctalo a RStudio. Cerciorate de que el archivo *README* se encuentre en tu nueva carpeta. 
+- Usa la función `usethis::use_r("titulo_de_un_script")` y observa lo que sucede.
+
+</div>
+
+**PAUSA**
+
+¿Cómo comento y doy push/pull desde RStudio?
+
+### Comentar, pull y push 
+
+```{r,echo=FALSE, out.width='80%', fig.align='center'}
+knitr::include_graphics("img/gitrstudio_comment.png")
+```
+
+Con la **flecha azul** podemos hacer pull (**RECUERDA HACERLO ANTES DE HACER UN PUSH**), y con la flecha verde un push. Para poder comentar y hacer push debemos marcar con una flechita mediante un `click` en las pequeñas cajas blancas de la columna *Staged*, damoc click en *commit* lo cual no abre la siguiente ventana. 
+
+```{r,echo=FALSE, out.width='80%', fig.align='center'}
+knitr::include_graphics("img/gitrstudio_push.png")
+```
+
+Volvemos a dar `click` en *commit*, y finalizamos con *push* (flecha verde). 
+
+## Rmarkdown en GitHub
+
+- Creemos un Rmakrdown y subámoslo a GitHub
+- Ahora hay que agregarlo al repositorio (add), stage and commit.
+- Subieron el hmlt? Qué tal se ve?
+- No se ve como queremos, verdad? Para eso necesitamos recuperar el .md. El .md es un resultado intermedio de crear el html desde Rmd.
+- Tenemos que cambiar el header para esto
+
+```{r echo=TRUE, eval=FALSE}
+---
+title: "RmarkwondTest"
+output: 
+  html_document:
+    keep_md: true
+---
+```
+
+### Actividad
+
+<div class = "orange color">
+
+- Usa el código `dir.create("mis_imagenes")` en la consola de tu sesión de RStudio (la que está vinculada a tu repositorio). Ejecuta el siguiente código quitando los `#`:
+
+```{r, eval=FALSE}
+install.packages("MASS")
+library (MASS)
+data(MASS::cats)
+# pdf("mis_imagenes/cats_plot.pdf") 
+ggplot(cats, aes(x = Sex)) + 
+    geom_bar(fill = "orange", color = "black") + theme_classic() +
+    xlab("Sexo") + ylab("Número de Gatos") + ggtitle("Gatos")
+# dev.off()
+```
+
+- Comenta y da push a los cambios que realizaste en el repositorio. 
+
+</div>
+
+## RStudio primero y GitHub también 
+
+Usa uno de los proyectos que hayas generado en las sesiones anteriores, PERO, que no esté enlazado a GitHub. Ahora veremos como conectar un proyecto de R existente con GitHub. 
+Realiza los pasos que hicimos en **GitHub primero, RStudio después** pero asegurate de crear un repositorio con un nuevo nombre. 
+
+**Y LISTO!!** usa un simple `ctrl` + `c`, ó `mv` ó `click derecho` + `copiar` ó el método que prefieras para mover o copiar archivos. Copia los archivos de tu antigüo proyecto al proyecto nuevo. 
+Solo haz *commit* y *push* y listo, lo que tenía en tu antigüo proyecto ya está enlazado a GitHub. 
+
+
+## Proyecto existente, GitHub al final
+
+
+```{r,echo=FALSE, out.width='80%', fig.align='center'}
+knitr::include_graphics("img/elmo_hell.png")
+```
+
+Supongamos que tenemos un proyecto de R existente en algún lugar de nuestra computadora. 
+
+<div class = "red color">
+
+**NOTA:**
+Para generar proyecto de RStudio desde la consola puedes utilizar el siguiente código:
+```{r, eval=FALSE}
+usethis::create_project()
+```
+
+O en RStudio con *File > New Project > Existing Directory* 
+
+Si su proyecto ya es un proyecto de RStudio, ejecútelo.
+
+</div>
+
+¿Ya es un repositorio de Git? La presencia del panel de Git debería alertarlo. Si es así, ha terminado.
+
+Sino este es el primer camino a seguir:
+
+- Con el páquete **usethis** usa la función `usethis::use_git`
+- En RStudio ve a *Tools > Project Options > Git/SVN*. Dentro de *Version control system*, selecciona *Git*. Y da click a *"Yes"* cuando aparezca *"Confirm New Git Repository?"*.
+
+Si usaste RStudio o *usethis*, el proyecto debería reiniciarse en RStudio. Hazlo tu mismo si hizo git init. RStudio ahora debería tener un panel Git.
+
+### Breviario cultural con los PATs
+
+Si usas el paquete usethis Y has configurado un token de acceso personal (PAT) de GitHub has esto en R:
+
+```{r, eval=FALSE}
+usethis::use_github()
+```
+
+Esto creará un nuevo repositorio en GitHub, lo agregará como un control remoto, configurará una rama de seguimiento y lo abrirá en su navegador. Lea la ayuda de `use_github()` para conocer sus argumentos y consejos sobre cómo configurar una PAT. Esto es extremadamente útil para una variedad de flujos de trabajo que llaman a la API de GitHub. Considere configurar esto si usa usethis, devtools o gh con regularidad.
+
+----
+
+Volviendo al tema de **Proyecto existente, GitHub al final**. 
+
+Otra opción que se puede hacer para conectar un proyecto existen a GitHub es ir a hacer un repositorio a GitHub **PERO** ten en cuenta los siguientes cambios:
+
+1. Elije un nombre de repositorio; probablemente debería coincidir con el nombre de su proyecto y directorio local.
+2. **NO** inicialice este repositorio con un archivo *README*.
+
+Todo lo demás es igual a los pasos que hacíamos en **GitHub primero, RStudio después...**
+
+Ahora ve a tu proyecto de RStudio, has clic en los **"dos cuadros de color púrpura y un cuadrado blanco"** en el panel de Git. Has clic en **"Agregar control remoto"**. Pegue la URL aquí y elija un nombre remoto, casi con certeza el **origin**. Ahora **"ADD"**.
+
+```{r,echo=FALSE, out.width='80%', fig.align='center'}
+knitr::include_graphics("img/purple_cuadros.png")
+```
+
+Pasado esto deberiamos volver en el cuadro de diálogo **"New Branch"**. Ingresa **"master"** como el nombre de la rama y asegúrate de que la opción **"Sync branch with remote"** esté marcada. Haz clic en **"Create"**. En el siguiente cuadro de diálogo elije **"overwrite"**. 
+
+```{r,echo=FALSE, out.width='80%', fig.align='center'}
+knitr::include_graphics("img/add_remote_rstudio.png")
+```
+
+Ahora solo haz **commit/pull/push** y cérciorate que FUNCIONE!!
+
+## Git basics: commands
+
+- Fetch Commits
+```{bash eval=FALSE, echo=TRUE}
+git fetch
+```
+
+- Create and Switch to a branch
+```{bash eval=FALSE, echo=TRUE}
+git branch [branch-name]
+git checkout [branch-name]
+```
+
+## Merge conflics
+- A veces, no tan a veces también, las cosas no salen bien a la primera
+- Merging (Fusionar) es una de esas cosas
+- Cuando bajamos un cambio o fusionamos branches esto puede pasar.
+- Primera regla: NO ENTRAR EN PANICO!!!
+- Revisen el status del repositorio. Qué archivo tiene conflicto?
+
+## Merge conflics
+
+- Abran ese archivo y busquen los problemas de merge. Es fácil, se ven así:
+
+```{r echo=TRUE, eval=FALSE}
+<<<<<<< HEAD:index.html
+<div id="footer">contact : email.support@github.com</div>
+=======
+<div id="footer">
+ please contact us at support@github.com
+</div>
+>>>>>>> issue-5:index.html
+```
+
+- Editen esa sección, dejen una versión final.
+- Hagan commit y push
+- Si entran en pánico? Aborten la misión! 
+
+```{bash eval=FALSE, echo=TRUE}
+git merge --abort t
+```
+
+## En resumen
+
+**¡QUE LA FUERZA TE ACOMPAÑE!**
+
+</div>

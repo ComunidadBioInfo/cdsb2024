@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>6 Control de versiones con GitHub y RStudio | Desarrollo de paqueterías de R/Bioconductor.</title>
+  <meta name="description" content="6 Control de versiones con GitHub y RStudio | Desarrollo de paqueterías de R/Bioconductor." />
+  <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="6 Control de versiones con GitHub y RStudio | Desarrollo de paqueterías de R/Bioconductor." />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta name="github-repo" content="comunidadbioinfo/cdsb2024" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="6 Control de versiones con GitHub y RStudio | Desarrollo de paqueterías de R/Bioconductor." />
+  
+  
+  
+
+<meta name="author" content="Dra. Joselyn Cristina Chávez-Fuentes, Dra. Mirna Vázquez Rosas-Landa, M.C. Erick Cuevas-Fernández, Dra. Alejandra Medina-Rivera," />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="nuevas-funcionalidades-de-rstudio-quarto.html"/>
+<link rel="next" href="solución-de-problemas-con-las-versiones-de-paquetes-de-rstudio.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Bienvenida</a>
+<ul>
+<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#instructores"><i class="fa fa-check"></i><b>0.1</b> Instructores</a></li>
+<li class="chapter" data-level="0.2" data-path="index.html"><a href="index.html#temario"><i class="fa fa-check"></i><b>0.2</b> Temario</a></li>
+<li class="chapter" data-level="0.3" data-path="index.html"><a href="index.html#patrocinadores"><i class="fa fa-check"></i><b>0.3</b> Patrocinadores</a></li>
+<li class="chapter" data-level="0.4" data-path="index.html"><a href="index.html#licencia"><i class="fa fa-check"></i><b>0.4</b> Licencia</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="introducción-al-flujo-de-trabajo-orientado-a-proyectos.html"><a href="introducción-al-flujo-de-trabajo-orientado-a-proyectos.html"><i class="fa fa-check"></i><b>1</b> Introducción al flujo de trabajo orientado a proyectos</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="introducción-al-flujo-de-trabajo-orientado-a-proyectos.html"><a href="introducción-al-flujo-de-trabajo-orientado-a-proyectos.html#diapositivas"><i class="fa fa-check"></i><b>1.1</b> Diapositivas</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="paths-seguros.html"><a href="paths-seguros.html"><i class="fa fa-check"></i><b>2</b> Paths seguros</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="paths-seguros.html"><a href="paths-seguros.html#diapositivas-1"><i class="fa fa-check"></i><b>2.1</b> Diapositivas</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="buenas-prácticas-de-configuración-y-mantenimiento-de-espacios-de-trabajo.html"><a href="buenas-prácticas-de-configuración-y-mantenimiento-de-espacios-de-trabajo.html"><i class="fa fa-check"></i><b>3</b> Buenas prácticas de configuración y mantenimiento de espacios de trabajo</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="buenas-prácticas-de-configuración-y-mantenimiento-de-espacios-de-trabajo.html"><a href="buenas-prácticas-de-configuración-y-mantenimiento-de-espacios-de-trabajo.html#diapositivas-2"><i class="fa fa-check"></i><b>3.1</b> Diapositivas</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="modificando-los-archivos-de-inicio-de-r.html"><a href="modificando-los-archivos-de-inicio-de-r.html"><i class="fa fa-check"></i><b>4</b> Modificando los archivos de inicio de R</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="modificando-los-archivos-de-inicio-de-r.html"><a href="modificando-los-archivos-de-inicio-de-r.html#diapositivas-3"><i class="fa fa-check"></i><b>4.1</b> Diapositivas</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="nuevas-funcionalidades-de-rstudio-quarto.html"><a href="nuevas-funcionalidades-de-rstudio-quarto.html"><i class="fa fa-check"></i><b>5</b> Nuevas funcionalidades de RStudio, Quarto</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="nuevas-funcionalidades-de-rstudio-quarto.html"><a href="nuevas-funcionalidades-de-rstudio-quarto.html#diapositivas-4"><i class="fa fa-check"></i><b>5.1</b> Diapositivas</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html"><i class="fa fa-check"></i><b>6</b> Control de versiones con GitHub y RStudio</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#diapositivas-5"><i class="fa fa-check"></i><b>6.1</b> Diapositivas</a></li>
+<li class="chapter" data-level="6.2" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#por-qué-hacer-control-de-versiones-de-nuestros-proyectos"><i class="fa fa-check"></i><b>6.2</b> ¿Por qué hacer control de versiones de nuestros proyectos?</a></li>
+<li class="chapter" data-level="6.3" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#git"><i class="fa fa-check"></i><b>6.3</b> Git</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#git-vs-controles-de-versión-a-mano"><i class="fa fa-check"></i><b>6.3.1</b> <strong>Git vs controles de versión a mano</strong></a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#recomendaciones-para-sus-proyectos"><i class="fa fa-check"></i><b>6.4</b> Recomendaciones para sus proyectos</a></li>
+<li class="chapter" data-level="6.5" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#proyectos-colaborativos"><i class="fa fa-check"></i><b>6.5</b> Proyectos colaborativos</a></li>
+<li class="chapter" data-level="6.6" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#github"><i class="fa fa-check"></i><b>6.6</b> GitHub</a></li>
+<li class="chapter" data-level="6.7" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#manual-de-sobreviviencia-con-git-y-github-en-rstudio-en-caso-de-ser-necesario"><i class="fa fa-check"></i><b>6.7</b> Manual de sobreviviencia con Git Y GitHub en RStudio (en caso de ser necesario)</a></li>
+<li class="chapter" data-level="6.8" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#cómo-clonar-un-repositorio-y-tener-conecciónpermisos-para-modificarlo"><i class="fa fa-check"></i><b>6.8</b> Cómo clonar un repositorio y tener conección/permisos para modificarlo?</a></li>
+<li class="chapter" data-level="6.9" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#credenciales-https-en-cache"><i class="fa fa-check"></i><b>6.9</b> Credenciales HTTPS en <strong>Cache</strong></a>
+<ul>
+<li class="chapter" data-level="6.9.1" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#actividad"><i class="fa fa-check"></i><b>6.9.1</b> Actividad</a></li>
+</ul></li>
+<li class="chapter" data-level="6.10" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#conectando-rstudio-con-git-y-github."><i class="fa fa-check"></i><b>6.10</b> Conectando RStudio con Git y Github.</a></li>
+<li class="chapter" data-level="6.11" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#github-primero-rstudio-después"><i class="fa fa-check"></i><b>6.11</b> GitHub primero, RStudio después…</a>
+<ul>
+<li class="chapter" data-level="6.11.1" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#actividad-1"><i class="fa fa-check"></i><b>6.11.1</b> Actividad</a></li>
+<li class="chapter" data-level="6.11.2" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#comentar-pull-y-push"><i class="fa fa-check"></i><b>6.11.2</b> Comentar, pull y push</a></li>
+</ul></li>
+<li class="chapter" data-level="6.12" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#rmarkdown-en-github"><i class="fa fa-check"></i><b>6.12</b> Rmarkdown en GitHub</a>
+<ul>
+<li class="chapter" data-level="6.12.1" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#actividad-2"><i class="fa fa-check"></i><b>6.12.1</b> Actividad</a></li>
+</ul></li>
+<li class="chapter" data-level="6.13" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#rstudio-primero-y-github-también"><i class="fa fa-check"></i><b>6.13</b> RStudio primero y GitHub también</a></li>
+<li class="chapter" data-level="6.14" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#proyecto-existente-github-al-final"><i class="fa fa-check"></i><b>6.14</b> Proyecto existente, GitHub al final</a>
+<ul>
+<li class="chapter" data-level="6.14.1" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#breviario-cultural-con-los-pats"><i class="fa fa-check"></i><b>6.14.1</b> Breviario cultural con los PATs</a></li>
+</ul></li>
+<li class="chapter" data-level="6.15" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#git-basics-commands"><i class="fa fa-check"></i><b>6.15</b> Git basics: commands</a></li>
+<li class="chapter" data-level="6.16" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#merge-conflics"><i class="fa fa-check"></i><b>6.16</b> Merge conflics</a></li>
+<li class="chapter" data-level="6.17" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#merge-conflics-1"><i class="fa fa-check"></i><b>6.17</b> Merge conflics</a></li>
+<li class="chapter" data-level="6.18" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#en-resumen"><i class="fa fa-check"></i><b>6.18</b> En resumen</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="solución-de-problemas-con-las-versiones-de-paquetes-de-rstudio.html"><a href="solución-de-problemas-con-las-versiones-de-paquetes-de-rstudio.html"><i class="fa fa-check"></i><b>7</b> Solución de problemas con las versiones de paquetes de Rstudio</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="solución-de-problemas-con-las-versiones-de-paquetes-de-rstudio.html"><a href="solución-de-problemas-con-las-versiones-de-paquetes-de-rstudio.html#diapositivas-6"><i class="fa fa-check"></i><b>7.1</b> Diapositivas</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="infraestructura-de-un-paquete-de-rbioconductor.html"><a href="infraestructura-de-un-paquete-de-rbioconductor.html"><i class="fa fa-check"></i><b>8</b> Infraestructura de un paquete de R/Bioconductor</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="infraestructura-de-un-paquete-de-rbioconductor.html"><a href="infraestructura-de-un-paquete-de-rbioconductor.html#diapositivas-7"><i class="fa fa-check"></i><b>8.1</b> Diapositivas</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="keynote-convirtiendo-tu-flujo-de-análisis-en-un-paquete-de-rbioconductor..html"><a href="keynote-convirtiendo-tu-flujo-de-análisis-en-un-paquete-de-rbioconductor..html"><i class="fa fa-check"></i><b>9</b> Keynote: Convirtiendo tu flujo de análisis en un paquete de R/Bioconductor.</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="keynote-convirtiendo-tu-flujo-de-análisis-en-un-paquete-de-rbioconductor..html"><a href="keynote-convirtiendo-tu-flujo-de-análisis-en-un-paquete-de-rbioconductor..html#diapositivas-8"><i class="fa fa-check"></i><b>9.1</b> Diapositivas</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="documentación-de-funciones.html"><a href="documentación-de-funciones.html"><i class="fa fa-check"></i><b>10</b> Documentación de funciones</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="documentación-de-funciones.html"><a href="documentación-de-funciones.html#diapositivas-9"><i class="fa fa-check"></i><b>10.1</b> Diapositivas</a></li>
+<li class="chapter" data-level="10.2" data-path="documentación-de-funciones.html"><a href="documentación-de-funciones.html#links-importantes"><i class="fa fa-check"></i><b>10.2</b> Links importantes:</a></li>
+<li class="chapter" data-level="10.3" data-path="documentación-de-funciones.html"><a href="documentación-de-funciones.html#qué-es-la-documentación-de-una-función-y-por-qué-es-importante"><i class="fa fa-check"></i><b>10.3</b> ¿Qué es la documentación de una función y por qué es importante?</a></li>
+<li class="chapter" data-level="10.4" data-path="documentación-de-funciones.html"><a href="documentación-de-funciones.html#generacion-de-la-documentacion-con-ayuda-del-paquete-roxygen"><i class="fa fa-check"></i><b>10.4</b> Generacion de la documentacion con ayuda del paquete roxygen</a></li>
+<li class="chapter" data-level="10.5" data-path="documentación-de-funciones.html"><a href="documentación-de-funciones.html#antes-de-empezar"><i class="fa fa-check"></i><b>10.5</b> Antes de empezar…✏️</a></li>
+<li class="chapter" data-level="10.6" data-path="documentación-de-funciones.html"><a href="documentación-de-funciones.html#generacion-de-un-bloque-de-documentacion-con-ayuda-del-paquete-roxygen."><i class="fa fa-check"></i><b>10.6</b> Generacion de un bloque de documentacion con ayuda del paquete roxygen.</a></li>
+<li class="chapter" data-level="10.7" data-path="documentación-de-funciones.html"><a href="documentación-de-funciones.html#otros-campos-de-la-documentacion."><i class="fa fa-check"></i><b>10.7</b> Otros campos de la documentacion.</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="diseño-de-pruebas.html"><a href="diseño-de-pruebas.html"><i class="fa fa-check"></i><b>11</b> Diseño de pruebas</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="diseño-de-pruebas.html"><a href="diseño-de-pruebas.html#diapositivas-10"><i class="fa fa-check"></i><b>11.1</b> Diapositivas</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="creación-de-viñetas.html"><a href="creación-de-viñetas.html"><i class="fa fa-check"></i><b>12</b> Creación de viñetas</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="creación-de-viñetas.html"><a href="creación-de-viñetas.html#diapositivas-11"><i class="fa fa-check"></i><b>12.1</b> Diapositivas</a></li>
+<li class="chapter" data-level="12.2" data-path="creación-de-viñetas.html"><a href="creación-de-viñetas.html#qué-es-una-viñeta"><i class="fa fa-check"></i><b>12.2</b> ¿Qué es una viñeta?</a></li>
+<li class="chapter" data-level="12.3" data-path="creación-de-viñetas.html"><a href="creación-de-viñetas.html#características-de-una-vignette"><i class="fa fa-check"></i><b>12.3</b> Características de una vignette</a></li>
+<li class="chapter" data-level="12.4" data-path="creación-de-viñetas.html"><a href="creación-de-viñetas.html#cómo-consultar-la-viñeta-de-un-paquete"><i class="fa fa-check"></i><b>12.4</b> ¿Cómo consultar la viñeta de un paquete?</a></li>
+<li class="chapter" data-level="12.5" data-path="creación-de-viñetas.html"><a href="creación-de-viñetas.html#cómo-crear-una-viñeta"><i class="fa fa-check"></i><b>12.5</b> ¿Cómo crear una viñeta?</a></li>
+<li class="chapter" data-level="12.6" data-path="creación-de-viñetas.html"><a href="creación-de-viñetas.html#cómo-guardar-y-actualizar-la-viñeta"><i class="fa fa-check"></i><b>12.6</b> ¿Cómo guardar y actualizar la viñeta?</a></li>
+<li class="chapter" data-level="12.7" data-path="creación-de-viñetas.html"><a href="creación-de-viñetas.html#veamos-un-ejemplo"><i class="fa fa-check"></i><b>12.7</b> Veamos un ejemplo</a></li>
+<li class="chapter" data-level="12.8" data-path="creación-de-viñetas.html"><a href="creación-de-viñetas.html#actividad-3"><i class="fa fa-check"></i><b>12.8</b> Actividad</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="compilación-e-instalación-de-paquetes.html"><a href="compilación-e-instalación-de-paquetes.html"><i class="fa fa-check"></i><b>13</b> Compilación e instalación de paquetes</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="compilación-e-instalación-de-paquetes.html"><a href="compilación-e-instalación-de-paquetes.html#diapositivas-12"><i class="fa fa-check"></i><b>13.1</b> Diapositivas</a></li>
+<li class="chapter" data-level="13.2" data-path="compilación-e-instalación-de-paquetes.html"><a href="compilación-e-instalación-de-paquetes.html#metadatos-de-una-paquetería"><i class="fa fa-check"></i><b>13.2</b> Metadatos de una paquetería</a>
+<ul>
+<li class="chapter" data-level="13.2.1" data-path="compilación-e-instalación-de-paquetes.html"><a href="compilación-e-instalación-de-paquetes.html#description"><i class="fa fa-check"></i><b>13.2.1</b> Description</a></li>
+<li class="chapter" data-level="13.2.2" data-path="compilación-e-instalación-de-paquetes.html"><a href="compilación-e-instalación-de-paquetes.html#dependencias"><i class="fa fa-check"></i><b>13.2.2</b> Dependencias</a></li>
+<li class="chapter" data-level="13.2.3" data-path="compilación-e-instalación-de-paquetes.html"><a href="compilación-e-instalación-de-paquetes.html#cómo-añadir-dependencias"><i class="fa fa-check"></i><b>13.2.3</b> ¿Cómo añadir dependencias?</a></li>
+</ul></li>
+<li class="chapter" data-level="13.3" data-path="compilación-e-instalación-de-paquetes.html"><a href="compilación-e-instalación-de-paquetes.html#licencias"><i class="fa fa-check"></i><b>13.3</b> Licencias</a></li>
+<li class="chapter" data-level="13.4" data-path="compilación-e-instalación-de-paquetes.html"><a href="compilación-e-instalación-de-paquetes.html#paqueterías-de-código-fuente"><i class="fa fa-check"></i><b>13.4</b> Paqueterías de código fuente</a></li>
+<li class="chapter" data-level="13.5" data-path="compilación-e-instalación-de-paquetes.html"><a href="compilación-e-instalación-de-paquetes.html#en-dónde-podemos-encontrar-el-código-fuente-de-un-paquete"><i class="fa fa-check"></i><b>13.5</b> ¿En dónde podemos encontrar el código fuente de un paquete?</a></li>
+<li class="chapter" data-level="13.6" data-path="compilación-e-instalación-de-paquetes.html"><a href="compilación-e-instalación-de-paquetes.html#instalando-la-última-versión-en-desarrollo"><i class="fa fa-check"></i><b>13.6</b> Instalando la última versión en desarrollo</a></li>
+<li class="chapter" data-level="13.7" data-path="compilación-e-instalación-de-paquetes.html"><a href="compilación-e-instalación-de-paquetes.html#instalando-paquetes-desde-github"><i class="fa fa-check"></i><b>13.7</b> Instalando paquetes desde GitHub</a></li>
+<li class="chapter" data-level="13.8" data-path="compilación-e-instalación-de-paquetes.html"><a href="compilación-e-instalación-de-paquetes.html#instalando-un-paquete-local"><i class="fa fa-check"></i><b>13.8</b> Instalando un paquete local</a></li>
+<li class="chapter" data-level="13.9" data-path="compilación-e-instalación-de-paquetes.html"><a href="compilación-e-instalación-de-paquetes.html#contribuyendo-código"><i class="fa fa-check"></i><b>13.9</b> Contribuyendo código</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="proyectos-colaborativos-1.html"><a href="proyectos-colaborativos-1.html"><i class="fa fa-check"></i><b>14</b> Proyectos colaborativos</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="proyectos-colaborativos-1.html"><a href="proyectos-colaborativos-1.html#propuesta-1"><i class="fa fa-check"></i><b>14.1</b> Propuesta 1</a></li>
+<li class="chapter" data-level="14.2" data-path="proyectos-colaborativos-1.html"><a href="proyectos-colaborativos-1.html#propuesta-2"><i class="fa fa-check"></i><b>14.2</b> Propuesta 2</a></li>
+<li class="chapter" data-level="14.3" data-path="proyectos-colaborativos-1.html"><a href="proyectos-colaborativos-1.html#propuesta-3"><i class="fa fa-check"></i><b>14.3</b> Propuesta 3</a></li>
+<li class="chapter" data-level="14.4" data-path="proyectos-colaborativos-1.html"><a href="proyectos-colaborativos-1.html#propuesta-4"><i class="fa fa-check"></i><b>14.4</b> Propuesta 4</a></li>
+<li class="chapter" data-level="14.5" data-path="proyectos-colaborativos-1.html"><a href="proyectos-colaborativos-1.html#propuesta-5"><i class="fa fa-check"></i><b>14.5</b> Propuesta 5</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Desarrollo de paqueterías de R/Bioconductor.</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="control-de-versiones-con-github-y-rstudio" class="section level1 hasAnchor" number="6">
+<h1><span class="header-section-number">6</span> Control de versiones con GitHub y RStudio<a href="control-de-versiones-con-github-y-rstudio.html#control-de-versiones-con-github-y-rstudio" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Dra. Alejandra Medina Rivera</p>
+<p>29 de octubre de 2024</p>
+<style>
+
+div.color { 
+border-radius: 5px; 
+padding: 20px;
+margin: 30px 0px 30px;}
+
+div.red { background-color:#f67155; }
+
+div.orange{ background-color:#f0BB51;}
+
+div.pair {  
+display: flex;
+flex-direction: row;
+justify-content: center;
+text-align:center;
+padding:0px}
+
+div.inside { width: 49%; padding: 0px}
+
+div.scroll { 
+max-height: 400px; 
+overflow-y: auto; 
+background: #111111;
+border-radius:5px;
+padding: 10px;
+margin: 30px 0px 30px;
+color: #999999;}
+
+div.alert{color:#bd475d; background-color:transparent}
+</style>
+<ul>
+<li>Este documento se basa en “Happy Git with R” de Jenny Bryan, los STAT 545 TAs, Jim Hester</li>
+</ul>
+<p><a href="https://happygitwithr.com" class="uri">https://happygitwithr.com</a></p>
+<div id="diapositivas-5" class="section level2 hasAnchor" number="6.1">
+<h2><span class="header-section-number">6.1</span> Diapositivas<a href="control-de-versiones-con-github-y-rstudio.html#diapositivas-5" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><a href="https://amedina-liigh.github.io/GitHubIntroSlides/GitHubIntro.html"><iframe src="https://amedina-liigh.github.io/GitHubIntroSlides/GitHubIntro.html" width="672" height="380px" data-external="1"></iframe></a></p>
+</div>
+<div id="por-qué-hacer-control-de-versiones-de-nuestros-proyectos" class="section level2 hasAnchor" number="6.2">
+<h2><span class="header-section-number">6.2</span> ¿Por qué hacer control de versiones de nuestros proyectos?<a href="control-de-versiones-con-github-y-rstudio.html#por-qué-hacer-control-de-versiones-de-nuestros-proyectos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ol style="list-style-type: decimal">
+<li>✅ Los proyectos suelen cambiar y crecer.</li>
+<li>💾 Es díficil saber cuáles fueron todos los cambios a lo largo del tiempo (en especial tiempos largos, hazlo por tu yo del <strong>futuro!</strong>).</li>
+<li>🤔 Las colaboraciones se pueden complicar sin un buen control de versiones.</li>
+<li>🔐 Seguridad.</li>
+</ol>
+<p><img src="img/git_why.png" width="256" style="display: block; margin: auto;" /></p>
+</div>
+<div id="git" class="section level2 hasAnchor" number="6.3">
+<h2><span class="header-section-number">6.3</span> Git<a href="control-de-versiones-con-github-y-rstudio.html#git" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>Git es un sistema de control de versiones</li>
+<li>Git funciona con GitHub, Bitbucket o GitLab</li>
+</ul>
+<p><strong>¿Por qué usar Git en vez de solo renombrar los archivos?</strong></p>
+<p>✅✅Por qué es mejor tener una filogenia del archivo.</p>
+<blockquote>
+<p>Git es un sistema de control de versiones distribuido, gratuito y de código abierto, diseñado para manejar todo tipo de proyectos, desde los más pequeños hasta los más grandes, con rapidez y eficiencia.</p>
+</blockquote>
+<blockquote>
+<p>Git es fácil de aprender y ocupa poco espacio con un rendimiento rapidísimo. Supera a las herramientas SCM como Subversion, CVS, Perforce y ClearCase con características como la ramificación local barata, las cómodas áreas de preparación y los múltiples flujos de trabajo.</p>
+</blockquote>
+<div id="git-vs-controles-de-versión-a-mano" class="section level3 hasAnchor" number="6.3.1">
+<h3><span class="header-section-number">6.3.1</span> <strong>Git vs controles de versión a mano</strong><a href="control-de-versiones-con-github-y-rstudio.html#git-vs-controles-de-versión-a-mano" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><img src="img/git_vers.png" width="540" style="display: block; margin: auto;" /></p>
+<p>Con Git cada contribuidor tiene una copia del repositorio central, con todos los archivos y la historia de los cambios por los que han pasado.</p>
+<blockquote>
+<p>Excuse me, do you have a moment to talk about version control?, Jennifer Bryan, 2017</p>
+</blockquote>
+<div class="alert">
+<p>⚠️ <strong>NO OLVIDES TENER INSTALADO Git</strong>, en caso de que aún no lo hayas instalado, lo puedes descargar en el siguiente enlace <a href="https://git-scm.com/downloads">https://git-scm.com/downloads</a>.</p>
+<p>Para conocer la localización y la versión de Git que tienes en tu computadora, corre el siguiente comando en la terminal: <code>which git</code> y <code>git --version</code></p>
+</div>
+</div>
+</div>
+<div id="recomendaciones-para-sus-proyectos" class="section level2 hasAnchor" number="6.4">
+<h2><span class="header-section-number">6.4</span> Recomendaciones para sus proyectos<a href="control-de-versiones-con-github-y-rstudio.html#recomendaciones-para-sus-proyectos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>Dedicar un directorio</li>
+<li>Es mejor organizarlo en un RStudio Project</li>
+<li>Hacer un repositorio de Git</li>
+<li>Trabajen como siempre, solo además de guardar, recuerden hacer commit</li>
+<li>De vez en vez hagan push de sus cambios cuando los hayan <strong>verificado</strong>.</li>
+</ul>
+</div>
+<div id="proyectos-colaborativos" class="section level2 hasAnchor" number="6.5">
+<h2><span class="header-section-number">6.5</span> Proyectos colaborativos<a href="control-de-versiones-con-github-y-rstudio.html#proyectos-colaborativos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>GitHub se parece más a un GoogleDoc que a un Word Document.</li>
+<li>Es fácil que los colaboradores hagan cambios y también es fácil saber quién hizo que.</li>
+<li>El owner del proyecto puede dar permisos a los diferentes colaboradores.</li>
+<li>También existen organizaciones, esto puede ser útil para manejar los permisos de grupos grandes de colaboración.</li>
+</ul>
+</div>
+<div id="github" class="section level2 hasAnchor" number="6.6">
+<h2><span class="header-section-number">6.6</span> GitHub<a href="control-de-versiones-con-github-y-rstudio.html#github" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><a href="https://github.com/about">GitHub</a> es una plataforma para guardar proyectos, hace uso de Git. Su principal utilidad es para generar código fuente de programas.</p>
+<div class="alert">
+<p>⚠️ <strong>NO OLVIDES TENER UNA CUENTA EN GITHUB</strong>, en caso de que aún no lo hayas hecho, puedes ir la página de <a href="https://github.com">GitHub</a> y seleccionar <code>join</code>.
+Es indispensable tu usuario para los ejercicios que siguen.</p>
+</div>
+<p>También existen otras plataformas como <a href="https://bitbucket.org/product/">Bitbucked</a> y <a href="https://about.gitlab.com">GitLab</a>, las cuales funcionan de manera similar a GitHub.</p>
+</div>
+<div id="manual-de-sobreviviencia-con-git-y-github-en-rstudio-en-caso-de-ser-necesario" class="section level2 hasAnchor" number="6.7">
+<h2><span class="header-section-number">6.7</span> Manual de sobreviviencia con Git Y GitHub en RStudio (en caso de ser necesario)<a href="control-de-versiones-con-github-y-rstudio.html#manual-de-sobreviviencia-con-git-y-github-en-rstudio-en-caso-de-ser-necesario" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>Por cualquier problema con la conexión entre RStudio y Git, siempre ten en cuenta la ubicación de dónde se instaló Git.
+<ul>
+<li>Puedes usar en la terminal <code>which git</code> (Mac y Linux)</li>
+<li>O bien usar en la terminal <code>where git</code> (Windows)</li>
+</ul></li>
+<li>Recuerda que la terminal (o línea de comandos ó consola ó shell ó bash) es un programa en tu computadora que funciona para correr otros programas. Desde RStudio puedes abrir la <strong>terminal</strong>, lo cual es muy conveniente si estás trabajando en un proyecto. Puedes abrir una terminal con:
+<ul>
+<li><em>Tools &gt; Terminal</em> (abre la terminal dentro del IDE de RStudio)</li>
+<li><em>Tools &gt; Shell</em> (abre una terminal externa a RStudio)</li>
+</ul></li>
+</ul>
+</div>
+<div id="cómo-clonar-un-repositorio-y-tener-conecciónpermisos-para-modificarlo" class="section level2 hasAnchor" number="6.8">
+<h2><span class="header-section-number">6.8</span> Cómo clonar un repositorio y tener conección/permisos para modificarlo?<a href="control-de-versiones-con-github-y-rstudio.html#cómo-clonar-un-repositorio-y-tener-conecciónpermisos-para-modificarlo" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li><p>Git puede comunicarse con un servidor remoto usando uno de dos protocolos, HTTPS o SSH, y cada protocolo usa credenciales diferentes.</p></li>
+<li><p>La recomendación actual de <strong>GitHub</strong> es usar <em>HTTPS</em> porque es la manera más fácil de configurar y tiene operabilidad en multiples redes y plataformas.</p>
+<ul>
+<li>Es menos probable que HTTPS sea bloqueado por un firewall.</li>
+<li>Una conexión HTTPS permite que <code>credential.helper</code> almacene en caché su contraseña. (por tanto puedes configurar tu usuario y contraseña en tu equipo de uso)</li>
+<li>Es más sencillo acceder a un repositorio desde cualquier lugar, ya que solo necesitas los detalles de tu cuenta (no se requieren claves SSH) para escribir en el repositorio.</li>
+</ul></li>
+<li><p>Usualmente cuando inicies un proyecto colaborativo con GitHub inicializa el ropositorio con un README. Copia el HTTPS URL para clonar el repositorio en la <em>terminal</em> <code>git clone https://github.com/TU-USUARIO/TU-REPOSITORIO.git</code>.</p></li>
+</ul>
+</div>
+<div id="credenciales-https-en-cache" class="section level2 hasAnchor" number="6.9">
+<h2><span class="header-section-number">6.9</span> Credenciales HTTPS en <strong>Cache</strong><a href="control-de-versiones-con-github-y-rstudio.html#credenciales-https-en-cache" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Para usar HTTPS debes crear un token de acceso personal, <strong>PAT</strong> (<em>PERSONAL ACCESS TOKEN</em>), esa será tu credencial para HTTPS. Es una alternativa al uso de contraseñas para la autenticación en GitHub.</p>
+<p>Como precaución de seguridad, GitHub elimina automáticamente los tokens de acceso personales que no se han usado durante un año.</p>
+<p><strong>¿Cómo crear un token?</strong></p>
+<ol style="list-style-type: decimal">
+<li><p>Ve a tu perfil de GitHub, dale click a la imagen de perfil (usualmente en la esquina superior derecha), y busca la opción de <em>settings</em> ó <em>configuración</em> según sea la configuración de idioma que tengas.</p></li>
+<li><p>Da click a continuación en <em>Developer settings</em> ó <em>Parámetros del desarrollador</em>.</p></li>
+<li><p>En la barra lateral izquierda da click en <em>Tokens de acceso personal</em>.</p></li>
+<li><p>Haz click en <em>Generar un nuevo token</em>.</p></li>
+<li><p>Asígna un nombre descriptivo a tu token.</p></li>
+<li><p>Selecciona los alcances o permisos que deseas otorgarle a este token. Para usar tu token para acceder a repositorios desde la línea de comando, selecciona repo. (Recomendados: repo, user, workflow )</p></li>
+<li><p>Finalmente haz click en <em>generar token</em>.</p></li>
+<li><p>Listo, copia y pega tu token en el lugar dónde siempre lo puedas volver a copiar, ya que por razones de seguridad, una vez salgas de la página no podrás volver a ver el token.</p></li>
+</ol>
+<ul>
+<li>Nota: Preserva tus tokens de la misma manera que tus contraseñas y no se las reveles a nadie.</li>
+</ul>
+<p>Una vez que tengas un token, puedes ingresarlo en lugar de tu contraseña cuando realices operaciones de Git a través de HTTPS.</p>
+<p>El punto final es que una vez configurada una PAT, varios paquetes de R, incluidos <em>usethis</em> y <em>gh</em>, podrán trabajar con la API de GitHub en su nombre, de forma automática. Por lo tanto, una PAT configurada correctamente significa que todo esto funcionará a la perfección:</p>
+<pre><code>- Operaciones HTTPS remotas a través de la línea de comando Git y, por lo tanto, a través de RStudio
+- Operaciones HTTPS remotas a través del paquete gert R y, por lo tanto, usethis
+- Operaciones de la API de GitHub a través del paquete gh R y, por lo tanto, usethis</code></pre>
+<p><strong>Probar el repositorio Clonado</strong></p>
+<p>Después de hacer <em>clone</em>
+Usa estos comandos para verificar tu repositorio y revisar desde dónde se está sincorinzando.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="control-de-versiones-con-github-y-rstudio.html#cb2-1" tabindex="-1"></a><span class="bu">cd</span> myrepo</span>
+<span id="cb2-2"><a href="control-de-versiones-con-github-y-rstudio.html#cb2-2" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-la</span></span>
+<span id="cb2-3"><a href="control-de-versiones-con-github-y-rstudio.html#cb2-3" tabindex="-1"></a><span class="fu">head</span> README.md</span>
+<span id="cb2-4"><a href="control-de-versiones-con-github-y-rstudio.html#cb2-4" tabindex="-1"></a><span class="fu">git</span> remote show origin</span></code></pre></div>
+<p><strong>Probemos haciendo un cambio en el README</strong></p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="control-de-versiones-con-github-y-rstudio.html#cb3-1" tabindex="-1"></a><span class="bu">echo</span> <span class="st">&quot;Something I want to add to the README in my local computer&quot;</span> <span class="op">&gt;&gt;</span> README.md</span>
+<span id="cb3-2"><a href="control-de-versiones-con-github-y-rstudio.html#cb3-2" tabindex="-1"></a><span class="fu">git</span> status</span></code></pre></div>
+<ul>
+<li><p>Qué pasó?</p></li>
+<li><p>Ahora tenemos que decirle a git que queremos seguir los cambios de ese archivo</p></li>
+<li><p>Vamos a <em>commit</em> los cambios y luego a subir (<em>push</em>) los mismos a GitHub</p></li>
+</ul>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="control-de-versiones-con-github-y-rstudio.html#cb4-1" tabindex="-1"></a><span class="fu">git</span> add README.md</span>
+<span id="cb4-2"><a href="control-de-versiones-con-github-y-rstudio.html#cb4-2" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">&quot;A commit from my local computer&quot;</span></span>
+<span id="cb4-3"><a href="control-de-versiones-con-github-y-rstudio.html#cb4-3" tabindex="-1"></a><span class="fu">git</span> push</span></code></pre></div>
+<p><em>Recuerda tu TOKEN!!</em></p>
+<p><strong>¿Cómo crear un token desde R?</strong></p>
+<p>Puedes ir directamente a la página de GitHub a la parte para generar tu token de acceso personal mediante la siguiente función:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="control-de-versiones-con-github-y-rstudio.html#cb5-1" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">create_github_token</span>()</span></code></pre></div>
+<p>Y con las opciones que se mencionaban anteriormente puedes configurar y crear tu <strong>PAT</strong>.</p>
+<p>Si lo que quieres es especificar tu <strong>PAT</strong> en RStudio, las siguientes funciones te serán útiles:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="control-de-versiones-con-github-y-rstudio.html#cb6-1" tabindex="-1"></a><span class="fu">library</span>(gitcreds)</span>
+<span id="cb6-2"><a href="control-de-versiones-con-github-y-rstudio.html#cb6-2" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="control-de-versiones-con-github-y-rstudio.html#cb6-3" tabindex="-1"></a><span class="fu">gitcreds_set</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="control-de-versiones-con-github-y-rstudio.html#cb7-1" tabindex="-1"></a><span class="fu">library</span>(credentials)</span>
+<span id="cb7-2"><a href="control-de-versiones-con-github-y-rstudio.html#cb7-2" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="control-de-versiones-con-github-y-rstudio.html#cb7-3" tabindex="-1"></a><span class="fu">set_github_pat</span>()</span></code></pre></div>
+<p>Para eliminar credenciales utiliza la función <code>credentials::git_credential_forget()</code></p>
+<div id="actividad" class="section level3 hasAnchor" number="6.9.1">
+<h3><span class="header-section-number">6.9.1</span> Actividad<a href="control-de-versiones-con-github-y-rstudio.html#actividad" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Ejecuta los códigos y genera tu PAT, recuerda no perderlo!</p>
+</div>
+</div>
+<div id="conectando-rstudio-con-git-y-github." class="section level2 hasAnchor" number="6.10">
+<h2><span class="header-section-number">6.10</span> Conectando RStudio con Git y Github.<a href="control-de-versiones-con-github-y-rstudio.html#conectando-rstudio-con-git-y-github." class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><img src="img/github_rstudio.png" width="80%" style="display: block; margin: auto;" /></p>
+<div class="red color">
+<p>Para lo que sigue a continuación, deberías tener esto:</p>
+<ol style="list-style-type: decimal">
+<li>Tener una cuenta en GitHub</li>
+<li><strong>R</strong> y <strong>RStudio</strong> actualizados</li>
+<li>Git instalado</li>
+<li>Saber que desde la terminal puedes hacer <strong>push</strong> y <strong>pull</strong></li>
+</ol>
+</div>
+</div>
+<div id="github-primero-rstudio-después" class="section level2 hasAnchor" number="6.11">
+<h2><span class="header-section-number">6.11</span> GitHub primero, RStudio después…<a href="control-de-versiones-con-github-y-rstudio.html#github-primero-rstudio-después" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ol style="list-style-type: decimal">
+<li>Crea un repositorio en GitHub: <code>mi_repositorio</code> &gt; <em>Public</em> &gt; <em>YES</em> initialize this repository with a <em>README</em> &gt; <code>click</code>en el gran botón verde “Create repository”</li>
+<li>En RStudio crea un nuevo proyecto: <em>File</em> &gt; <em>New Project</em> &gt; <em>Version Control</em> &gt; <em>Git</em>. Ahi pega el URL del repositorio <code>https://github.com/mi_usuario/mi_repositorio.git</code>. Da click en <em>Create Project</em>.</li>
+</ol>
+<p>Esto nos generará los siguientes elementos:</p>
+<ul>
+<li>Un directorio nuevo</li>
+<li>Un repositorio Git enlazado a al repositorio de GitHub</li>
+<li>Un proyecto en RStudio</li>
+</ul>
+<p>Con este procedimiento ya no es necesario preocuparse por configurar controles remotos Git
+y rastrear ramas en la línea de comandos.</p>
+<div id="actividad-1" class="section level3 hasAnchor" number="6.11.1">
+<h3><span class="header-section-number">6.11.1</span> Actividad<a href="control-de-versiones-con-github-y-rstudio.html#actividad-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="orange color">
+<ul>
+<li>Genera un repositorio con el nombre que desees. Y conéctalo a RStudio. Cerciorate de que el archivo <em>README</em> se encuentre en tu nueva carpeta.</li>
+<li>Usa la función <code>usethis::use_r("titulo_de_un_script")</code> y observa lo que sucede.</li>
+</ul>
+</div>
+<p><strong>PAUSA</strong></p>
+<p>¿Cómo comento y doy push/pull desde RStudio?</p>
+</div>
+<div id="comentar-pull-y-push" class="section level3 hasAnchor" number="6.11.2">
+<h3><span class="header-section-number">6.11.2</span> Comentar, pull y push<a href="control-de-versiones-con-github-y-rstudio.html#comentar-pull-y-push" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><img src="img/gitrstudio_comment.png" width="80%" style="display: block; margin: auto;" /></p>
+<p>Con la <strong>flecha azul</strong> podemos hacer pull (<strong>RECUERDA HACERLO ANTES DE HACER UN PUSH</strong>), y con la flecha verde un push. Para poder comentar y hacer push debemos marcar con una flechita mediante un <code>click</code> en las pequeñas cajas blancas de la columna <em>Staged</em>, damoc click en <em>commit</em> lo cual no abre la siguiente ventana.</p>
+<p><img src="img/gitrstudio_push.png" width="80%" style="display: block; margin: auto;" /></p>
+<p>Volvemos a dar <code>click</code> en <em>commit</em>, y finalizamos con <em>push</em> (flecha verde).</p>
+</div>
+</div>
+<div id="rmarkdown-en-github" class="section level2 hasAnchor" number="6.12">
+<h2><span class="header-section-number">6.12</span> Rmarkdown en GitHub<a href="control-de-versiones-con-github-y-rstudio.html#rmarkdown-en-github" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>Creemos un Rmakrdown y subámoslo a GitHub</li>
+<li>Ahora hay que agregarlo al repositorio (add), stage and commit.</li>
+<li>Subieron el hmlt? Qué tal se ve?</li>
+<li>No se ve como queremos, verdad? Para eso necesitamos recuperar el .md. El .md es un resultado intermedio de crear el html desde Rmd.</li>
+<li>Tenemos que cambiar el header para esto</li>
+</ul>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="control-de-versiones-con-github-y-rstudio.html#cb8-1" tabindex="-1"></a><span class="sc">---</span></span>
+<span id="cb8-2"><a href="control-de-versiones-con-github-y-rstudio.html#cb8-2" tabindex="-1"></a>title<span class="sc">:</span> <span class="st">&quot;RmarkwondTest&quot;</span></span>
+<span id="cb8-3"><a href="control-de-versiones-con-github-y-rstudio.html#cb8-3" tabindex="-1"></a>output<span class="sc">:</span> </span>
+<span id="cb8-4"><a href="control-de-versiones-con-github-y-rstudio.html#cb8-4" tabindex="-1"></a>  html_document<span class="sc">:</span></span>
+<span id="cb8-5"><a href="control-de-versiones-con-github-y-rstudio.html#cb8-5" tabindex="-1"></a>    keep_md<span class="sc">:</span> true</span>
+<span id="cb8-6"><a href="control-de-versiones-con-github-y-rstudio.html#cb8-6" tabindex="-1"></a><span class="sc">---</span></span></code></pre></div>
+<div id="actividad-2" class="section level3 hasAnchor" number="6.12.1">
+<h3><span class="header-section-number">6.12.1</span> Actividad<a href="control-de-versiones-con-github-y-rstudio.html#actividad-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="orange color">
+<ul>
+<li>Usa el código <code>dir.create("mis_imagenes")</code> en la consola de tu sesión de RStudio (la que está vinculada a tu repositorio). Ejecuta el siguiente código quitando los <code>#</code>:</li>
+</ul>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="control-de-versiones-con-github-y-rstudio.html#cb9-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;MASS&quot;</span>)</span>
+<span id="cb9-2"><a href="control-de-versiones-con-github-y-rstudio.html#cb9-2" tabindex="-1"></a><span class="fu">library</span> (MASS)</span>
+<span id="cb9-3"><a href="control-de-versiones-con-github-y-rstudio.html#cb9-3" tabindex="-1"></a><span class="fu">data</span>(MASS<span class="sc">::</span>cats)</span>
+<span id="cb9-4"><a href="control-de-versiones-con-github-y-rstudio.html#cb9-4" tabindex="-1"></a><span class="co"># pdf(&quot;mis_imagenes/cats_plot.pdf&quot;) </span></span>
+<span id="cb9-5"><a href="control-de-versiones-con-github-y-rstudio.html#cb9-5" tabindex="-1"></a><span class="fu">ggplot</span>(cats, <span class="fu">aes</span>(<span class="at">x =</span> Sex)) <span class="sc">+</span> </span>
+<span id="cb9-6"><a href="control-de-versiones-con-github-y-rstudio.html#cb9-6" tabindex="-1"></a>    <span class="fu">geom_bar</span>(<span class="at">fill =</span> <span class="st">&quot;orange&quot;</span>, <span class="at">color =</span> <span class="st">&quot;black&quot;</span>) <span class="sc">+</span> <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
+<span id="cb9-7"><a href="control-de-versiones-con-github-y-rstudio.html#cb9-7" tabindex="-1"></a>    <span class="fu">xlab</span>(<span class="st">&quot;Sexo&quot;</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">&quot;Número de Gatos&quot;</span>) <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">&quot;Gatos&quot;</span>)</span>
+<span id="cb9-8"><a href="control-de-versiones-con-github-y-rstudio.html#cb9-8" tabindex="-1"></a><span class="co"># dev.off()</span></span></code></pre></div>
+<ul>
+<li>Comenta y da push a los cambios que realizaste en el repositorio.</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="rstudio-primero-y-github-también" class="section level2 hasAnchor" number="6.13">
+<h2><span class="header-section-number">6.13</span> RStudio primero y GitHub también<a href="control-de-versiones-con-github-y-rstudio.html#rstudio-primero-y-github-también" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Usa uno de los proyectos que hayas generado en las sesiones anteriores, PERO, que no esté enlazado a GitHub. Ahora veremos como conectar un proyecto de R existente con GitHub.
+Realiza los pasos que hicimos en <strong>GitHub primero, RStudio después</strong> pero asegurate de crear un repositorio con un nuevo nombre.</p>
+<p><strong>Y LISTO!!</strong> usa un simple <code>ctrl</code> + <code>c</code>, ó <code>mv</code> ó <code>click derecho</code> + <code>copiar</code> ó el método que prefieras para mover o copiar archivos. Copia los archivos de tu antigüo proyecto al proyecto nuevo.
+Solo haz <em>commit</em> y <em>push</em> y listo, lo que tenía en tu antigüo proyecto ya está enlazado a GitHub.</p>
+</div>
+<div id="proyecto-existente-github-al-final" class="section level2 hasAnchor" number="6.14">
+<h2><span class="header-section-number">6.14</span> Proyecto existente, GitHub al final<a href="control-de-versiones-con-github-y-rstudio.html#proyecto-existente-github-al-final" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><img src="img/elmo_hell.png" width="80%" style="display: block; margin: auto;" /></p>
+<p>Supongamos que tenemos un proyecto de R existente en algún lugar de nuestra computadora.</p>
+<div class="red color">
+<p><strong>NOTA:</strong>
+Para generar proyecto de RStudio desde la consola puedes utilizar el siguiente código:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="control-de-versiones-con-github-y-rstudio.html#cb10-1" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">create_project</span>()</span></code></pre></div>
+<p>O en RStudio con <em>File &gt; New Project &gt; Existing Directory</em></p>
+<p>Si su proyecto ya es un proyecto de RStudio, ejecútelo.</p>
+</div>
+<p>¿Ya es un repositorio de Git? La presencia del panel de Git debería alertarlo. Si es así, ha terminado.</p>
+<p>Sino este es el primer camino a seguir:</p>
+<ul>
+<li>Con el páquete <strong>usethis</strong> usa la función <code>usethis::use_git</code></li>
+<li>En RStudio ve a <em>Tools &gt; Project Options &gt; Git/SVN</em>. Dentro de <em>Version control system</em>, selecciona <em>Git</em>. Y da click a <em>“Yes”</em> cuando aparezca <em>“Confirm New Git Repository?”</em>.</li>
+</ul>
+<p>Si usaste RStudio o <em>usethis</em>, el proyecto debería reiniciarse en RStudio. Hazlo tu mismo si hizo git init. RStudio ahora debería tener un panel Git.</p>
+<div id="breviario-cultural-con-los-pats" class="section level3 hasAnchor" number="6.14.1">
+<h3><span class="header-section-number">6.14.1</span> Breviario cultural con los PATs<a href="control-de-versiones-con-github-y-rstudio.html#breviario-cultural-con-los-pats" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Si usas el paquete usethis Y has configurado un token de acceso personal (PAT) de GitHub has esto en R:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="control-de-versiones-con-github-y-rstudio.html#cb11-1" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_github</span>()</span></code></pre></div>
+<p>Esto creará un nuevo repositorio en GitHub, lo agregará como un control remoto, configurará una rama de seguimiento y lo abrirá en su navegador. Lea la ayuda de <code>use_github()</code> para conocer sus argumentos y consejos sobre cómo configurar una PAT. Esto es extremadamente útil para una variedad de flujos de trabajo que llaman a la API de GitHub. Considere configurar esto si usa usethis, devtools o gh con regularidad.</p>
+<hr />
+<p>Volviendo al tema de <strong>Proyecto existente, GitHub al final</strong>.</p>
+<p>Otra opción que se puede hacer para conectar un proyecto existen a GitHub es ir a hacer un repositorio a GitHub <strong>PERO</strong> ten en cuenta los siguientes cambios:</p>
+<ol style="list-style-type: decimal">
+<li>Elije un nombre de repositorio; probablemente debería coincidir con el nombre de su proyecto y directorio local.</li>
+<li><strong>NO</strong> inicialice este repositorio con un archivo <em>README</em>.</li>
+</ol>
+<p>Todo lo demás es igual a los pasos que hacíamos en <strong>GitHub primero, RStudio después…</strong></p>
+<p>Ahora ve a tu proyecto de RStudio, has clic en los <strong>“dos cuadros de color púrpura y un cuadrado blanco”</strong> en el panel de Git. Has clic en <strong>“Agregar control remoto”</strong>. Pegue la URL aquí y elija un nombre remoto, casi con certeza el <strong>origin</strong>. Ahora <strong>“ADD”</strong>.</p>
+<p><img src="img/purple_cuadros.png" width="80%" style="display: block; margin: auto;" /></p>
+<p>Pasado esto deberiamos volver en el cuadro de diálogo <strong>“New Branch”</strong>. Ingresa <strong>“master”</strong> como el nombre de la rama y asegúrate de que la opción <strong>“Sync branch with remote”</strong> esté marcada. Haz clic en <strong>“Create”</strong>. En el siguiente cuadro de diálogo elije <strong>“overwrite”</strong>.</p>
+<p><img src="img/add_remote_rstudio.png" width="80%" style="display: block; margin: auto;" /></p>
+<p>Ahora solo haz <strong>commit/pull/push</strong> y cérciorate que FUNCIONE!!</p>
+</div>
+</div>
+<div id="git-basics-commands" class="section level2 hasAnchor" number="6.15">
+<h2><span class="header-section-number">6.15</span> Git basics: commands<a href="control-de-versiones-con-github-y-rstudio.html#git-basics-commands" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>Fetch Commits</li>
+</ul>
+<div class="sourceCode" id="cb12"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb12-1"><a href="control-de-versiones-con-github-y-rstudio.html#cb12-1" tabindex="-1"></a><span class="fu">git</span> fetch</span></code></pre></div>
+<ul>
+<li>Create and Switch to a branch</li>
+</ul>
+<div class="sourceCode" id="cb13"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb13-1"><a href="control-de-versiones-con-github-y-rstudio.html#cb13-1" tabindex="-1"></a><span class="fu">git</span> branch <span class="pp">[</span><span class="ss">branch</span><span class="pp">-</span><span class="ss">name</span><span class="pp">]</span></span>
+<span id="cb13-2"><a href="control-de-versiones-con-github-y-rstudio.html#cb13-2" tabindex="-1"></a><span class="fu">git</span> checkout <span class="pp">[</span><span class="ss">branch</span><span class="pp">-</span><span class="ss">name</span><span class="pp">]</span></span></code></pre></div>
+</div>
+<div id="merge-conflics" class="section level2 hasAnchor" number="6.16">
+<h2><span class="header-section-number">6.16</span> Merge conflics<a href="control-de-versiones-con-github-y-rstudio.html#merge-conflics" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>A veces, no tan a veces también, las cosas no salen bien a la primera</li>
+<li>Merging (Fusionar) es una de esas cosas</li>
+<li>Cuando bajamos un cambio o fusionamos branches esto puede pasar.</li>
+<li>Primera regla: NO ENTRAR EN PANICO!!!</li>
+<li>Revisen el status del repositorio. Qué archivo tiene conflicto?</li>
+</ul>
+</div>
+<div id="merge-conflics-1" class="section level2 hasAnchor" number="6.17">
+<h2><span class="header-section-number">6.17</span> Merge conflics<a href="control-de-versiones-con-github-y-rstudio.html#merge-conflics-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>Abran ese archivo y busquen los problemas de merge. Es fácil, se ven así:</li>
+</ul>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="control-de-versiones-con-github-y-rstudio.html#cb14-1" tabindex="-1"></a><span class="sc">&lt;</span><span class="er">&lt;&lt;&lt;&lt;&lt;&lt;</span> HEAD<span class="sc">:</span>index.html</span>
+<span id="cb14-2"><a href="control-de-versiones-con-github-y-rstudio.html#cb14-2" tabindex="-1"></a><span class="sc">&lt;</span>div id<span class="ot">=</span><span class="st">&quot;footer&quot;</span><span class="sc">&gt;</span>contact <span class="sc">:</span> email.support<span class="sc">@</span>github.com<span class="sc">&lt;</span><span class="er">/</span>div<span class="sc">&gt;</span></span>
+<span id="cb14-3"><a href="control-de-versiones-con-github-y-rstudio.html#cb14-3" tabindex="-1"></a><span class="er">=======</span></span>
+<span id="cb14-4"><a href="control-de-versiones-con-github-y-rstudio.html#cb14-4" tabindex="-1"></a><span class="er">&lt;</span>div id<span class="ot">=</span><span class="st">&quot;footer&quot;</span><span class="sc">&gt;</span></span>
+<span id="cb14-5"><a href="control-de-versiones-con-github-y-rstudio.html#cb14-5" tabindex="-1"></a> please contact us at support<span class="sc">@</span>github.com</span>
+<span id="cb14-6"><a href="control-de-versiones-con-github-y-rstudio.html#cb14-6" tabindex="-1"></a><span class="sc">&lt;</span><span class="er">/</span>div<span class="sc">&gt;</span></span>
+<span id="cb14-7"><a href="control-de-versiones-con-github-y-rstudio.html#cb14-7" tabindex="-1"></a><span class="er">&gt;&gt;&gt;&gt;&gt;&gt;&gt;</span> issue<span class="dv">-5</span><span class="sc">:</span>index.html</span></code></pre></div>
+<ul>
+<li>Editen esa sección, dejen una versión final.</li>
+<li>Hagan commit y push</li>
+<li>Si entran en pánico? Aborten la misión!</li>
+</ul>
+<div class="sourceCode" id="cb15"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb15-1"><a href="control-de-versiones-con-github-y-rstudio.html#cb15-1" tabindex="-1"></a><span class="fu">git</span> merge <span class="at">--abort</span> t</span></code></pre></div>
+</div>
+<div id="en-resumen" class="section level2 hasAnchor" number="6.18">
+<h2><span class="header-section-number">6.18</span> En resumen<a href="control-de-versiones-con-github-y-rstudio.html#en-resumen" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>¡QUE LA FUERZA TE ACOMPAÑE!</strong></p>
+</div>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="nuevas-funcionalidades-de-rstudio-quarto.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="solución-de-problemas-con-las-versiones-de-paquetes-de-rstudio.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

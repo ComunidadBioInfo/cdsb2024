@@ -1,0 +1,39 @@
+# Proyectos colaborativos
+
+## Propuesta 1
+
+Crea un paquete que implemente el análisis de expresión diferencial.
+
+Evalúa el funcionamiento del paquete en el análisis de placas calcificadas de Aterogénesis.
+
+Puedes descargar los datos de: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE159677
+
+## Propuesta 2
+
+Realiza la anotación de tipos celulares del sistema inmune en una muestra de médula ósea usando los marcadores propuestos por Human Cell Atlas.
+
+Puedes descargar los datos de single-cell de: https://www.10xgenomics.com/resources/datasets/20-k-bone-marrow-mononuclear-cells-bmmn-cs-5-ht-v-2-0-2-high-6-1-0
+
+## Propuesta 3
+
+Realiza el análisis y anotación de tipos celulares en un dataset de cáncer de próstata.
+
+Puedes descargar los datos de:  https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE157703
+
+
+## Propuesta 4
+
+Crear un paquete que implemente el análisis de enriquecimiento de los genes diferencialmente expresados.
+
+Evalúa el funcionamiento del paquete en el análisis de células neoplásticas en glioblastoma humano.
+
+Puedes descargar los datos de: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE84465
+
+Consulta el artículo original en: https://www.sciencedirect.com/science/article/pii/S2211124717314626?via%3Dihub#app3
+
+## Propuesta 5
+
+Desarrolla un paquete para facilitar la visualización de los tipos celulares de alguno de los datasets mencionados previamente.
+
+
+

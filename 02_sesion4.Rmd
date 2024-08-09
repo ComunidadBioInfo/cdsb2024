@@ -1,0 +1,16 @@
+#  Keynote: Convirtiendo tu flujo de análisis en un paquete de R/Bioconductor.
+
+Dr. Leonardo Collado Torres
+
+29 de octubre de 2024
+
+## Diapositivas
+
+[
+```{r,echo=FALSE}
+knitr::include_url("https://tinyurl.com/cdsb2021pkg", height = "380px")
+```
+](https://tinyurl.com/cdsb2021pkg)
+
+Puedes encontrar las diapositivas [aquí](https://tinyurl.com/cdsb2021pkg). 
+

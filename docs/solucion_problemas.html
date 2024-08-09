@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Solución de problemas con las versiones de paquetes de Rstudio</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Yalbi I. Balderas-Martínez" />
+    <meta name="date" content="2023-08-09" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# <strong>Solución de problemas con las versiones de paquetes de Rstudio</strong>
+]
+.subtitle[
+## <strong>Bioconductor</strong> para datos transcriptómicos de célula única (<strong>scRNA-seq</strong>) – <strong>CDSB2023</strong>
+]
+.author[
+### Yalbi I. Balderas-Martínez
+]
+.date[
+### 2023-08-09
+]
+
+---
+
+
+
+
+
+
+class: inverse
+
+.center[
+
+&lt;a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"&gt;&lt;img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /&gt;&lt;/a&gt;&lt;br /&gt;This work is licensed under a &lt;a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"&gt;Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License&lt;/a&gt;.
+
+
+]
+
+.footnote[Descarga los materiales con `usethis::use_course('comunidadbioinfo/cdsb2023')` o revísalos en línea via [**comunidadbioinfo.github.io/cdsb2023**](http://comunidadbioinfo.github.io/cdsb2023).]
+
+&lt;style type="text/css"&gt;
+/* From https://github.com/yihui/xaringan/issues/147  */
+.scroll-output {
+  height: 80%;
+  overflow-y: scroll;
+}
+/* https://stackoverflow.com/questions/50919104/horizontally-scrollable-output-on-xaringan-slides */
+pre {
+  max-width: 100%;
+  overflow-x: scroll;
+}
+/* From https://github.com/yihui/xaringan/wiki/Font-Size */
+.tiny{
+  font-size: 40%
+}
+/* From https://github.com/yihui/xaringan/wiki/Title-slide */
+.title-slide {
+  background-image: url(https://raw.githubusercontent.com/Bioconductor/OrchestratingSingleCellAnalysis/master/images/Workflow.png);
+  background-size: 33%;
+  background-position: 0% 100%
+}
+&lt;/style&gt;
+
+---
+
+Y llegamos hasta este punto ![Pepe cry](https://media.tenor.com/0ZIUfyIYeG0AAAAd/pepe-menangis.gif){width=50%}
+
+---
+
+# Motivación 
+
+Ahora que hemos llegado a este punto, nos preguntamos, ¿cómo voy a lograr crear mis propios paquetes
+si todavía no entiendo bien los problemas que surgen cuando los instalo?
+
+Idea: Mirar qué tipo de problemas existen y tratar de tener una estrategia mental para resolver problemas. 
+
+---
+
+class: inverse center middle
+
+# Tip 1: Tener en mente la versión de R que tengo instalada, ¿está actualizado?
+
+---
+
+# ¿Cómo puedo saber qué versión tengo instalada?
+
+
+```r
+# Lo más básico es simplemente abrir R y al inicio aparecerá la información.. o
+R.Version()$version.string
+```
+
+```
+## [1] "R version 4.2.3 (2023-03-15)"
+```
+
+---
+
+# ¿Hay diferencia entre las versiones de R de los distintos Sistemas Operativos?
+
+---
+
+class: inverse center middle
+
+# SI
+
+Windows: Se instalan los binarios, no se requiere compilar, tienen rwinlib. Hay que instalar Rtools para compilar paquetes, incluye herramientas de línea de comandos que puede interactuar con otro software si Rtools está en el %PATH% o en un lugar equivocado del %PATH%. Más problemas de instalación con DDL (dynamic-link libraries) - múltiples versiones de R conviviendo. Su codificación nativa no es UTF-8
+
+Linux: Funciona bien en general, pero los repositorios oficiales no tienen siempre la última versión de R. Los usuarios requieren tiempo para compilar los paquetes y toma más tiempo, puede ser complicado si falla la instalación.CentOS y RedHat requieren actualizar los compiladores.
+
+MacOs: Igual que linux.NO usar **brew install r**, sino **brew --cask install r** para instalar CRAN. Se requiere instalar las herramientas de desarrollador (xcode). Arquitecturas basadas en ARM requieren que gfortran sea identificado por R, i.e. agregar las variables del PATH. 
+
+---
+
+class: inverse center middle
+
+# Tip 2: Tener en mente la versión de Rstudio que tengo instalada ¿está actualizado?
+
+---
+
+Se debe instalar la versión correcta de Rstudio de acuerdo al sistema operativo. E.g., en Rstudio Server es factible que haya problemas con el despliege de gráficos debido a las actualizaciones. 
+
+---
+
+class: inverse center middle
+
+# Tip 3: Revisar cuál es la fuente de mi paquete
+
+---
+
+# ¿Cuáles son los repositorios?
+
+* [CRAN](https://cran.rstudio.com)
+
+
+```r
+# Repositorio default
+getOption("repos")
+```
+
+```
+##                          CRAN 
+## "https://cloud.r-project.org"
+```
+* Revisa los paquetes de CRAN https://cran.r-project.org/web/packages/available_packages_by_name.html
+* Checa la descripción del paquete, en particular, la versión, y las dependencias
+---
+
+## ¿Cómo puedo configurar un repositorio de forma permanente?
+
+
+```r
+# Linux
+# /etc/R/Rprofile.site
+
+# Windows
+# C:\Program Files\R\R-2.14.0\etc\Rprofile.site
+```
+
+*Copia el archivo a modificar en un lugar seguro
+*Si no se puede editar con privilegios, es viable crear el archivo en otra parte y moverlo a su destino final
+*Noten la diferencia de / en las rutas
+
+---
+
+## ¿Cómo puedo configurar un repositorio de forma permanente?
+
+
+```r
+# Busca esta sección de código
+# local({
+#   r &lt;- getOption("repos")
+#   r["CRAN"] &lt;- "http://cran.cnr.berkeley.edu/"
+#   options(repos = r)
+# })
+```
+
+* Revisa: https://cran.r-project.org/mirrors.html
+* Ve a Tools/Global Options/Packages
+---
+
+# ¿Cómo instalo los paquetes de CRAN?
+
+*Opción Rstudio
+* Revisa la ayuda de la función install.packages()
+
+
+```r
+# install.packages("nombre_paquete")
+# install.packages("ruta/nombre_del_paquete.extension", repos = NULL, type = "source")
+# install.packages.zip("https://cran.r-project.org/bin/windows/contrib/r-release/calendR_1.0.zip")
+# Dónde se instalan?
+.libPaths()
+```
+
+```
+## [1] "/home/yalbi/R/x86_64-pc-linux-gnu-library/4.2"
+## [2] "/usr/local/lib/R/site-library"                
+## [3] "/usr/lib/R/site-library"                      
+## [4] "/usr/lib/R/library"
+```
+
+* No pude eliminar la instalación previa del paquete
+  - Cierra todas las sesiones abiertas de R, abre de nuevo e instala el paquete
+
+---
+
+
+# ¿Qué paquetes se podrían actualizar?
+
+
+```r
+old.packages()
+```
+
+```
+##             Package       LibPath                                        
+## digest      "digest"      "/home/yalbi/R/x86_64-pc-linux-gnu-library/4.2"
+## BiocManager "BiocManager" "/usr/local/lib/R/site-library"                
+## nlme        "nlme"        "/usr/lib/R/library"                           
+##             Installed   Built   ReposVer 
+## digest      "0.6.32"    "4.2.3" "0.6.33" 
+## BiocManager "1.30.21.1" "4.2.3" "1.30.22"
+## nlme        "3.1-162"   "4.2.2" "3.1-163"
+##             Repository                               
+## digest      "https://cloud.r-project.org/src/contrib"
+## BiocManager "https://cloud.r-project.org/src/contrib"
+## nlme        "https://cloud.r-project.org/src/contrib"
+```
+
+```r
+# update.packages()
+```
+
+---
+
+# Otros problemas al instalar
+
+* NO tengo internet
+* El paquete ya no está disponible, así que hay que ir a buscar la versión antigua
+* Escribi mal el nombre del paquete (mayúsculas, minúsculas)
+* Se requiere Rtools para compilar el paquete
+* Cierra y abre R de nuevo, ve a otra computadora o lugar como: 
+https://posit.cloud/
+
+---
+
+# ¿Cómo instalo un paquete con una versión específica?
+
+* Ejemplo, instalar cowplot 0.9.3 porque 1.0.0 es incompatible con ggpubr
+* identifica las versiones del paquete en RDocumentation: https://www.rdocumentation.org/packages/cowplot/versions/1.1.1
+
+
+```r
+# install.packages("remotes")
+# library(remotes)
+# install.packages("cowplot")
+# install_version("cowplot", version = "0.9.3")
+```
+
+* Revisa la ayuda de la función install.packages()
+
+---
+
+# ¿Cómo puedo revisar diferencias entre versiones de paquetes y sus dependencias?
+
+* Checa con diffify.com: https://diffify.com/R/cowplot/0.9.3/1.1.1
+
+
+```r
+library(cowplot)
+sessionInfo()
+```
+
+```
+## R version 4.2.3 (2023-03-15)
+## Platform: x86_64-pc-linux-gnu (64-bit)
+## Running under: Ubuntu 20.04.5 LTS
+## 
+## Matrix products: default
+## BLAS:   /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.9.0
+## LAPACK: /usr/lib/x86_64-linux-gnu/openblas-pthread/liblapack.so.3
+## 
+## locale:
+##  [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
+##  [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
+##  [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
+##  [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                 
+##  [9] LC_ADDRESS=C               LC_TELEPHONE=C            
+## [11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
+## 
+## attached base packages:
+## [1] stats     graphics  grDevices utils     datasets  methods   base     
+## 
+## other attached packages:
+## [1] cowplot_1.1.1        xaringanthemer_0.4.2
+## 
+## loaded via a namespace (and not attached):
+##  [1] rstudioapi_0.15.0 knitr_1.43        whisker_0.4.1     magrittr_2.0.3   
+##  [5] tidyselect_1.2.0  munsell_0.5.0     colorspace_2.1-0  R6_2.5.1         
+##  [9] rlang_1.1.1       fastmap_1.1.1     fansi_1.0.4       dplyr_1.1.2      
+## [13] tools_4.2.3       grid_4.2.3        gtable_0.3.3      xfun_0.39        
+## [17] xaringan_0.28     utf8_1.2.3        cli_3.6.1         jquerylib_0.1.4  
+## [21] htmltools_0.5.5   yaml_2.3.7        digest_0.6.32     tibble_3.2.1     
+## [25] lifecycle_1.0.3   purrr_1.0.1       ggplot2_3.4.2     sass_0.4.7       
+## [29] vctrs_0.6.3       glue_1.6.2        cachem_1.0.8      evaluate_0.21    
+## [33] rmarkdown_2.23    pillar_1.9.0      compiler_4.2.3    bslib_0.5.0      
+## [37] generics_0.1.3    scales_1.2.1      jsonlite_1.8.7    pkgconfig_2.0.3
+```
+
+* Revisa la ayuda de la función install.packages()
+
+---
+
+# Otras fuentes para descargar paquetes
+
+* [Bioconductor](https://www.bioconductor.org/)
+
+
+```r
+# if (!require("BiocManager", quietly = TRUE))
+#    install.packages("BiocManager")
+# BiocManager::install(version = "3.17")
+```
+
+* Revisa la página https://www.bioconductor.org/install/
+
+---
+
+# Otras fuentes para descargar paquetes
+
+* [Bioconductor](https://www.bioconductor.org/)
+
+
+```r
+# BiocManager::available()
+# BiocManager::install()
+```
+
+* Revisa la página https://www.bioconductor.org/install/
+
+---
+
+# Otras fuentes para descargar paquetes
+
+* [Github](https://github.com/)
+
+
+```r
+#install.packages(devtools)
+library(devtools)
+# devtools::install_github("tidyverse/ggplot2")
+
+# git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY
+```
+
+* ¿Te estás conectando usando https?
+* ¿Tienes permiso para acceder al repositorio que quieres clonar?
+* La rama que quieres clonar, ¿aún existe?
+
+---
+
+class: inverse center middle
+
+# Tip 4: Asegurate que R sepa donde está instalado el paquete
+
+---
+
+# Caso de estudio gfortran en macOS
+
+https://www.cynkra.com/blog/2021-03-16-gfortran-macos/
+
+
+---
+
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

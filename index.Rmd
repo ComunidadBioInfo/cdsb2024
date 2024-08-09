@@ -1,0 +1,80 @@
+---
+title: "Desarrollo de paqueterías de R/Bioconductor."
+author: "Dra. Joselyn Cristina Chávez-Fuentes, Dra. Mirna Vázquez Rosas-Landa, M.C. Erick Cuevas-Fernández, Dra. Alejandra Medina-Rivera,"
+site: bookdown::bookdown_site
+documentclass: book
+url: 'https://comunidadbioinfo.github.io/cdsb2024/'
+github-repo: "comunidadbioinfo/cdsb2024"
+output:
+  bookdown::gitbook: default
+  
+---
+
+# Bienvenida {-}
+
+[
+```{r, echo=FALSE}
+knitr::include_url("https://comunidadbioinfo.github.io/bienvenida_cdsb2024/bienvenida.html",
+  height = "380px")
+```
+](https://comunidadbioinfo.github.io/bienvenida_cdsb2024/bienvenida.html)
+
+
+Les damos la bienvenida al Workshop Desarrollo de paqueterías de R/Bioconductor! 
+
+<p align="justify">
+En este taller aprenderás cuáles son los pasos cruciales para desarrollar un paquete de R y algunas buenas prácticas para la generación de código. Con la integración de estas herramientas, tendrás la oportunidad de crear tu primer paquete y contribuir a la comunidad de desarrolladores.
+
+
+## Instructores
+
+- [Dra. Joselyn Cristina Chávez Fuentes](https://comunidadbioinfo.github.io/es/authors/josschavezf/): Estancia Postdoctoral en Icahn School of Medicine at Mount Sinai.
+- [Dra. Mirna Vázquez Rosas Landa](https://comunidadbioinfo.github.io/es/authors/mirnavrl/): Investigadora en el Instituto de Ciencias de Mar y Limnología de la UNAM.
+- [Dra. Alejandra Medina Rivera](https://comunidadbioinfo.github.io/es/authors/amedina/): Investigadora Asociada en el Laboratorio Internacional de Investigación de Medicina Genómica, UNAM. 
+- [M.C. Erick Cuevas Fernández](https://comunidadbioinfo.github.io/es/authors/erickcufe/): Estudiante de Doctorado en la Universidad Nacional Autónoma de México.
+
+## Temario 
+
+Consulta el calendario de este curso en: <https://bit.ly/calendarcdsb2024>
+
+- Día 1: Flujo de trabajo orientado a proyectos:
+  - Introducción al flujo de trabajo orientado a proyectos.
+  - Paths seguros.
+  - Buenas prácticas de configuración y mantenimiento de espacios de trabajo.
+  - Modificando los archivos de inicio de R.
+  - Nuevas funcionalidades de RStudio, Quarto.
+
+- Día 2: Creación de paquetes de R/Bioconductor Parte I
+  - Control de versiones con GitHub y RStudio. 
+  - Solución de problemas con las versiones de paquetes de Rstudio.
+  - Infraestructura de un paquete de R/Bioconductor.
+  - Plática: Convirtiendo tu flujo de análisis en un paquete de R/Bioconductor.
+  - Documentación de funciones.
+  - Sesión social: Conociendo a la comunidad.
+
+- Día 3: Creación de paquetes de R/Bioconductor Parte II
+  - Diseño de pruebas.
+  - Creación de viñetas.
+  - Compilación e instalación de paquetes.
+  - Proyectos colaborativos Parte I.
+
+- Día 4:  Proyectos colaborativos
+  - Proyectos colaborativos Parte II. 
+  - Presentación de proyectos.
+  - Clausura.
+
+## Patrocinadores
+
+Agradecemos a nuestros patrocinadores:
+
+[<img src="http://www.nnb.unam.mx/TIB2020/wp-content/uploads/sites/2/2020/03/RMB_Logo-horizontal.png" width="250px" />](https://www.redmexicanadebioinformatica.org/)
+
+[<img src="https://www.nnb.unam.mx/wp-content/uploads/2021/04/logo-principal.png" width="250px" />](https://www.nnb.unam.mx)
+
+
+## Licencia
+
+Este material posee una licencia tipo Creative Commons Attribution-ShareAlike 4.0 International License. 
+
+Para conocer más sobre esta licencia, visite http://creativecommons.org/licenses/by-sa/4.0/
+

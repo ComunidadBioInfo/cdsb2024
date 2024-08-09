@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>17 Proyectos colaborativos | Workshop CDSB 2023: Creando paquetes de R/Bioconductor para análisis transcriptómicos de célula única.</title>
+  <meta name="description" content="17 Proyectos colaborativos | Workshop CDSB 2023: Creando paquetes de R/Bioconductor para análisis transcriptómicos de célula única." />
+  <meta name="generator" content="bookdown 0.34 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="17 Proyectos colaborativos | Workshop CDSB 2023: Creando paquetes de R/Bioconductor para análisis transcriptómicos de célula única." />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta name="github-repo" content="comunidadbioinfo/cdsb2023" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="17 Proyectos colaborativos | Workshop CDSB 2023: Creando paquetes de R/Bioconductor para análisis transcriptómicos de célula única." />
+  
+  
+  
+
+<meta name="author" content="Dra. Joselyn Chávez, Dr. Leonardo Collado-Torres, Dra. Yalbi Balderas-Martínez, M.C. Erick Cuevas-Fernández, Dra. Mirna Vázquez Rosas-Landa, Dra. Alejandra Medina-Rivera," />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="compilación-e-instalación-de-paquetes.html"/>
+
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Bienvenida</a>
+<ul>
+<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#instructores"><i class="fa fa-check"></i><b>0.1</b> Instructores</a></li>
+<li class="chapter" data-level="0.2" data-path="index.html"><a href="index.html#ponentes-invitados"><i class="fa fa-check"></i><b>0.2</b> Ponentes invitados</a></li>
+<li class="chapter" data-level="0.3" data-path="index.html"><a href="index.html#ayudantes"><i class="fa fa-check"></i><b>0.3</b> Ayudantes</a></li>
+<li class="chapter" data-level="0.4" data-path="index.html"><a href="index.html#temario"><i class="fa fa-check"></i><b>0.4</b> Temario</a></li>
+<li class="chapter" data-level="0.5" data-path="index.html"><a href="index.html#patrocinadores"><i class="fa fa-check"></i><b>0.5</b> Patrocinadores</a></li>
+<li class="chapter" data-level="0.6" data-path="index.html"><a href="index.html#licencia"><i class="fa fa-check"></i><b>0.6</b> Licencia</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="estructura-e-importe-de-datos.html"><a href="estructura-e-importe-de-datos.html"><i class="fa fa-check"></i><b>1</b> Estructura e importe de datos</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="estructura-e-importe-de-datos.html"><a href="estructura-e-importe-de-datos.html#diapositivas"><i class="fa fa-check"></i><b>1.1</b> Diapositivas</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="control-de-calidad.html"><a href="control-de-calidad.html"><i class="fa fa-check"></i><b>2</b> Control de calidad</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="control-de-calidad.html"><a href="control-de-calidad.html#diapositivas-1"><i class="fa fa-check"></i><b>2.1</b> Diapositivas</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="normalización.html"><a href="normalización.html"><i class="fa fa-check"></i><b>3</b> Normalización</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="normalización.html"><a href="normalización.html#diapositivas-2"><i class="fa fa-check"></i><b>3.1</b> Diapositivas</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="selección-de-genes-altamente-variables.html"><a href="selección-de-genes-altamente-variables.html"><i class="fa fa-check"></i><b>4</b> Selección de genes altamente variables</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="selección-de-genes-altamente-variables.html"><a href="selección-de-genes-altamente-variables.html#diapositivas-3"><i class="fa fa-check"></i><b>4.1</b> Diapositivas</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="reducción-de-dimensiones.html"><a href="reducción-de-dimensiones.html"><i class="fa fa-check"></i><b>5</b> Reducción de dimensiones</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="reducción-de-dimensiones.html"><a href="reducción-de-dimensiones.html#diapositivas-4"><i class="fa fa-check"></i><b>5.1</b> Diapositivas</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="clustering.html"><a href="clustering.html"><i class="fa fa-check"></i><b>6</b> Clustering</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="clustering.html"><a href="clustering.html#diapositivas-5"><i class="fa fa-check"></i><b>6.1</b> Diapositivas</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="genes-marcadores.html"><a href="genes-marcadores.html"><i class="fa fa-check"></i><b>7</b> Genes marcadores</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="genes-marcadores.html"><a href="genes-marcadores.html#diapositivas-6"><i class="fa fa-check"></i><b>7.1</b> Diapositivas</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="anotación-de-tipos-celulares.html"><a href="anotación-de-tipos-celulares.html"><i class="fa fa-check"></i><b>8</b> Anotación de tipos celulares</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="anotación-de-tipos-celulares.html"><a href="anotación-de-tipos-celulares.html#diapositivas-7"><i class="fa fa-check"></i><b>8.1</b> Diapositivas</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="nuevas-funcionalidades-de-rstudio-quarto..html"><a href="nuevas-funcionalidades-de-rstudio-quarto..html"><i class="fa fa-check"></i><b>9</b> Nuevas funcionalidades de RStudio, Quarto.</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="nuevas-funcionalidades-de-rstudio-quarto..html"><a href="nuevas-funcionalidades-de-rstudio-quarto..html#diapositivas-8"><i class="fa fa-check"></i><b>9.1</b> Diapositivas</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html"><i class="fa fa-check"></i><b>10</b> Control de versiones con GitHub y RStudio</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#diapositivas-9"><i class="fa fa-check"></i><b>10.1</b> Diapositivas</a></li>
+<li class="chapter" data-level="10.2" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#por-qué-hacer-control-de-versiones-de-nuestros-proyectos"><i class="fa fa-check"></i><b>10.2</b> ¿Por qué hacer control de versiones de nuestros proyectos?</a></li>
+<li class="chapter" data-level="10.3" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#git"><i class="fa fa-check"></i><b>10.3</b> Git</a>
+<ul>
+<li class="chapter" data-level="10.3.1" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#git-vs-controles-de-versión-a-mano"><i class="fa fa-check"></i><b>10.3.1</b> <strong>Git vs controles de versión a mano</strong></a></li>
+</ul></li>
+<li class="chapter" data-level="10.4" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#github"><i class="fa fa-check"></i><b>10.4</b> GitHub</a></li>
+<li class="chapter" data-level="10.5" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#manual-de-sobreviviencia-con-git-y-github-en-rstudio-en-caso-de-ser-necesario"><i class="fa fa-check"></i><b>10.5</b> Manual de sobreviviencia con Git Y GitHub en RStudio (en caso de ser necesario)</a></li>
+<li class="chapter" data-level="10.6" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#credenciales-https-en-cache"><i class="fa fa-check"></i><b>10.6</b> Credenciales HTTPS en <strong>Cache</strong></a>
+<ul>
+<li class="chapter" data-level="10.6.1" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#actividad"><i class="fa fa-check"></i><b>10.6.1</b> Actividad</a></li>
+</ul></li>
+<li class="chapter" data-level="10.7" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#conectando-rstudio-con-git-y-github."><i class="fa fa-check"></i><b>10.7</b> Conectando RStudio con Git y Github.</a></li>
+<li class="chapter" data-level="10.8" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#github-primero-rstudio-después"><i class="fa fa-check"></i><b>10.8</b> GitHub primero, RStudio después…</a>
+<ul>
+<li class="chapter" data-level="10.8.1" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#actividad-1"><i class="fa fa-check"></i><b>10.8.1</b> Actividad</a></li>
+<li class="chapter" data-level="10.8.2" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#comentar-pull-y-push"><i class="fa fa-check"></i><b>10.8.2</b> Comentar, pull y push</a></li>
+<li class="chapter" data-level="10.8.3" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#actividad-2"><i class="fa fa-check"></i><b>10.8.3</b> Actividad</a></li>
+</ul></li>
+<li class="chapter" data-level="10.9" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#rstudio-primero-y-github-también"><i class="fa fa-check"></i><b>10.9</b> RStudio primero y GitHub también</a>
+<ul>
+<li class="chapter" data-level="10.9.1" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#actividad-3"><i class="fa fa-check"></i><b>10.9.1</b> Actividad</a></li>
+</ul></li>
+<li class="chapter" data-level="10.10" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#proyecto-existente-github-al-final"><i class="fa fa-check"></i><b>10.10</b> Proyecto existente, GitHub al final</a>
+<ul>
+<li class="chapter" data-level="10.10.1" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#breviario-cultural-con-los-pats"><i class="fa fa-check"></i><b>10.10.1</b> Breviario cultural con los PATs</a></li>
+<li class="chapter" data-level="10.10.2" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#actividad-4"><i class="fa fa-check"></i><b>10.10.2</b> Actividad</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="solución-de-problemas-con-las-versiones-de-paquetes-de-rstudio..html"><a href="solución-de-problemas-con-las-versiones-de-paquetes-de-rstudio..html"><i class="fa fa-check"></i><b>11</b> Solución de problemas con las versiones de paquetes de Rstudio.</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="solución-de-problemas-con-las-versiones-de-paquetes-de-rstudio..html"><a href="solución-de-problemas-con-las-versiones-de-paquetes-de-rstudio..html#diapositivas-10"><i class="fa fa-check"></i><b>11.1</b> Diapositivas</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="keynote-convirtiendo-tu-flujo-de-análisis-en-un-paquete-de-rbioconductor..html"><a href="keynote-convirtiendo-tu-flujo-de-análisis-en-un-paquete-de-rbioconductor..html"><i class="fa fa-check"></i><b>12</b> Keynote: Convirtiendo tu flujo de análisis en un paquete de R/Bioconductor.</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="keynote-convirtiendo-tu-flujo-de-análisis-en-un-paquete-de-rbioconductor..html"><a href="keynote-convirtiendo-tu-flujo-de-análisis-en-un-paquete-de-rbioconductor..html#diapositivas-11"><i class="fa fa-check"></i><b>12.1</b> Diapositivas</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="documentación-de-funciones..html"><a href="documentación-de-funciones..html"><i class="fa fa-check"></i><b>13</b> Documentación de funciones.</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="documentación-de-funciones..html"><a href="documentación-de-funciones..html#diapositivas-12"><i class="fa fa-check"></i><b>13.1</b> Diapositivas</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="diseño-de-pruebas.html"><a href="diseño-de-pruebas.html"><i class="fa fa-check"></i><b>14</b> Diseño de pruebas</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="diseño-de-pruebas.html"><a href="diseño-de-pruebas.html#diapositivas-13"><i class="fa fa-check"></i><b>14.1</b> Diapositivas</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="creación-de-viñetas.html"><a href="creación-de-viñetas.html"><i class="fa fa-check"></i><b>15</b> Creación de viñetas</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="creación-de-viñetas.html"><a href="creación-de-viñetas.html#diapositivas-14"><i class="fa fa-check"></i><b>15.1</b> Diapositivas</a></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="compilación-e-instalación-de-paquetes.html"><a href="compilación-e-instalación-de-paquetes.html"><i class="fa fa-check"></i><b>16</b> Compilación e instalación de paquetes</a>
+<ul>
+<li class="chapter" data-level="16.1" data-path="compilación-e-instalación-de-paquetes.html"><a href="compilación-e-instalación-de-paquetes.html#diapositivas-15"><i class="fa fa-check"></i><b>16.1</b> Diapositivas</a></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="proyectos-colaborativos.html"><a href="proyectos-colaborativos.html"><i class="fa fa-check"></i><b>17</b> Proyectos colaborativos</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Workshop CDSB 2023: Creando paquetes de R/Bioconductor para análisis transcriptómicos de célula única.</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="proyectos-colaborativos" class="section level1 hasAnchor" number="17">
+<h1><span class="header-section-number">17</span> Proyectos colaborativos<a href="proyectos-colaborativos.html#proyectos-colaborativos" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<ul>
+<li>Proyecto 1</li>
+<li>Proyecto 2</li>
+<li>Proyecto 3</li>
+<li>Proyecto 4</li>
+</ul>
+
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="compilación-e-instalación-de-paquetes.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
