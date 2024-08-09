@@ -14,10 +14,10 @@ output:
 
 [
 ```{r, echo=FALSE}
-knitr::include_url("https://comunidadbioinfo.github.io/bienvenida_cdsb2024/bienvenida.html",
+knitr::include_url("https://comunidadbioinfo.github.io/cdsb2024/bienvenida.html",
   height = "380px")
 ```
-](https://comunidadbioinfo.github.io/bienvenida_cdsb2024/bienvenida.html)
+](https://comunidadbioinfo.github.io/cdsb2024/bienvenida.html)
 
 
 Les damos la bienvenida al Workshop Desarrollo de paqueterías de R/Bioconductor! 
