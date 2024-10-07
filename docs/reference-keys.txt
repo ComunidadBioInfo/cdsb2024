@@ -4,6 +4,7 @@ patrocinadores
 licencia
 trabajando-con-proyectos-de-rstudio
 diapositivas
+paths-seguros
 control-de-versiones-con-github-y-rstudio
 diapositivas-1
 por-qué-hacer-control-de-versiones-de-nuestros-proyectos
@@ -43,12 +44,10 @@ generacion-de-la-documentacion-con-ayuda-del-paquete-roxygen
 antes-de-empezar
 generacion-de-un-bloque-de-documentacion-con-ayuda-del-paquete-roxygen.
 otros-campos-de-la-documentacion.
-paths-seguros
-diapositivas-6
 diseño-de-pruebas
-diapositivas-7
+diapositivas-6
 creación-de-viñetas
-diapositivas-8
+diapositivas-7
 qué-es-una-viñeta
 características-de-una-vignette
 cómo-consultar-la-viñeta-de-un-paquete
@@ -57,7 +56,7 @@ cómo-guardar-y-actualizar-la-viñeta
 veamos-un-ejemplo
 actividad-3
 compilación-e-instalación-de-paquetes
-diapositivas-9
+diapositivas-8
 metadatos-de-una-paquetería
 description
 dependencias
