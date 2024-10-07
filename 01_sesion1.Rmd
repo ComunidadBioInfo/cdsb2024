@@ -1,4 +1,4 @@
-# Introducción al flujo de trabajo orientado a proyectos
+# Trabajando con proyectos de RStudio
 
 Joselyn Cristina Chávez Fuentes
 

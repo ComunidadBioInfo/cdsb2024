@@ -1,6 +1,6 @@
-# Buenas prácticas de configuración y mantenimiento de espacios de trabajo
+# Solución de problemas con las versiones de paquetes de Rstudio
 
-Joselyn Cristina Chávez Fuentes
+Yalbi Balderas
 
 28 de octubre de 2024
 
@@ -8,6 +8,6 @@ Joselyn Cristina Chávez Fuentes
 
 [
 ```{r,echo=FALSE}
-knitr::include_url("https://comunidadbioinfo.github.io/cdsb2023/dia1_sesion1_slides.html", height = "380px")
+knitr::include_url("https://comunidadbioinfo.github.io/cdsb2023/solucion_problemas.html", height = "380px")
 ```
-](https://comunidadbioinfo.github.io/cdsb2023/dia1_sesion1_slides.html)
+](https://comunidadbioinfo.github.io/cdsb2023/solucion_problemas.html)

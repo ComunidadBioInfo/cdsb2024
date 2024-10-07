@@ -1,6 +1,6 @@
-# Solución de problemas con las versiones de paquetes de Rstudio
+# Creando mis primeras funciones
 
-Yalbi Balderas
+Instructora: Joselyn Chávez
 
 29 de octubre de 2024
 
