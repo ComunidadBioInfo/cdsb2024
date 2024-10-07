@@ -7,13 +7,13 @@
 Les damos la bienvenida al Workshop Desarrollo de paqueterías de R/Bioconductor! 
 
 <p align="justify">
-Estamos encantadxs de anunciar que la CDSB, junto con la Red Mexicana de Bioinformática (RMB) y el Nodo Nacional de Bioinformática en la UNAM (NNB-CCG), está organizando el taller Desarrollo de paqueterías de R/Bioconductor como parte del Encuentro Nacional de Bioinformática México 2024.
+Nos da gusto anunciar que la CDSB, junto con la Red Mexicana de Bioinformática (RMB) y el Nodo Nacional de Bioinformática en la UNAM (NNB-CCG), está organizando el taller Desarrollo de paqueterías de R/Bioconductor como parte del Encuentro Nacional de Bioinformática México 2024.
 
 Todas las sesiones serán teóricas y prácticas. Nos enfocaremos en dos temas principales: 
 </p>
 
-- Configuraciones avanzadas de flujos de trabajo
 - Creación de paquetes de R/Bioconductor
+- Generación de sitios web para la documentación de paquetes de R
 
 [**¡Registrate aquí!**](https://www.nnb.unam.mx/EBM2024/registro/)
 
@@ -24,34 +24,38 @@ Todas las sesiones serán teóricas y prácticas. Nos enfocaremos en dos temas p
 - [Dra. Mirna Vázquez Rosas Landa](https://comunidadbioinfo.github.io/es/authors/mirnavrl/): Investigadora en el Instituto de Ciencias de Mar y Limnología de la UNAM.
 - [Dra. Alejandra Medina Rivera](https://comunidadbioinfo.github.io/es/authors/amedina/): Investigadora Asociada en el Laboratorio Internacional de Investigación de Medicina Genómica, UNAM. 
 - [M.C. Erick Cuevas Fernández](https://comunidadbioinfo.github.io/es/authors/erickcufe/): Estudiante de Doctorado en la Universidad Nacional Autónoma de México.
+- [M.C. José Antonio Ovando Ricárdez](https://comunidadbioinfo.github.io/es/authors/joseovando/)
+
+## Ayudantes
+
+- Dra. Evelia Coss
 
 ## Temario 
 
 Consulta el calendario de este curso en: <http://bit.ly/calendarcdsb2024>
 
 - Día 1: Flujo de trabajo orientado a proyectos:
-  - Introducción al flujo de trabajo orientado a proyectos.
+  - Introducción al trabajo con proyectos de RStudio.
   - Paths seguros.
-  - Buenas prácticas de configuración y mantenimiento de espacios de trabajo.
-  - Modificando los archivos de inicio de R.
-  - Nuevas funcionalidades de RStudio, Quarto.
-
-- Día 2: Creación de paquetes de R/Bioconductor Parte I
   - Control de versiones con GitHub y RStudio. 
   - Solución de problemas con las versiones de paquetes de Rstudio.
+
+- Día 2: Creación de paquetes de R/Bioconductor Parte I
+  
   - Infraestructura de un paquete de R/Bioconductor.
-  - Plática: Convirtiendo tu flujo de análisis en un paquete de R/Bioconductor.
   - Documentación de funciones.
   - Sesión social: Conociendo a la comunidad.
+  - Proyectos colaborativos Parte I.
 
 - Día 3: Creación de paquetes de R/Bioconductor Parte II
   - Diseño de pruebas.
   - Creación de viñetas.
   - Compilación e instalación de paquetes.
-  - Proyectos colaborativos Parte I.
+  - Proyectos colaborativos Parte II.
 
-- Día 4:  Proyectos colaborativos
-  - Proyectos colaborativos Parte II. 
+- Día 4: Creación de sitios web para la documentación de paquetes de R
+  - Creación de sitios web con pkgdown 
+  - Proyectos colaborativos Parte III. 
   - Presentación de proyectos.
   - Clausura.
 

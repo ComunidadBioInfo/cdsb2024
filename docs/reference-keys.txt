@@ -1,4 +1,5 @@
 instructores
+ayudantes
 temario
 patrocinadores
 licencia
@@ -68,6 +69,8 @@ instalando-la-última-versión-en-desarrollo
 instalando-paquetes-desde-github
 instalando-un-paquete-local
 contribuyendo-código
+creación-de-sitios-web-con-pkgdown
+diapositivas-9
 proyectos-colaborativos-1
 propuesta-1
 propuesta-2
