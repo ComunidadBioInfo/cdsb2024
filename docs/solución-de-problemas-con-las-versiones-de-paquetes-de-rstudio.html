@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>7 Solución de problemas con las versiones de paquetes de Rstudio | Desarrollo de paqueterías de R/Bioconductor.</title>
-  <meta name="description" content="7 Solución de problemas con las versiones de paquetes de Rstudio | Desarrollo de paqueterías de R/Bioconductor." />
+  <title>3 Solución de problemas con las versiones de paquetes de Rstudio | Desarrollo de paqueterías de R/Bioconductor.</title>
+  <meta name="description" content="3 Solución de problemas con las versiones de paquetes de Rstudio | Desarrollo de paqueterías de R/Bioconductor." />
   <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="7 Solución de problemas con las versiones de paquetes de Rstudio | Desarrollo de paqueterías de R/Bioconductor." />
+  <meta property="og:title" content="3 Solución de problemas con las versiones de paquetes de Rstudio | Desarrollo de paqueterías de R/Bioconductor." />
   <meta property="og:type" content="book" />
   
   
   <meta name="github-repo" content="comunidadbioinfo/cdsb2024" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="7 Solución de problemas con las versiones de paquetes de Rstudio | Desarrollo de paqueterías de R/Bioconductor." />
+  <meta name="twitter:title" content="3 Solución de problemas con las versiones de paquetes de Rstudio | Desarrollo de paqueterías de R/Bioconductor." />
   
   
   
@@ -30,7 +30,7 @@
   
   
 <link rel="prev" href="control-de-versiones-con-github-y-rstudio.html"/>
-<link rel="next" href="infraestructura-de-un-paquete-de-rbioconductor.html"/>
+<link rel="next" href="creando-la-infraestructura-de-un-paquete.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -65,7 +65,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -142,124 +142,112 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="0.3" data-path="index.html"><a href="index.html#patrocinadores"><i class="fa fa-check"></i><b>0.3</b> Patrocinadores</a></li>
 <li class="chapter" data-level="0.4" data-path="index.html"><a href="index.html#licencia"><i class="fa fa-check"></i><b>0.4</b> Licencia</a></li>
 </ul></li>
-<li class="chapter" data-level="1" data-path="introducción-al-flujo-de-trabajo-orientado-a-proyectos.html"><a href="introducción-al-flujo-de-trabajo-orientado-a-proyectos.html"><i class="fa fa-check"></i><b>1</b> Introducción al flujo de trabajo orientado a proyectos</a>
+<li class="chapter" data-level="1" data-path="trabajando-con-proyectos-de-rstudio.html"><a href="trabajando-con-proyectos-de-rstudio.html"><i class="fa fa-check"></i><b>1</b> Trabajando con proyectos de RStudio</a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="introducción-al-flujo-de-trabajo-orientado-a-proyectos.html"><a href="introducción-al-flujo-de-trabajo-orientado-a-proyectos.html#diapositivas"><i class="fa fa-check"></i><b>1.1</b> Diapositivas</a></li>
+<li class="chapter" data-level="1.1" data-path="trabajando-con-proyectos-de-rstudio.html"><a href="trabajando-con-proyectos-de-rstudio.html#diapositivas"><i class="fa fa-check"></i><b>1.1</b> Diapositivas</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="paths-seguros.html"><a href="paths-seguros.html"><i class="fa fa-check"></i><b>2</b> Paths seguros</a>
+<li class="chapter" data-level="2" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html"><i class="fa fa-check"></i><b>2</b> Control de versiones con GitHub y RStudio</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="paths-seguros.html"><a href="paths-seguros.html#diapositivas-1"><i class="fa fa-check"></i><b>2.1</b> Diapositivas</a></li>
+<li class="chapter" data-level="2.1" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#diapositivas-1"><i class="fa fa-check"></i><b>2.1</b> Diapositivas</a></li>
+<li class="chapter" data-level="2.2" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#por-qué-hacer-control-de-versiones-de-nuestros-proyectos"><i class="fa fa-check"></i><b>2.2</b> ¿Por qué hacer control de versiones de nuestros proyectos?</a></li>
+<li class="chapter" data-level="2.3" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#git"><i class="fa fa-check"></i><b>2.3</b> Git</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#git-vs-controles-de-versión-a-mano"><i class="fa fa-check"></i><b>2.3.1</b> <strong>Git vs controles de versión a mano</strong></a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="buenas-prácticas-de-configuración-y-mantenimiento-de-espacios-de-trabajo.html"><a href="buenas-prácticas-de-configuración-y-mantenimiento-de-espacios-de-trabajo.html"><i class="fa fa-check"></i><b>3</b> Buenas prácticas de configuración y mantenimiento de espacios de trabajo</a>
+<li class="chapter" data-level="2.4" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#recomendaciones-para-sus-proyectos"><i class="fa fa-check"></i><b>2.4</b> Recomendaciones para sus proyectos</a></li>
+<li class="chapter" data-level="2.5" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#proyectos-colaborativos"><i class="fa fa-check"></i><b>2.5</b> Proyectos colaborativos</a></li>
+<li class="chapter" data-level="2.6" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#github"><i class="fa fa-check"></i><b>2.6</b> GitHub</a></li>
+<li class="chapter" data-level="2.7" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#manual-de-sobreviviencia-con-git-y-github-en-rstudio-en-caso-de-ser-necesario"><i class="fa fa-check"></i><b>2.7</b> Manual de sobreviviencia con Git Y GitHub en RStudio (en caso de ser necesario)</a></li>
+<li class="chapter" data-level="2.8" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#cómo-clonar-un-repositorio-y-tener-conecciónpermisos-para-modificarlo"><i class="fa fa-check"></i><b>2.8</b> Cómo clonar un repositorio y tener conección/permisos para modificarlo?</a></li>
+<li class="chapter" data-level="2.9" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#credenciales-https-en-cache"><i class="fa fa-check"></i><b>2.9</b> Credenciales HTTPS en <strong>Cache</strong></a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="buenas-prácticas-de-configuración-y-mantenimiento-de-espacios-de-trabajo.html"><a href="buenas-prácticas-de-configuración-y-mantenimiento-de-espacios-de-trabajo.html#diapositivas-2"><i class="fa fa-check"></i><b>3.1</b> Diapositivas</a></li>
+<li class="chapter" data-level="2.9.1" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#actividad"><i class="fa fa-check"></i><b>2.9.1</b> Actividad</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="modificando-los-archivos-de-inicio-de-r.html"><a href="modificando-los-archivos-de-inicio-de-r.html"><i class="fa fa-check"></i><b>4</b> Modificando los archivos de inicio de R</a>
+<li class="chapter" data-level="2.10" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#conectando-rstudio-con-git-y-github."><i class="fa fa-check"></i><b>2.10</b> Conectando RStudio con Git y Github.</a></li>
+<li class="chapter" data-level="2.11" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#github-primero-rstudio-después"><i class="fa fa-check"></i><b>2.11</b> GitHub primero, RStudio después…</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="modificando-los-archivos-de-inicio-de-r.html"><a href="modificando-los-archivos-de-inicio-de-r.html#diapositivas-3"><i class="fa fa-check"></i><b>4.1</b> Diapositivas</a></li>
+<li class="chapter" data-level="2.11.1" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#actividad-1"><i class="fa fa-check"></i><b>2.11.1</b> Actividad</a></li>
+<li class="chapter" data-level="2.11.2" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#comentar-pull-y-push"><i class="fa fa-check"></i><b>2.11.2</b> Comentar, pull y push</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="nuevas-funcionalidades-de-rstudio-quarto.html"><a href="nuevas-funcionalidades-de-rstudio-quarto.html"><i class="fa fa-check"></i><b>5</b> Nuevas funcionalidades de RStudio, Quarto</a>
+<li class="chapter" data-level="2.12" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#rmarkdown-en-github"><i class="fa fa-check"></i><b>2.12</b> Rmarkdown en GitHub</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="nuevas-funcionalidades-de-rstudio-quarto.html"><a href="nuevas-funcionalidades-de-rstudio-quarto.html#diapositivas-4"><i class="fa fa-check"></i><b>5.1</b> Diapositivas</a></li>
+<li class="chapter" data-level="2.12.1" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#actividad-2"><i class="fa fa-check"></i><b>2.12.1</b> Actividad</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html"><i class="fa fa-check"></i><b>6</b> Control de versiones con GitHub y RStudio</a>
+<li class="chapter" data-level="2.13" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#rstudio-primero-y-github-también"><i class="fa fa-check"></i><b>2.13</b> RStudio primero y GitHub también</a></li>
+<li class="chapter" data-level="2.14" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#proyecto-existente-github-al-final"><i class="fa fa-check"></i><b>2.14</b> Proyecto existente, GitHub al final</a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#diapositivas-5"><i class="fa fa-check"></i><b>6.1</b> Diapositivas</a></li>
-<li class="chapter" data-level="6.2" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#por-qué-hacer-control-de-versiones-de-nuestros-proyectos"><i class="fa fa-check"></i><b>6.2</b> ¿Por qué hacer control de versiones de nuestros proyectos?</a></li>
-<li class="chapter" data-level="6.3" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#git"><i class="fa fa-check"></i><b>6.3</b> Git</a>
-<ul>
-<li class="chapter" data-level="6.3.1" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#git-vs-controles-de-versión-a-mano"><i class="fa fa-check"></i><b>6.3.1</b> <strong>Git vs controles de versión a mano</strong></a></li>
+<li class="chapter" data-level="2.14.1" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#breviario-cultural-con-los-pats"><i class="fa fa-check"></i><b>2.14.1</b> Breviario cultural con los PATs</a></li>
 </ul></li>
-<li class="chapter" data-level="6.4" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#recomendaciones-para-sus-proyectos"><i class="fa fa-check"></i><b>6.4</b> Recomendaciones para sus proyectos</a></li>
-<li class="chapter" data-level="6.5" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#proyectos-colaborativos"><i class="fa fa-check"></i><b>6.5</b> Proyectos colaborativos</a></li>
-<li class="chapter" data-level="6.6" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#github"><i class="fa fa-check"></i><b>6.6</b> GitHub</a></li>
-<li class="chapter" data-level="6.7" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#manual-de-sobreviviencia-con-git-y-github-en-rstudio-en-caso-de-ser-necesario"><i class="fa fa-check"></i><b>6.7</b> Manual de sobreviviencia con Git Y GitHub en RStudio (en caso de ser necesario)</a></li>
-<li class="chapter" data-level="6.8" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#cómo-clonar-un-repositorio-y-tener-conecciónpermisos-para-modificarlo"><i class="fa fa-check"></i><b>6.8</b> Cómo clonar un repositorio y tener conección/permisos para modificarlo?</a></li>
-<li class="chapter" data-level="6.9" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#credenciales-https-en-cache"><i class="fa fa-check"></i><b>6.9</b> Credenciales HTTPS en <strong>Cache</strong></a>
-<ul>
-<li class="chapter" data-level="6.9.1" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#actividad"><i class="fa fa-check"></i><b>6.9.1</b> Actividad</a></li>
+<li class="chapter" data-level="2.15" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#git-basics-commands"><i class="fa fa-check"></i><b>2.15</b> Git basics: commands</a></li>
+<li class="chapter" data-level="2.16" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#merge-conflics"><i class="fa fa-check"></i><b>2.16</b> Merge conflics</a></li>
+<li class="chapter" data-level="2.17" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#merge-conflics-1"><i class="fa fa-check"></i><b>2.17</b> Merge conflics</a></li>
+<li class="chapter" data-level="2.18" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#en-resumen"><i class="fa fa-check"></i><b>2.18</b> En resumen</a></li>
 </ul></li>
-<li class="chapter" data-level="6.10" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#conectando-rstudio-con-git-y-github."><i class="fa fa-check"></i><b>6.10</b> Conectando RStudio con Git y Github.</a></li>
-<li class="chapter" data-level="6.11" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#github-primero-rstudio-después"><i class="fa fa-check"></i><b>6.11</b> GitHub primero, RStudio después…</a>
+<li class="chapter" data-level="3" data-path="solución-de-problemas-con-las-versiones-de-paquetes-de-rstudio.html"><a href="solución-de-problemas-con-las-versiones-de-paquetes-de-rstudio.html"><i class="fa fa-check"></i><b>3</b> Solución de problemas con las versiones de paquetes de Rstudio</a>
 <ul>
-<li class="chapter" data-level="6.11.1" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#actividad-1"><i class="fa fa-check"></i><b>6.11.1</b> Actividad</a></li>
-<li class="chapter" data-level="6.11.2" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#comentar-pull-y-push"><i class="fa fa-check"></i><b>6.11.2</b> Comentar, pull y push</a></li>
+<li class="chapter" data-level="3.1" data-path="solución-de-problemas-con-las-versiones-de-paquetes-de-rstudio.html"><a href="solución-de-problemas-con-las-versiones-de-paquetes-de-rstudio.html#diapositivas-2"><i class="fa fa-check"></i><b>3.1</b> Diapositivas</a></li>
 </ul></li>
-<li class="chapter" data-level="6.12" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#rmarkdown-en-github"><i class="fa fa-check"></i><b>6.12</b> Rmarkdown en GitHub</a>
+<li class="chapter" data-level="4" data-path="creando-la-infraestructura-de-un-paquete.html"><a href="creando-la-infraestructura-de-un-paquete.html"><i class="fa fa-check"></i><b>4</b> Creando la infraestructura de un paquete</a>
 <ul>
-<li class="chapter" data-level="6.12.1" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#actividad-2"><i class="fa fa-check"></i><b>6.12.1</b> Actividad</a></li>
+<li class="chapter" data-level="4.1" data-path="creando-la-infraestructura-de-un-paquete.html"><a href="creando-la-infraestructura-de-un-paquete.html#diapositivas-3"><i class="fa fa-check"></i><b>4.1</b> Diapositivas</a></li>
 </ul></li>
-<li class="chapter" data-level="6.13" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#rstudio-primero-y-github-también"><i class="fa fa-check"></i><b>6.13</b> RStudio primero y GitHub también</a></li>
-<li class="chapter" data-level="6.14" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#proyecto-existente-github-al-final"><i class="fa fa-check"></i><b>6.14</b> Proyecto existente, GitHub al final</a>
+<li class="chapter" data-level="5" data-path="creando-mis-primeras-funciones.html"><a href="creando-mis-primeras-funciones.html"><i class="fa fa-check"></i><b>5</b> Creando mis primeras funciones</a>
 <ul>
-<li class="chapter" data-level="6.14.1" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#breviario-cultural-con-los-pats"><i class="fa fa-check"></i><b>6.14.1</b> Breviario cultural con los PATs</a></li>
+<li class="chapter" data-level="5.1" data-path="creando-mis-primeras-funciones.html"><a href="creando-mis-primeras-funciones.html#diapositivas-4"><i class="fa fa-check"></i><b>5.1</b> Diapositivas</a></li>
 </ul></li>
-<li class="chapter" data-level="6.15" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#git-basics-commands"><i class="fa fa-check"></i><b>6.15</b> Git basics: commands</a></li>
-<li class="chapter" data-level="6.16" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#merge-conflics"><i class="fa fa-check"></i><b>6.16</b> Merge conflics</a></li>
-<li class="chapter" data-level="6.17" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#merge-conflics-1"><i class="fa fa-check"></i><b>6.17</b> Merge conflics</a></li>
-<li class="chapter" data-level="6.18" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html#en-resumen"><i class="fa fa-check"></i><b>6.18</b> En resumen</a></li>
-</ul></li>
-<li class="chapter" data-level="7" data-path="solución-de-problemas-con-las-versiones-de-paquetes-de-rstudio.html"><a href="solución-de-problemas-con-las-versiones-de-paquetes-de-rstudio.html"><i class="fa fa-check"></i><b>7</b> Solución de problemas con las versiones de paquetes de Rstudio</a>
+<li class="chapter" data-level="6" data-path="documentación-de-funciones.html"><a href="documentación-de-funciones.html"><i class="fa fa-check"></i><b>6</b> Documentación de funciones</a>
 <ul>
-<li class="chapter" data-level="7.1" data-path="solución-de-problemas-con-las-versiones-de-paquetes-de-rstudio.html"><a href="solución-de-problemas-con-las-versiones-de-paquetes-de-rstudio.html#diapositivas-6"><i class="fa fa-check"></i><b>7.1</b> Diapositivas</a></li>
+<li class="chapter" data-level="6.1" data-path="documentación-de-funciones.html"><a href="documentación-de-funciones.html#diapositivas-5"><i class="fa fa-check"></i><b>6.1</b> Diapositivas</a></li>
+<li class="chapter" data-level="6.2" data-path="documentación-de-funciones.html"><a href="documentación-de-funciones.html#links-importantes"><i class="fa fa-check"></i><b>6.2</b> Links importantes:</a></li>
+<li class="chapter" data-level="6.3" data-path="documentación-de-funciones.html"><a href="documentación-de-funciones.html#qué-es-la-documentación-de-una-función-y-por-qué-es-importante"><i class="fa fa-check"></i><b>6.3</b> ¿Qué es la documentación de una función y por qué es importante?</a></li>
+<li class="chapter" data-level="6.4" data-path="documentación-de-funciones.html"><a href="documentación-de-funciones.html#generacion-de-la-documentacion-con-ayuda-del-paquete-roxygen"><i class="fa fa-check"></i><b>6.4</b> Generacion de la documentacion con ayuda del paquete roxygen</a></li>
+<li class="chapter" data-level="6.5" data-path="documentación-de-funciones.html"><a href="documentación-de-funciones.html#antes-de-empezar"><i class="fa fa-check"></i><b>6.5</b> Antes de empezar…✏️</a></li>
+<li class="chapter" data-level="6.6" data-path="documentación-de-funciones.html"><a href="documentación-de-funciones.html#generacion-de-un-bloque-de-documentacion-con-ayuda-del-paquete-roxygen."><i class="fa fa-check"></i><b>6.6</b> Generacion de un bloque de documentacion con ayuda del paquete roxygen.</a></li>
+<li class="chapter" data-level="6.7" data-path="documentación-de-funciones.html"><a href="documentación-de-funciones.html#otros-campos-de-la-documentacion."><i class="fa fa-check"></i><b>6.7</b> Otros campos de la documentacion.</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="infraestructura-de-un-paquete-de-rbioconductor.html"><a href="infraestructura-de-un-paquete-de-rbioconductor.html"><i class="fa fa-check"></i><b>8</b> Infraestructura de un paquete de R/Bioconductor</a>
+<li class="chapter" data-level="7" data-path="paths-seguros.html"><a href="paths-seguros.html"><i class="fa fa-check"></i><b>7</b> Paths seguros</a>
 <ul>
-<li class="chapter" data-level="8.1" data-path="infraestructura-de-un-paquete-de-rbioconductor.html"><a href="infraestructura-de-un-paquete-de-rbioconductor.html#diapositivas-7"><i class="fa fa-check"></i><b>8.1</b> Diapositivas</a></li>
+<li class="chapter" data-level="7.1" data-path="paths-seguros.html"><a href="paths-seguros.html#diapositivas-6"><i class="fa fa-check"></i><b>7.1</b> Diapositivas</a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="keynote-convirtiendo-tu-flujo-de-análisis-en-un-paquete-de-rbioconductor..html"><a href="keynote-convirtiendo-tu-flujo-de-análisis-en-un-paquete-de-rbioconductor..html"><i class="fa fa-check"></i><b>9</b> Keynote: Convirtiendo tu flujo de análisis en un paquete de R/Bioconductor.</a>
+<li class="chapter" data-level="8" data-path="diseño-de-pruebas.html"><a href="diseño-de-pruebas.html"><i class="fa fa-check"></i><b>8</b> Diseño de pruebas</a>
 <ul>
-<li class="chapter" data-level="9.1" data-path="keynote-convirtiendo-tu-flujo-de-análisis-en-un-paquete-de-rbioconductor..html"><a href="keynote-convirtiendo-tu-flujo-de-análisis-en-un-paquete-de-rbioconductor..html#diapositivas-8"><i class="fa fa-check"></i><b>9.1</b> Diapositivas</a></li>
+<li class="chapter" data-level="8.1" data-path="diseño-de-pruebas.html"><a href="diseño-de-pruebas.html#diapositivas-7"><i class="fa fa-check"></i><b>8.1</b> Diapositivas</a></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="documentación-de-funciones.html"><a href="documentación-de-funciones.html"><i class="fa fa-check"></i><b>10</b> Documentación de funciones</a>
+<li class="chapter" data-level="9" data-path="creación-de-viñetas.html"><a href="creación-de-viñetas.html"><i class="fa fa-check"></i><b>9</b> Creación de viñetas</a>
 <ul>
-<li class="chapter" data-level="10.1" data-path="documentación-de-funciones.html"><a href="documentación-de-funciones.html#diapositivas-9"><i class="fa fa-check"></i><b>10.1</b> Diapositivas</a></li>
-<li class="chapter" data-level="10.2" data-path="documentación-de-funciones.html"><a href="documentación-de-funciones.html#links-importantes"><i class="fa fa-check"></i><b>10.2</b> Links importantes:</a></li>
-<li class="chapter" data-level="10.3" data-path="documentación-de-funciones.html"><a href="documentación-de-funciones.html#qué-es-la-documentación-de-una-función-y-por-qué-es-importante"><i class="fa fa-check"></i><b>10.3</b> ¿Qué es la documentación de una función y por qué es importante?</a></li>
-<li class="chapter" data-level="10.4" data-path="documentación-de-funciones.html"><a href="documentación-de-funciones.html#generacion-de-la-documentacion-con-ayuda-del-paquete-roxygen"><i class="fa fa-check"></i><b>10.4</b> Generacion de la documentacion con ayuda del paquete roxygen</a></li>
-<li class="chapter" data-level="10.5" data-path="documentación-de-funciones.html"><a href="documentación-de-funciones.html#antes-de-empezar"><i class="fa fa-check"></i><b>10.5</b> Antes de empezar…✏️</a></li>
-<li class="chapter" data-level="10.6" data-path="documentación-de-funciones.html"><a href="documentación-de-funciones.html#generacion-de-un-bloque-de-documentacion-con-ayuda-del-paquete-roxygen."><i class="fa fa-check"></i><b>10.6</b> Generacion de un bloque de documentacion con ayuda del paquete roxygen.</a></li>
-<li class="chapter" data-level="10.7" data-path="documentación-de-funciones.html"><a href="documentación-de-funciones.html#otros-campos-de-la-documentacion."><i class="fa fa-check"></i><b>10.7</b> Otros campos de la documentacion.</a></li>
+<li class="chapter" data-level="9.1" data-path="creación-de-viñetas.html"><a href="creación-de-viñetas.html#diapositivas-8"><i class="fa fa-check"></i><b>9.1</b> Diapositivas</a></li>
+<li class="chapter" data-level="9.2" data-path="creación-de-viñetas.html"><a href="creación-de-viñetas.html#qué-es-una-viñeta"><i class="fa fa-check"></i><b>9.2</b> ¿Qué es una viñeta?</a></li>
+<li class="chapter" data-level="9.3" data-path="creación-de-viñetas.html"><a href="creación-de-viñetas.html#características-de-una-vignette"><i class="fa fa-check"></i><b>9.3</b> Características de una vignette</a></li>
+<li class="chapter" data-level="9.4" data-path="creación-de-viñetas.html"><a href="creación-de-viñetas.html#cómo-consultar-la-viñeta-de-un-paquete"><i class="fa fa-check"></i><b>9.4</b> ¿Cómo consultar la viñeta de un paquete?</a></li>
+<li class="chapter" data-level="9.5" data-path="creación-de-viñetas.html"><a href="creación-de-viñetas.html#cómo-crear-una-viñeta"><i class="fa fa-check"></i><b>9.5</b> ¿Cómo crear una viñeta?</a></li>
+<li class="chapter" data-level="9.6" data-path="creación-de-viñetas.html"><a href="creación-de-viñetas.html#cómo-guardar-y-actualizar-la-viñeta"><i class="fa fa-check"></i><b>9.6</b> ¿Cómo guardar y actualizar la viñeta?</a></li>
+<li class="chapter" data-level="9.7" data-path="creación-de-viñetas.html"><a href="creación-de-viñetas.html#veamos-un-ejemplo"><i class="fa fa-check"></i><b>9.7</b> Veamos un ejemplo</a></li>
+<li class="chapter" data-level="9.8" data-path="creación-de-viñetas.html"><a href="creación-de-viñetas.html#actividad-3"><i class="fa fa-check"></i><b>9.8</b> Actividad</a></li>
 </ul></li>
-<li class="chapter" data-level="11" data-path="diseño-de-pruebas.html"><a href="diseño-de-pruebas.html"><i class="fa fa-check"></i><b>11</b> Diseño de pruebas</a>
+<li class="chapter" data-level="10" data-path="compilación-e-instalación-de-paquetes.html"><a href="compilación-e-instalación-de-paquetes.html"><i class="fa fa-check"></i><b>10</b> Compilación e instalación de paquetes</a>
 <ul>
-<li class="chapter" data-level="11.1" data-path="diseño-de-pruebas.html"><a href="diseño-de-pruebas.html#diapositivas-10"><i class="fa fa-check"></i><b>11.1</b> Diapositivas</a></li>
+<li class="chapter" data-level="10.1" data-path="compilación-e-instalación-de-paquetes.html"><a href="compilación-e-instalación-de-paquetes.html#diapositivas-9"><i class="fa fa-check"></i><b>10.1</b> Diapositivas</a></li>
+<li class="chapter" data-level="10.2" data-path="compilación-e-instalación-de-paquetes.html"><a href="compilación-e-instalación-de-paquetes.html#metadatos-de-una-paquetería"><i class="fa fa-check"></i><b>10.2</b> Metadatos de una paquetería</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="compilación-e-instalación-de-paquetes.html"><a href="compilación-e-instalación-de-paquetes.html#description"><i class="fa fa-check"></i><b>10.2.1</b> Description</a></li>
+<li class="chapter" data-level="10.2.2" data-path="compilación-e-instalación-de-paquetes.html"><a href="compilación-e-instalación-de-paquetes.html#dependencias"><i class="fa fa-check"></i><b>10.2.2</b> Dependencias</a></li>
+<li class="chapter" data-level="10.2.3" data-path="compilación-e-instalación-de-paquetes.html"><a href="compilación-e-instalación-de-paquetes.html#cómo-añadir-dependencias"><i class="fa fa-check"></i><b>10.2.3</b> ¿Cómo añadir dependencias?</a></li>
 </ul></li>
-<li class="chapter" data-level="12" data-path="creación-de-viñetas.html"><a href="creación-de-viñetas.html"><i class="fa fa-check"></i><b>12</b> Creación de viñetas</a>
-<ul>
-<li class="chapter" data-level="12.1" data-path="creación-de-viñetas.html"><a href="creación-de-viñetas.html#diapositivas-11"><i class="fa fa-check"></i><b>12.1</b> Diapositivas</a></li>
-<li class="chapter" data-level="12.2" data-path="creación-de-viñetas.html"><a href="creación-de-viñetas.html#qué-es-una-viñeta"><i class="fa fa-check"></i><b>12.2</b> ¿Qué es una viñeta?</a></li>
-<li class="chapter" data-level="12.3" data-path="creación-de-viñetas.html"><a href="creación-de-viñetas.html#características-de-una-vignette"><i class="fa fa-check"></i><b>12.3</b> Características de una vignette</a></li>
-<li class="chapter" data-level="12.4" data-path="creación-de-viñetas.html"><a href="creación-de-viñetas.html#cómo-consultar-la-viñeta-de-un-paquete"><i class="fa fa-check"></i><b>12.4</b> ¿Cómo consultar la viñeta de un paquete?</a></li>
-<li class="chapter" data-level="12.5" data-path="creación-de-viñetas.html"><a href="creación-de-viñetas.html#cómo-crear-una-viñeta"><i class="fa fa-check"></i><b>12.5</b> ¿Cómo crear una viñeta?</a></li>
-<li class="chapter" data-level="12.6" data-path="creación-de-viñetas.html"><a href="creación-de-viñetas.html#cómo-guardar-y-actualizar-la-viñeta"><i class="fa fa-check"></i><b>12.6</b> ¿Cómo guardar y actualizar la viñeta?</a></li>
-<li class="chapter" data-level="12.7" data-path="creación-de-viñetas.html"><a href="creación-de-viñetas.html#veamos-un-ejemplo"><i class="fa fa-check"></i><b>12.7</b> Veamos un ejemplo</a></li>
-<li class="chapter" data-level="12.8" data-path="creación-de-viñetas.html"><a href="creación-de-viñetas.html#actividad-3"><i class="fa fa-check"></i><b>12.8</b> Actividad</a></li>
+<li class="chapter" data-level="10.3" data-path="compilación-e-instalación-de-paquetes.html"><a href="compilación-e-instalación-de-paquetes.html#licencias"><i class="fa fa-check"></i><b>10.3</b> Licencias</a></li>
+<li class="chapter" data-level="10.4" data-path="compilación-e-instalación-de-paquetes.html"><a href="compilación-e-instalación-de-paquetes.html#paqueterías-de-código-fuente"><i class="fa fa-check"></i><b>10.4</b> Paqueterías de código fuente</a></li>
+<li class="chapter" data-level="10.5" data-path="compilación-e-instalación-de-paquetes.html"><a href="compilación-e-instalación-de-paquetes.html#en-dónde-podemos-encontrar-el-código-fuente-de-un-paquete"><i class="fa fa-check"></i><b>10.5</b> ¿En dónde podemos encontrar el código fuente de un paquete?</a></li>
+<li class="chapter" data-level="10.6" data-path="compilación-e-instalación-de-paquetes.html"><a href="compilación-e-instalación-de-paquetes.html#instalando-la-última-versión-en-desarrollo"><i class="fa fa-check"></i><b>10.6</b> Instalando la última versión en desarrollo</a></li>
+<li class="chapter" data-level="10.7" data-path="compilación-e-instalación-de-paquetes.html"><a href="compilación-e-instalación-de-paquetes.html#instalando-paquetes-desde-github"><i class="fa fa-check"></i><b>10.7</b> Instalando paquetes desde GitHub</a></li>
+<li class="chapter" data-level="10.8" data-path="compilación-e-instalación-de-paquetes.html"><a href="compilación-e-instalación-de-paquetes.html#instalando-un-paquete-local"><i class="fa fa-check"></i><b>10.8</b> Instalando un paquete local</a></li>
+<li class="chapter" data-level="10.9" data-path="compilación-e-instalación-de-paquetes.html"><a href="compilación-e-instalación-de-paquetes.html#contribuyendo-código"><i class="fa fa-check"></i><b>10.9</b> Contribuyendo código</a></li>
 </ul></li>
-<li class="chapter" data-level="13" data-path="compilación-e-instalación-de-paquetes.html"><a href="compilación-e-instalación-de-paquetes.html"><i class="fa fa-check"></i><b>13</b> Compilación e instalación de paquetes</a>
+<li class="chapter" data-level="11" data-path="proyectos-colaborativos-1.html"><a href="proyectos-colaborativos-1.html"><i class="fa fa-check"></i><b>11</b> Proyectos colaborativos</a>
 <ul>
-<li class="chapter" data-level="13.1" data-path="compilación-e-instalación-de-paquetes.html"><a href="compilación-e-instalación-de-paquetes.html#diapositivas-12"><i class="fa fa-check"></i><b>13.1</b> Diapositivas</a></li>
-<li class="chapter" data-level="13.2" data-path="compilación-e-instalación-de-paquetes.html"><a href="compilación-e-instalación-de-paquetes.html#metadatos-de-una-paquetería"><i class="fa fa-check"></i><b>13.2</b> Metadatos de una paquetería</a>
-<ul>
-<li class="chapter" data-level="13.2.1" data-path="compilación-e-instalación-de-paquetes.html"><a href="compilación-e-instalación-de-paquetes.html#description"><i class="fa fa-check"></i><b>13.2.1</b> Description</a></li>
-<li class="chapter" data-level="13.2.2" data-path="compilación-e-instalación-de-paquetes.html"><a href="compilación-e-instalación-de-paquetes.html#dependencias"><i class="fa fa-check"></i><b>13.2.2</b> Dependencias</a></li>
-<li class="chapter" data-level="13.2.3" data-path="compilación-e-instalación-de-paquetes.html"><a href="compilación-e-instalación-de-paquetes.html#cómo-añadir-dependencias"><i class="fa fa-check"></i><b>13.2.3</b> ¿Cómo añadir dependencias?</a></li>
-</ul></li>
-<li class="chapter" data-level="13.3" data-path="compilación-e-instalación-de-paquetes.html"><a href="compilación-e-instalación-de-paquetes.html#licencias"><i class="fa fa-check"></i><b>13.3</b> Licencias</a></li>
-<li class="chapter" data-level="13.4" data-path="compilación-e-instalación-de-paquetes.html"><a href="compilación-e-instalación-de-paquetes.html#paqueterías-de-código-fuente"><i class="fa fa-check"></i><b>13.4</b> Paqueterías de código fuente</a></li>
-<li class="chapter" data-level="13.5" data-path="compilación-e-instalación-de-paquetes.html"><a href="compilación-e-instalación-de-paquetes.html#en-dónde-podemos-encontrar-el-código-fuente-de-un-paquete"><i class="fa fa-check"></i><b>13.5</b> ¿En dónde podemos encontrar el código fuente de un paquete?</a></li>
-<li class="chapter" data-level="13.6" data-path="compilación-e-instalación-de-paquetes.html"><a href="compilación-e-instalación-de-paquetes.html#instalando-la-última-versión-en-desarrollo"><i class="fa fa-check"></i><b>13.6</b> Instalando la última versión en desarrollo</a></li>
-<li class="chapter" data-level="13.7" data-path="compilación-e-instalación-de-paquetes.html"><a href="compilación-e-instalación-de-paquetes.html#instalando-paquetes-desde-github"><i class="fa fa-check"></i><b>13.7</b> Instalando paquetes desde GitHub</a></li>
-<li class="chapter" data-level="13.8" data-path="compilación-e-instalación-de-paquetes.html"><a href="compilación-e-instalación-de-paquetes.html#instalando-un-paquete-local"><i class="fa fa-check"></i><b>13.8</b> Instalando un paquete local</a></li>
-<li class="chapter" data-level="13.9" data-path="compilación-e-instalación-de-paquetes.html"><a href="compilación-e-instalación-de-paquetes.html#contribuyendo-código"><i class="fa fa-check"></i><b>13.9</b> Contribuyendo código</a></li>
-</ul></li>
-<li class="chapter" data-level="14" data-path="proyectos-colaborativos-1.html"><a href="proyectos-colaborativos-1.html"><i class="fa fa-check"></i><b>14</b> Proyectos colaborativos</a>
-<ul>
-<li class="chapter" data-level="14.1" data-path="proyectos-colaborativos-1.html"><a href="proyectos-colaborativos-1.html#propuesta-1"><i class="fa fa-check"></i><b>14.1</b> Propuesta 1</a></li>
-<li class="chapter" data-level="14.2" data-path="proyectos-colaborativos-1.html"><a href="proyectos-colaborativos-1.html#propuesta-2"><i class="fa fa-check"></i><b>14.2</b> Propuesta 2</a></li>
-<li class="chapter" data-level="14.3" data-path="proyectos-colaborativos-1.html"><a href="proyectos-colaborativos-1.html#propuesta-3"><i class="fa fa-check"></i><b>14.3</b> Propuesta 3</a></li>
-<li class="chapter" data-level="14.4" data-path="proyectos-colaborativos-1.html"><a href="proyectos-colaborativos-1.html#propuesta-4"><i class="fa fa-check"></i><b>14.4</b> Propuesta 4</a></li>
-<li class="chapter" data-level="14.5" data-path="proyectos-colaborativos-1.html"><a href="proyectos-colaborativos-1.html#propuesta-5"><i class="fa fa-check"></i><b>14.5</b> Propuesta 5</a></li>
+<li class="chapter" data-level="11.1" data-path="proyectos-colaborativos-1.html"><a href="proyectos-colaborativos-1.html#propuesta-1"><i class="fa fa-check"></i><b>11.1</b> Propuesta 1</a></li>
+<li class="chapter" data-level="11.2" data-path="proyectos-colaborativos-1.html"><a href="proyectos-colaborativos-1.html#propuesta-2"><i class="fa fa-check"></i><b>11.2</b> Propuesta 2</a></li>
+<li class="chapter" data-level="11.3" data-path="proyectos-colaborativos-1.html"><a href="proyectos-colaborativos-1.html#propuesta-3"><i class="fa fa-check"></i><b>11.3</b> Propuesta 3</a></li>
+<li class="chapter" data-level="11.4" data-path="proyectos-colaborativos-1.html"><a href="proyectos-colaborativos-1.html#propuesta-4"><i class="fa fa-check"></i><b>11.4</b> Propuesta 4</a></li>
+<li class="chapter" data-level="11.5" data-path="proyectos-colaborativos-1.html"><a href="proyectos-colaborativos-1.html#propuesta-5"><i class="fa fa-check"></i><b>11.5</b> Propuesta 5</a></li>
 </ul></li>
 </ul>
 
@@ -278,12 +266,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="solución-de-problemas-con-las-versiones-de-paquetes-de-rstudio" class="section level1 hasAnchor" number="7">
-<h1><span class="header-section-number">7</span> Solución de problemas con las versiones de paquetes de Rstudio<a href="solución-de-problemas-con-las-versiones-de-paquetes-de-rstudio.html#solución-de-problemas-con-las-versiones-de-paquetes-de-rstudio" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="solución-de-problemas-con-las-versiones-de-paquetes-de-rstudio" class="section level1 hasAnchor" number="3">
+<h1><span class="header-section-number">3</span> Solución de problemas con las versiones de paquetes de Rstudio<a href="solución-de-problemas-con-las-versiones-de-paquetes-de-rstudio.html#solución-de-problemas-con-las-versiones-de-paquetes-de-rstudio" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>Yalbi Balderas</p>
-<p>29 de octubre de 2024</p>
-<div id="diapositivas-6" class="section level2 hasAnchor" number="7.1">
-<h2><span class="header-section-number">7.1</span> Diapositivas<a href="solución-de-problemas-con-las-versiones-de-paquetes-de-rstudio.html#diapositivas-6" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>28 de octubre de 2024</p>
+<div id="diapositivas-2" class="section level2 hasAnchor" number="3.1">
+<h2><span class="header-section-number">3.1</span> Diapositivas<a href="solución-de-problemas-con-las-versiones-de-paquetes-de-rstudio.html#diapositivas-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><a href="https://comunidadbioinfo.github.io/cdsb2023/solucion_problemas.html"><iframe src="https://comunidadbioinfo.github.io/cdsb2023/solucion_problemas.html" width="672" height="380px" data-external="1"></iframe></a></p>
 
 </div>
@@ -294,7 +282,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         </div>
       </div>
 <a href="control-de-versiones-con-github-y-rstudio.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="infraestructura-de-un-paquete-de-rbioconductor.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="creando-la-infraestructura-de-un-paquete.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
