@@ -120,4 +120,73 @@ ggdraw() +
   draw_image("img/resultadomisproyectos.png", width = 0.5, x = 0.5)
 ```
 
+## Generando rutas seguras
+
+- Se construyen a partir de una base estable
+
+El directorio de trabajo cambia de usuario a usuario y dependiendo de la ubicación de los archivos.
+
+```{r, eval=FALSE}
+getwd()
+```
+
+- Deben funcionar en cualquier sistema operativo
+
+Una ruta en sistemas Linux se ve así:
+
+```{r, eval=FALSE}
+"/Users/joselynchavez/Documents/materiales_cdsb2024"
+```
+
+Mientras que una ruta en Windows se ve así:
+
+```{r, eval=FALSE}
+"C:\Documents/materiales_cdsb2024"
+```
+
+### El paquete here
+
+Usemos el paquete here para detectar la ubicación del proyecto:
+
+```{r, eval=FALSE}
+here::here()
+```
+
+Ahora generemos una ruta segura a partir de la raíz del proyecto
+
+```{r, eval=FALSE}
+here::here("mi_tabla.csv")
+
+here::here("subfolder", "mi_tabla.csv")
+```
+
+### Usando el paquete fs
+
+Por defecto, usa el directorio de trabajo actual como base y detecta el sistema operativo automáticamente.
+
+```{r, eval=FALSE}
+fs::path("mi_tabla.csv")
+
+fs::path("subfolder", "mi_tabla.csv")
+```
+
+Tiene como ventaja que puede construir las rutas a partir del home del usuario.
+
+```{r, eval=FALSE}
+fs::path_home()
+
+fs::path_home("mi_tabla.csv")
+```
+
+### Usando funciones base
+
+Si no deseas incluir el paquete 'here' en las dependencias de tu paquete, puedes usar la función file.path
+
+Esta función usa como base el directorio de trabajo actual y detecta el sistema operativo para construir la ruta.
+
+```{r, eval=FALSE}
+file.path("mi_tabla.csv")
+
+file.path("subfolder", "mi_tabla.csv")
+```
 
