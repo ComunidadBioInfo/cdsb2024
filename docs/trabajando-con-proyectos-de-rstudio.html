@@ -146,7 +146,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1" data-path="trabajando-con-proyectos-de-rstudio.html"><a href="trabajando-con-proyectos-de-rstudio.html"><i class="fa fa-check"></i><b>1</b> Trabajando con proyectos de RStudio</a>
 <ul>
 <li class="chapter" data-level="1.1" data-path="trabajando-con-proyectos-de-rstudio.html"><a href="trabajando-con-proyectos-de-rstudio.html#diapositivas"><i class="fa fa-check"></i><b>1.1</b> Diapositivas</a></li>
-<li class="chapter" data-level="1.2" data-path="trabajando-con-proyectos-de-rstudio.html"><a href="trabajando-con-proyectos-de-rstudio.html#paths-seguros"><i class="fa fa-check"></i><b>1.2</b> Paths seguros</a></li>
+<li class="chapter" data-level="1.2" data-path="trabajando-con-proyectos-de-rstudio.html"><a href="trabajando-con-proyectos-de-rstudio.html#qué-es-un-proyecto-de-rstudio"><i class="fa fa-check"></i><b>1.2</b> ¿Qué es un proyecto de RStudio?</a></li>
+<li class="chapter" data-level="1.3" data-path="trabajando-con-proyectos-de-rstudio.html"><a href="trabajando-con-proyectos-de-rstudio.html#cómo-generamos-un-proyecto-de-rstudio"><i class="fa fa-check"></i><b>1.3</b> ¿Cómo generamos un proyecto de RStudio?</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="trabajando-con-proyectos-de-rstudio.html"><a href="trabajando-con-proyectos-de-rstudio.html#opción-1-creando-un-proyecto-en-un-directorio-nuevo."><i class="fa fa-check"></i><b>1.3.1</b> Opción 1: Creando un proyecto en un directorio nuevo.</a></li>
+<li class="chapter" data-level="1.3.2" data-path="trabajando-con-proyectos-de-rstudio.html"><a href="trabajando-con-proyectos-de-rstudio.html#opción-2-creando-un-proyecto-en-un-directorio-existente."><i class="fa fa-check"></i><b>1.3.2</b> Opción 2: Creando un proyecto en un directorio existente.</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="trabajando-con-proyectos-de-rstudio.html"><a href="trabajando-con-proyectos-de-rstudio.html#por-qué-usar-proyectos-de-rstudio"><i class="fa fa-check"></i><b>1.4</b> ¿Por qué usar proyectos de RStudio?</a></li>
+<li class="chapter" data-level="1.5" data-path="trabajando-con-proyectos-de-rstudio.html"><a href="trabajando-con-proyectos-de-rstudio.html#algunos-hacks"><i class="fa fa-check"></i><b>1.5</b> Algunos hacks!</a></li>
+<li class="chapter" data-level="1.6" data-path="trabajando-con-proyectos-de-rstudio.html"><a href="trabajando-con-proyectos-de-rstudio.html#generando-rutas-seguras"><i class="fa fa-check"></i><b>1.6</b> Generando rutas seguras</a>
+<ul>
+<li class="chapter" data-level="1.6.1" data-path="trabajando-con-proyectos-de-rstudio.html"><a href="trabajando-con-proyectos-de-rstudio.html#el-paquete-here"><i class="fa fa-check"></i><b>1.6.1</b> El paquete here</a></li>
+<li class="chapter" data-level="1.6.2" data-path="trabajando-con-proyectos-de-rstudio.html"><a href="trabajando-con-proyectos-de-rstudio.html#usando-el-paquete-fs"><i class="fa fa-check"></i><b>1.6.2</b> Usando el paquete fs</a></li>
+<li class="chapter" data-level="1.6.3" data-path="trabajando-con-proyectos-de-rstudio.html"><a href="trabajando-con-proyectos-de-rstudio.html#usando-funciones-base"><i class="fa fa-check"></i><b>1.6.3</b> Usando funciones base</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html"><i class="fa fa-check"></i><b>2</b> Control de versiones con GitHub y RStudio</a>
 <ul>
@@ -274,11 +287,143 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>28 de octubre de 2024</p>
 <div id="diapositivas" class="section level2 hasAnchor" number="1.1">
 <h2><span class="header-section-number">1.1</span> Diapositivas<a href="trabajando-con-proyectos-de-rstudio.html#diapositivas" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p><a href="https://comunidadbioinfo.github.io/cdsb2023/dia1_sesion1_slides.html"><iframe src="https://comunidadbioinfo.github.io/cdsb2023/dia1_sesion1_slides.html" width="672" height="380px" data-external="1"></iframe></a></p>
+<p><a href="https://comunidadbioinfo.github.io/cdsb2024/proyectos.html"><iframe src="https://comunidadbioinfo.github.io/cdsb2024/proyectos.html" width="672" height="380px" data-external="1"></iframe></a></p>
+<style>
+div.grey { 
+background-color: #bfbfbf;
+}
+</style>
+<style>
+div.center {
+text-align:center;
+}
+</style>
 </div>
-<div id="paths-seguros" class="section level2 hasAnchor" number="1.2">
-<h2><span class="header-section-number">1.2</span> Paths seguros<a href="trabajando-con-proyectos-de-rstudio.html#paths-seguros" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="qué-es-un-proyecto-de-rstudio" class="section level2 hasAnchor" number="1.2">
+<h2><span class="header-section-number">1.2</span> ¿Qué es un proyecto de RStudio?<a href="trabajando-con-proyectos-de-rstudio.html#qué-es-un-proyecto-de-rstudio" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li><p>Es un archivo especial de R, compatible con RStudio, que al ejecutarlo hará 3 cosas:</p>
+<ul>
+<li>Abrirá una nueva sesión de RStudio.</li>
+<li>Establecerá la ubicación del proyecto como tu directorio de trabajo.</li>
+<li>Establecerá la ubicación del proyecto como la raíz de los archivos.</li>
+</ul></li>
+</ul>
+</div>
+<div id="cómo-generamos-un-proyecto-de-rstudio" class="section level2 hasAnchor" number="1.3">
+<h2><span class="header-section-number">1.3</span> ¿Cómo generamos un proyecto de RStudio?<a href="trabajando-con-proyectos-de-rstudio.html#cómo-generamos-un-proyecto-de-rstudio" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="opción-1-creando-un-proyecto-en-un-directorio-nuevo." class="section level3 hasAnchor" number="1.3.1">
+<h3><span class="header-section-number">1.3.1</span> Opción 1: Creando un proyecto en un directorio nuevo.<a href="trabajando-con-proyectos-de-rstudio.html#opción-1-creando-un-proyecto-en-un-directorio-nuevo." class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>En las opciones de RStudio Ve a File &gt; New project &gt; New Directory &gt; New Project.</li>
+<li>Asigna un nombre a tu proyecto, sin espacios y sin caracteres especiales.</li>
+<li>Selecciona la ubicación donde crearás el nuevo directorio.</li>
+<li>Selecciona la opción Open in New Session.</li>
+<li>Oprime Create Project.</li>
+</ul>
+</div>
+<div id="opción-2-creando-un-proyecto-en-un-directorio-existente." class="section level3 hasAnchor" number="1.3.2">
+<h3><span class="header-section-number">1.3.2</span> Opción 2: Creando un proyecto en un directorio existente.<a href="trabajando-con-proyectos-de-rstudio.html#opción-2-creando-un-proyecto-en-un-directorio-existente." class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Crea un directorio en alguna ubicación conocida de tu computadora.</li>
+<li>Asigna un nombre a tu directorio, sin espacios y sin caracteres especiales (Este será el nombre de tu proyecto).</li>
+<li>En las opciones de RStudio ve a File &gt; New project &gt; Existing Directory.</li>
+<li>Selecciona la ubicación donde previamente creaste el directorio.</li>
+<li>Selecciona la opción Open in New Session.</li>
+<li>Oprime Create Project.</li>
+</ul>
+</div>
+</div>
+<div id="por-qué-usar-proyectos-de-rstudio" class="section level2 hasAnchor" number="1.4">
+<h2><span class="header-section-number">1.4</span> ¿Por qué usar proyectos de RStudio?<a href="trabajando-con-proyectos-de-rstudio.html#por-qué-usar-proyectos-de-rstudio" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>Te permiten ser más organizado y pasar de tener una ensalada de archivos a tener carpetas para cada sección del análisis.</li>
+</ul>
+<p><img src="_main_files/figure-html/unnamed-chunk-3-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<ul>
+<li>Compartamentalizas tu trabajo al generar un proyecto específico para cada análisis.</li>
+</ul>
+<p><img src="img/multiproyectos.png" width="35%" style="display: block; margin: auto;" /></p>
+<ul>
+<li>Te permiten trabajar con varios proyectos a la vez en sesiones independientes de RStudio, cada uno con sus propias variables, directorio de trabajo y archivos.</li>
+</ul>
+<p><img src="img/multisesion.png" width="80%" style="display: block; margin: auto;" /></p>
+<ul>
+<li><p>Establece automáticamente tu directorio de trabajo. En lugar de usar setwd() solamente requieres ejecutar el archivo .Rproj para abrir la sesión y trabajar en la ubicación del proyecto.</p></li>
+<li><p>Puedes usar rutas relativas (y estables) a tus archivos, que seguirán funcionando sin importar en dónde se ubique tu proyecto.</p></li>
+<li><p>Facilita el compartir y reproducir tu trabajo. No más rutas al estilo ~/MiComputadora/MiFolder/MiArchivo. Comparte la carpeta completa de tu proyecto con todos los archivos necesarios y usa rutas relativas dentro del Rscript, por ejemplo ./datos.</p></li>
+<li><p>Nos ayuda a establecer colaboraciones y trabajar con plataformas de control de versiones.</p></li>
+</ul>
+<p><img src="_main_files/figure-html/unnamed-chunk-6-1.png" width="40%" style="display: block; margin: auto;" /></p>
+<div class="grey color">
+<div class="center">
+<strong>Actividad</strong>
+</div>
+<p>Comprueba algunas ventajas de usar proyectos de RStudio.</p>
+<ul>
+<li>Genera un nuevo proyecto de RStudio llamado ‘miproyecto’, recuerda que existen varias formas para hacerlo.</li>
+<li>Cierra la sesión y vuelve a abrirla ejecutando desde la terminal open miproyecto.Rproj o dando doble click sobre el archivo miproyecto.Rproj.</li>
+<li>Evalúa tu directorio de trabajo ejecutando en la consola de RStudio el comando getwd().</li>
+<li>Cierra la sesión y mueve toda la carpeta de tu proyecto a otra ubicación. Si lo creaste en Documentos mueve la carpeta al Escritorio o viceversa.</li>
+<li>Abre nuevamente el proyecto y verifica el directorio de trabajo, ¿Cambió el directorio de trabajo?</li>
+<li>Sin cerrar este proyecto, abre alguno de los proyectos que generaste previamente (por ejemplo directorioprevio.Rproj), recuerda que puedes seleccionar Open Project in New session</li>
+</ul>
+</div>
+</div>
+<div id="algunos-hacks" class="section level2 hasAnchor" number="1.5">
+<h2><span class="header-section-number">1.5</span> Algunos hacks!<a href="trabajando-con-proyectos-de-rstudio.html#algunos-hacks" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>RStudio recuerda los proyectos con los que has trabajado recientemente. Ve a la esquina superior derecha y da click en la flecha junto al nombre de tu proyecto actual. Verás todos los proyectos recientes. Si das click en el nombre de alguno de ellos te abrirá el proyecto en la misma sesión, si das click en el recuadro con flecha blanca te abrirá una nueva sesión con tu proyecto.</li>
+</ul>
+<p><img src="img/listprojects.png" width="30%" style="display: block; margin: auto;" /></p>
+<ul>
+<li>Crea todos tus proyectos dentro de una carpeta principal y usa el buscador de archivos para acceder a ellos rápidamente.</li>
+</ul>
+<p><img src="_main_files/figure-html/unnamed-chunk-8-1.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div id="generando-rutas-seguras" class="section level2 hasAnchor" number="1.6">
+<h2><span class="header-section-number">1.6</span> Generando rutas seguras<a href="trabajando-con-proyectos-de-rstudio.html#generando-rutas-seguras" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>Se construyen a partir de una base estable</li>
+</ul>
+<p>El directorio de trabajo cambia de usuario a usuario y dependiendo de la ubicación de los archivos.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="trabajando-con-proyectos-de-rstudio.html#cb1-1" tabindex="-1"></a><span class="fu">getwd</span>()</span></code></pre></div>
+<ul>
+<li>Deben funcionar en cualquier sistema operativo</li>
+</ul>
+<p>Una ruta en sistemas Linux se ve así:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="trabajando-con-proyectos-de-rstudio.html#cb2-1" tabindex="-1"></a><span class="st">&quot;/Users/joselynchavez/Documents/materiales_cdsb2024&quot;</span></span></code></pre></div>
+<p>Mientras que una ruta en Windows se ve así:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="trabajando-con-proyectos-de-rstudio.html#cb3-1" tabindex="-1"></a><span class="st">&quot;C:\Documents/materiales_cdsb2024&quot;</span></span></code></pre></div>
+<div id="el-paquete-here" class="section level3 hasAnchor" number="1.6.1">
+<h3><span class="header-section-number">1.6.1</span> El paquete here<a href="trabajando-con-proyectos-de-rstudio.html#el-paquete-here" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Usemos el paquete here para detectar la ubicación del proyecto:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="trabajando-con-proyectos-de-rstudio.html#cb4-1" tabindex="-1"></a>here<span class="sc">::</span><span class="fu">here</span>()</span></code></pre></div>
+<p>Ahora generemos una ruta segura a partir de la raíz del proyecto</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="trabajando-con-proyectos-de-rstudio.html#cb5-1" tabindex="-1"></a>here<span class="sc">::</span><span class="fu">here</span>(<span class="st">&quot;mi_tabla.csv&quot;</span>)</span>
+<span id="cb5-2"><a href="trabajando-con-proyectos-de-rstudio.html#cb5-2" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="trabajando-con-proyectos-de-rstudio.html#cb5-3" tabindex="-1"></a>here<span class="sc">::</span><span class="fu">here</span>(<span class="st">&quot;subfolder&quot;</span>, <span class="st">&quot;mi_tabla.csv&quot;</span>)</span></code></pre></div>
+</div>
+<div id="usando-el-paquete-fs" class="section level3 hasAnchor" number="1.6.2">
+<h3><span class="header-section-number">1.6.2</span> Usando el paquete fs<a href="trabajando-con-proyectos-de-rstudio.html#usando-el-paquete-fs" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Por defecto, usa el directorio de trabajo actual como base y detecta el sistema operativo automáticamente.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="trabajando-con-proyectos-de-rstudio.html#cb6-1" tabindex="-1"></a>fs<span class="sc">::</span><span class="fu">path</span>(<span class="st">&quot;mi_tabla.csv&quot;</span>)</span>
+<span id="cb6-2"><a href="trabajando-con-proyectos-de-rstudio.html#cb6-2" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="trabajando-con-proyectos-de-rstudio.html#cb6-3" tabindex="-1"></a>fs<span class="sc">::</span><span class="fu">path</span>(<span class="st">&quot;subfolder&quot;</span>, <span class="st">&quot;mi_tabla.csv&quot;</span>)</span></code></pre></div>
+<p>Tiene como ventaja que puede construir las rutas a partir del home del usuario.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="trabajando-con-proyectos-de-rstudio.html#cb7-1" tabindex="-1"></a>fs<span class="sc">::</span><span class="fu">path_home</span>()</span>
+<span id="cb7-2"><a href="trabajando-con-proyectos-de-rstudio.html#cb7-2" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="trabajando-con-proyectos-de-rstudio.html#cb7-3" tabindex="-1"></a>fs<span class="sc">::</span><span class="fu">path_home</span>(<span class="st">&quot;mi_tabla.csv&quot;</span>)</span></code></pre></div>
+</div>
+<div id="usando-funciones-base" class="section level3 hasAnchor" number="1.6.3">
+<h3><span class="header-section-number">1.6.3</span> Usando funciones base<a href="trabajando-con-proyectos-de-rstudio.html#usando-funciones-base" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Si no deseas incluir el paquete ‘here’ en las dependencias de tu paquete, puedes usar la función file.path</p>
+<p>Esta función usa como base el directorio de trabajo actual y detecta el sistema operativo para construir la ruta.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="trabajando-con-proyectos-de-rstudio.html#cb8-1" tabindex="-1"></a><span class="fu">file.path</span>(<span class="st">&quot;mi_tabla.csv&quot;</span>)</span>
+<span id="cb8-2"><a href="trabajando-con-proyectos-de-rstudio.html#cb8-2" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="trabajando-con-proyectos-de-rstudio.html#cb8-3" tabindex="-1"></a><span class="fu">file.path</span>(<span class="st">&quot;subfolder&quot;</span>, <span class="st">&quot;mi_tabla.csv&quot;</span>)</span></code></pre></div>
 
+</div>
 </div>
 </div>
             </section>

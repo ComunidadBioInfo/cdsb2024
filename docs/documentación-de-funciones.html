@@ -146,7 +146,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1" data-path="trabajando-con-proyectos-de-rstudio.html"><a href="trabajando-con-proyectos-de-rstudio.html"><i class="fa fa-check"></i><b>1</b> Trabajando con proyectos de RStudio</a>
 <ul>
 <li class="chapter" data-level="1.1" data-path="trabajando-con-proyectos-de-rstudio.html"><a href="trabajando-con-proyectos-de-rstudio.html#diapositivas"><i class="fa fa-check"></i><b>1.1</b> Diapositivas</a></li>
-<li class="chapter" data-level="1.2" data-path="trabajando-con-proyectos-de-rstudio.html"><a href="trabajando-con-proyectos-de-rstudio.html#paths-seguros"><i class="fa fa-check"></i><b>1.2</b> Paths seguros</a></li>
+<li class="chapter" data-level="1.2" data-path="trabajando-con-proyectos-de-rstudio.html"><a href="trabajando-con-proyectos-de-rstudio.html#qué-es-un-proyecto-de-rstudio"><i class="fa fa-check"></i><b>1.2</b> ¿Qué es un proyecto de RStudio?</a></li>
+<li class="chapter" data-level="1.3" data-path="trabajando-con-proyectos-de-rstudio.html"><a href="trabajando-con-proyectos-de-rstudio.html#cómo-generamos-un-proyecto-de-rstudio"><i class="fa fa-check"></i><b>1.3</b> ¿Cómo generamos un proyecto de RStudio?</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="trabajando-con-proyectos-de-rstudio.html"><a href="trabajando-con-proyectos-de-rstudio.html#opción-1-creando-un-proyecto-en-un-directorio-nuevo."><i class="fa fa-check"></i><b>1.3.1</b> Opción 1: Creando un proyecto en un directorio nuevo.</a></li>
+<li class="chapter" data-level="1.3.2" data-path="trabajando-con-proyectos-de-rstudio.html"><a href="trabajando-con-proyectos-de-rstudio.html#opción-2-creando-un-proyecto-en-un-directorio-existente."><i class="fa fa-check"></i><b>1.3.2</b> Opción 2: Creando un proyecto en un directorio existente.</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="trabajando-con-proyectos-de-rstudio.html"><a href="trabajando-con-proyectos-de-rstudio.html#por-qué-usar-proyectos-de-rstudio"><i class="fa fa-check"></i><b>1.4</b> ¿Por qué usar proyectos de RStudio?</a></li>
+<li class="chapter" data-level="1.5" data-path="trabajando-con-proyectos-de-rstudio.html"><a href="trabajando-con-proyectos-de-rstudio.html#algunos-hacks"><i class="fa fa-check"></i><b>1.5</b> Algunos hacks!</a></li>
+<li class="chapter" data-level="1.6" data-path="trabajando-con-proyectos-de-rstudio.html"><a href="trabajando-con-proyectos-de-rstudio.html#generando-rutas-seguras"><i class="fa fa-check"></i><b>1.6</b> Generando rutas seguras</a>
+<ul>
+<li class="chapter" data-level="1.6.1" data-path="trabajando-con-proyectos-de-rstudio.html"><a href="trabajando-con-proyectos-de-rstudio.html#el-paquete-here"><i class="fa fa-check"></i><b>1.6.1</b> El paquete here</a></li>
+<li class="chapter" data-level="1.6.2" data-path="trabajando-con-proyectos-de-rstudio.html"><a href="trabajando-con-proyectos-de-rstudio.html#usando-el-paquete-fs"><i class="fa fa-check"></i><b>1.6.2</b> Usando el paquete fs</a></li>
+<li class="chapter" data-level="1.6.3" data-path="trabajando-con-proyectos-de-rstudio.html"><a href="trabajando-con-proyectos-de-rstudio.html#usando-funciones-base"><i class="fa fa-check"></i><b>1.6.3</b> Usando funciones base</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="control-de-versiones-con-github-y-rstudio.html"><a href="control-de-versiones-con-github-y-rstudio.html"><i class="fa fa-check"></i><b>2</b> Control de versiones con GitHub y RStudio</a>
 <ul>
@@ -317,10 +330,10 @@ editas la función será mas fácil recordar actualizar la documentcion también
 <p>Vamos a crear un función para nuestro paquete. Supongamos que para nuestro
 paquete necesitamos una función que calcule la moda. Esta es una forma sencilla
 de calcular la moda:</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="documentación-de-funciones.html#cb16-1" tabindex="-1"></a>getmode <span class="ot">&lt;-</span> <span class="cf">function</span>(serievector) {</span>
-<span id="cb16-2"><a href="documentación-de-funciones.html#cb16-2" tabindex="-1"></a>  uniqv <span class="ot">&lt;-</span> <span class="fu">unique</span>(serievector)</span>
-<span id="cb16-3"><a href="documentación-de-funciones.html#cb16-3" tabindex="-1"></a>  uniqv[<span class="fu">which.max</span>(<span class="fu">tabulate</span>(<span class="fu">match</span>(serievector, uniqv)))]</span>
-<span id="cb16-4"><a href="documentación-de-funciones.html#cb16-4" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="documentación-de-funciones.html#cb24-1" tabindex="-1"></a>getmode <span class="ot">&lt;-</span> <span class="cf">function</span>(serievector) {</span>
+<span id="cb24-2"><a href="documentación-de-funciones.html#cb24-2" tabindex="-1"></a>  uniqv <span class="ot">&lt;-</span> <span class="fu">unique</span>(serievector)</span>
+<span id="cb24-3"><a href="documentación-de-funciones.html#cb24-3" tabindex="-1"></a>  uniqv[<span class="fu">which.max</span>(<span class="fu">tabulate</span>(<span class="fu">match</span>(serievector, uniqv)))]</span>
+<span id="cb24-4"><a href="documentación-de-funciones.html#cb24-4" tabindex="-1"></a>}</span></code></pre></div>
 <ul>
 <li><code>unique(serievector)</code>: Crea un vector que contiene únicamente los valores únicos
 de la serie de números serievector.</li>
@@ -334,129 +347,129 @@ máximo en el vector de frecuencias.</li>
 correspondiente al índice calculado, que es la moda.</li>
 </ul>
 <p>Creamos un ejemplo para ver que funcione:</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="documentación-de-funciones.html#cb17-1" tabindex="-1"></a>serie_numeros <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">4</span>)</span>
-<span id="cb17-2"><a href="documentación-de-funciones.html#cb17-2" tabindex="-1"></a>resultado <span class="ot">&lt;-</span> <span class="fu">getmode</span>(serie_numeros)</span>
-<span id="cb17-3"><a href="documentación-de-funciones.html#cb17-3" tabindex="-1"></a><span class="fu">print</span>(resultado)</span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="documentación-de-funciones.html#cb25-1" tabindex="-1"></a>serie_numeros <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">4</span>)</span>
+<span id="cb25-2"><a href="documentación-de-funciones.html#cb25-2" tabindex="-1"></a>resultado <span class="ot">&lt;-</span> <span class="fu">getmode</span>(serie_numeros)</span>
+<span id="cb25-3"><a href="documentación-de-funciones.html#cb25-3" tabindex="-1"></a><span class="fu">print</span>(resultado)</span></code></pre></div>
 <pre><code>## [1] 2</code></pre>
 <p>Bien ahora si podemos podemos empezar a usar el paquete de roxygen para documentar nuestra función.. comencemos.</p>
 </div>
 <div id="generacion-de-un-bloque-de-documentacion-con-ayuda-del-paquete-roxygen." class="section level2 hasAnchor" number="6.6">
 <h2><span class="header-section-number">6.6</span> Generacion de un bloque de documentacion con ayuda del paquete roxygen.<a href="documentación-de-funciones.html#generacion-de-un-bloque-de-documentacion-con-ayuda-del-paquete-roxygen." class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Podemos insertar un esqueleto de comentarios de roxygen para ver su síntesis. Colocamos el cursor en algún lugar de la definición de nuestra función y buscamos en la pestaña Código &gt; Insertar Roxygen Skeleton.</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="documentación-de-funciones.html#cb19-1" tabindex="-1"></a><span class="co">#&#39; Title</span></span>
-<span id="cb19-2"><a href="documentación-de-funciones.html#cb19-2" tabindex="-1"></a><span class="co">#&#39;</span></span>
-<span id="cb19-3"><a href="documentación-de-funciones.html#cb19-3" tabindex="-1"></a><span class="co">#&#39; @param serievector </span></span>
-<span id="cb19-4"><a href="documentación-de-funciones.html#cb19-4" tabindex="-1"></a><span class="co">#&#39;</span></span>
-<span id="cb19-5"><a href="documentación-de-funciones.html#cb19-5" tabindex="-1"></a><span class="co">#&#39; @return</span></span>
-<span id="cb19-6"><a href="documentación-de-funciones.html#cb19-6" tabindex="-1"></a><span class="co">#&#39; @export</span></span>
-<span id="cb19-7"><a href="documentación-de-funciones.html#cb19-7" tabindex="-1"></a><span class="co">#&#39;</span></span>
-<span id="cb19-8"><a href="documentación-de-funciones.html#cb19-8" tabindex="-1"></a><span class="co">#&#39; @examples</span></span>
-<span id="cb19-9"><a href="documentación-de-funciones.html#cb19-9" tabindex="-1"></a></span>
-<span id="cb19-10"><a href="documentación-de-funciones.html#cb19-10" tabindex="-1"></a>getmode <span class="ot">&lt;-</span> <span class="cf">function</span>(serievector) {</span>
-<span id="cb19-11"><a href="documentación-de-funciones.html#cb19-11" tabindex="-1"></a>  uniqv <span class="ot">&lt;-</span> <span class="fu">unique</span>(serievector)</span>
-<span id="cb19-12"><a href="documentación-de-funciones.html#cb19-12" tabindex="-1"></a>  uniqv[<span class="fu">which.max</span>(<span class="fu">tabulate</span>(<span class="fu">match</span>(serievector, uniqv)))]</span>
-<span id="cb19-13"><a href="documentación-de-funciones.html#cb19-13" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="documentación-de-funciones.html#cb27-1" tabindex="-1"></a><span class="co">#&#39; Title</span></span>
+<span id="cb27-2"><a href="documentación-de-funciones.html#cb27-2" tabindex="-1"></a><span class="co">#&#39;</span></span>
+<span id="cb27-3"><a href="documentación-de-funciones.html#cb27-3" tabindex="-1"></a><span class="co">#&#39; @param serievector </span></span>
+<span id="cb27-4"><a href="documentación-de-funciones.html#cb27-4" tabindex="-1"></a><span class="co">#&#39;</span></span>
+<span id="cb27-5"><a href="documentación-de-funciones.html#cb27-5" tabindex="-1"></a><span class="co">#&#39; @return</span></span>
+<span id="cb27-6"><a href="documentación-de-funciones.html#cb27-6" tabindex="-1"></a><span class="co">#&#39; @export</span></span>
+<span id="cb27-7"><a href="documentación-de-funciones.html#cb27-7" tabindex="-1"></a><span class="co">#&#39;</span></span>
+<span id="cb27-8"><a href="documentación-de-funciones.html#cb27-8" tabindex="-1"></a><span class="co">#&#39; @examples</span></span>
+<span id="cb27-9"><a href="documentación-de-funciones.html#cb27-9" tabindex="-1"></a></span>
+<span id="cb27-10"><a href="documentación-de-funciones.html#cb27-10" tabindex="-1"></a>getmode <span class="ot">&lt;-</span> <span class="cf">function</span>(serievector) {</span>
+<span id="cb27-11"><a href="documentación-de-funciones.html#cb27-11" tabindex="-1"></a>  uniqv <span class="ot">&lt;-</span> <span class="fu">unique</span>(serievector)</span>
+<span id="cb27-12"><a href="documentación-de-funciones.html#cb27-12" tabindex="-1"></a>  uniqv[<span class="fu">which.max</span>(<span class="fu">tabulate</span>(<span class="fu">match</span>(serievector, uniqv)))]</span>
+<span id="cb27-13"><a href="documentación-de-funciones.html#cb27-13" tabindex="-1"></a>}</span></code></pre></div>
 <p>Ahora ya tenemos un esqueleto de la documentación que nos da una ventaja para su creación.
 Las líneas de comentarios de Roxygen siempre comienzan con <code>#'</code>, el habitual para un comentario <code>#</code> mas un <code>'</code></p>
 <p>Veamos los comentarios de uno por uno:</p>
 <p>Empezamos con el titulo. Se sugiere poner en el titulo las acciones principales que realiza la función en este caso por ejemplo podremos usar:</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="documentación-de-funciones.html#cb20-1" tabindex="-1"></a><span class="co">#&#39; @title Encontrar la Moda de una Serie de Números</span></span>
-<span id="cb20-2"><a href="documentación-de-funciones.html#cb20-2" tabindex="-1"></a><span class="co">#&#39;</span></span>
-<span id="cb20-3"><a href="documentación-de-funciones.html#cb20-3" tabindex="-1"></a><span class="co">#&#39; @param serievector </span></span>
-<span id="cb20-4"><a href="documentación-de-funciones.html#cb20-4" tabindex="-1"></a><span class="co">#&#39;</span></span>
-<span id="cb20-5"><a href="documentación-de-funciones.html#cb20-5" tabindex="-1"></a><span class="co">#&#39; @return</span></span>
-<span id="cb20-6"><a href="documentación-de-funciones.html#cb20-6" tabindex="-1"></a><span class="co">#&#39; @export</span></span>
-<span id="cb20-7"><a href="documentación-de-funciones.html#cb20-7" tabindex="-1"></a><span class="co">#&#39;</span></span>
-<span id="cb20-8"><a href="documentación-de-funciones.html#cb20-8" tabindex="-1"></a><span class="co">#&#39; @examples</span></span>
-<span id="cb20-9"><a href="documentación-de-funciones.html#cb20-9" tabindex="-1"></a></span>
-<span id="cb20-10"><a href="documentación-de-funciones.html#cb20-10" tabindex="-1"></a>getmode <span class="ot">&lt;-</span> <span class="cf">function</span>(serievector) {</span>
-<span id="cb20-11"><a href="documentación-de-funciones.html#cb20-11" tabindex="-1"></a>  uniqv <span class="ot">&lt;-</span> <span class="fu">unique</span>(serievector)</span>
-<span id="cb20-12"><a href="documentación-de-funciones.html#cb20-12" tabindex="-1"></a>  uniqv[<span class="fu">which.max</span>(<span class="fu">tabulate</span>(<span class="fu">match</span>(serievector, uniqv)))]</span>
-<span id="cb20-13"><a href="documentación-de-funciones.html#cb20-13" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="documentación-de-funciones.html#cb28-1" tabindex="-1"></a><span class="co">#&#39; @title Encontrar la Moda de una Serie de Números</span></span>
+<span id="cb28-2"><a href="documentación-de-funciones.html#cb28-2" tabindex="-1"></a><span class="co">#&#39;</span></span>
+<span id="cb28-3"><a href="documentación-de-funciones.html#cb28-3" tabindex="-1"></a><span class="co">#&#39; @param serievector </span></span>
+<span id="cb28-4"><a href="documentación-de-funciones.html#cb28-4" tabindex="-1"></a><span class="co">#&#39;</span></span>
+<span id="cb28-5"><a href="documentación-de-funciones.html#cb28-5" tabindex="-1"></a><span class="co">#&#39; @return</span></span>
+<span id="cb28-6"><a href="documentación-de-funciones.html#cb28-6" tabindex="-1"></a><span class="co">#&#39; @export</span></span>
+<span id="cb28-7"><a href="documentación-de-funciones.html#cb28-7" tabindex="-1"></a><span class="co">#&#39;</span></span>
+<span id="cb28-8"><a href="documentación-de-funciones.html#cb28-8" tabindex="-1"></a><span class="co">#&#39; @examples</span></span>
+<span id="cb28-9"><a href="documentación-de-funciones.html#cb28-9" tabindex="-1"></a></span>
+<span id="cb28-10"><a href="documentación-de-funciones.html#cb28-10" tabindex="-1"></a>getmode <span class="ot">&lt;-</span> <span class="cf">function</span>(serievector) {</span>
+<span id="cb28-11"><a href="documentación-de-funciones.html#cb28-11" tabindex="-1"></a>  uniqv <span class="ot">&lt;-</span> <span class="fu">unique</span>(serievector)</span>
+<span id="cb28-12"><a href="documentación-de-funciones.html#cb28-12" tabindex="-1"></a>  uniqv[<span class="fu">which.max</span>(<span class="fu">tabulate</span>(<span class="fu">match</span>(serievector, uniqv)))]</span>
+<span id="cb28-13"><a href="documentación-de-funciones.html#cb28-13" tabindex="-1"></a>}</span></code></pre></div>
 <p>Muy bien!.
 El siguiente comentario que podemos ver es <code>@param</code>. Pero antes, vamos a añadir una pequeña descripción de la función y como usarla. Primero añadimos la pequeña descripción con <code>@description</code>:</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="documentación-de-funciones.html#cb21-1" tabindex="-1"></a><span class="co">#&#39; @title Encontrar la Moda de una Serie de Números</span></span>
-<span id="cb21-2"><a href="documentación-de-funciones.html#cb21-2" tabindex="-1"></a><span class="co">#&#39;</span></span>
-<span id="cb21-3"><a href="documentación-de-funciones.html#cb21-3" tabindex="-1"></a><span class="co">#&#39; @description Esta función lee una serie de números en forma de vector y</span></span>
-<span id="cb21-4"><a href="documentación-de-funciones.html#cb21-4" tabindex="-1"></a><span class="co">#&#39; encuentra el elemento que mas se repite, es decir la moda.</span></span>
-<span id="cb21-5"><a href="documentación-de-funciones.html#cb21-5" tabindex="-1"></a><span class="co">#&#39; @param serievector</span></span>
-<span id="cb21-6"><a href="documentación-de-funciones.html#cb21-6" tabindex="-1"></a><span class="co">#&#39;</span></span>
-<span id="cb21-7"><a href="documentación-de-funciones.html#cb21-7" tabindex="-1"></a><span class="co">#&#39; @return</span></span>
-<span id="cb21-8"><a href="documentación-de-funciones.html#cb21-8" tabindex="-1"></a><span class="co">#&#39; @export</span></span>
-<span id="cb21-9"><a href="documentación-de-funciones.html#cb21-9" tabindex="-1"></a><span class="co">#&#39;</span></span>
-<span id="cb21-10"><a href="documentación-de-funciones.html#cb21-10" tabindex="-1"></a><span class="co">#&#39; @examples</span></span>
-<span id="cb21-11"><a href="documentación-de-funciones.html#cb21-11" tabindex="-1"></a></span>
-<span id="cb21-12"><a href="documentación-de-funciones.html#cb21-12" tabindex="-1"></a>getmode <span class="ot">&lt;-</span> <span class="cf">function</span>(serievector) {</span>
-<span id="cb21-13"><a href="documentación-de-funciones.html#cb21-13" tabindex="-1"></a>  uniqv <span class="ot">&lt;-</span> <span class="fu">unique</span>(serievector)</span>
-<span id="cb21-14"><a href="documentación-de-funciones.html#cb21-14" tabindex="-1"></a>  uniqv[<span class="fu">which.max</span>(<span class="fu">tabulate</span>(<span class="fu">match</span>(serievector, uniqv)))]</span>
-<span id="cb21-15"><a href="documentación-de-funciones.html#cb21-15" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="documentación-de-funciones.html#cb29-1" tabindex="-1"></a><span class="co">#&#39; @title Encontrar la Moda de una Serie de Números</span></span>
+<span id="cb29-2"><a href="documentación-de-funciones.html#cb29-2" tabindex="-1"></a><span class="co">#&#39;</span></span>
+<span id="cb29-3"><a href="documentación-de-funciones.html#cb29-3" tabindex="-1"></a><span class="co">#&#39; @description Esta función lee una serie de números en forma de vector y</span></span>
+<span id="cb29-4"><a href="documentación-de-funciones.html#cb29-4" tabindex="-1"></a><span class="co">#&#39; encuentra el elemento que mas se repite, es decir la moda.</span></span>
+<span id="cb29-5"><a href="documentación-de-funciones.html#cb29-5" tabindex="-1"></a><span class="co">#&#39; @param serievector</span></span>
+<span id="cb29-6"><a href="documentación-de-funciones.html#cb29-6" tabindex="-1"></a><span class="co">#&#39;</span></span>
+<span id="cb29-7"><a href="documentación-de-funciones.html#cb29-7" tabindex="-1"></a><span class="co">#&#39; @return</span></span>
+<span id="cb29-8"><a href="documentación-de-funciones.html#cb29-8" tabindex="-1"></a><span class="co">#&#39; @export</span></span>
+<span id="cb29-9"><a href="documentación-de-funciones.html#cb29-9" tabindex="-1"></a><span class="co">#&#39;</span></span>
+<span id="cb29-10"><a href="documentación-de-funciones.html#cb29-10" tabindex="-1"></a><span class="co">#&#39; @examples</span></span>
+<span id="cb29-11"><a href="documentación-de-funciones.html#cb29-11" tabindex="-1"></a></span>
+<span id="cb29-12"><a href="documentación-de-funciones.html#cb29-12" tabindex="-1"></a>getmode <span class="ot">&lt;-</span> <span class="cf">function</span>(serievector) {</span>
+<span id="cb29-13"><a href="documentación-de-funciones.html#cb29-13" tabindex="-1"></a>  uniqv <span class="ot">&lt;-</span> <span class="fu">unique</span>(serievector)</span>
+<span id="cb29-14"><a href="documentación-de-funciones.html#cb29-14" tabindex="-1"></a>  uniqv[<span class="fu">which.max</span>(<span class="fu">tabulate</span>(<span class="fu">match</span>(serievector, uniqv)))]</span>
+<span id="cb29-15"><a href="documentación-de-funciones.html#cb29-15" tabindex="-1"></a>}</span></code></pre></div>
 <p>Ahora vamos a añadir el comentario <code>@usage</code> que nos indica como puedes mandar a llamar la función.</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="documentación-de-funciones.html#cb22-1" tabindex="-1"></a><span class="co">#&#39; @title Encontrar la Moda de una Serie de Números</span></span>
-<span id="cb22-2"><a href="documentación-de-funciones.html#cb22-2" tabindex="-1"></a><span class="co">#&#39;</span></span>
-<span id="cb22-3"><a href="documentación-de-funciones.html#cb22-3" tabindex="-1"></a><span class="co">#&#39; @description Esta función lee una serie de números en forma de vector y</span></span>
-<span id="cb22-4"><a href="documentación-de-funciones.html#cb22-4" tabindex="-1"></a><span class="co">#&#39; encuentra el elemento que mas se repite, es decir la moda.</span></span>
-<span id="cb22-5"><a href="documentación-de-funciones.html#cb22-5" tabindex="-1"></a><span class="co">#&#39; @usage getmode(serievector)</span></span>
-<span id="cb22-6"><a href="documentación-de-funciones.html#cb22-6" tabindex="-1"></a><span class="co">#&#39; @param serievector</span></span>
-<span id="cb22-7"><a href="documentación-de-funciones.html#cb22-7" tabindex="-1"></a><span class="co">#&#39;</span></span>
-<span id="cb22-8"><a href="documentación-de-funciones.html#cb22-8" tabindex="-1"></a><span class="co">#&#39; @return</span></span>
-<span id="cb22-9"><a href="documentación-de-funciones.html#cb22-9" tabindex="-1"></a><span class="co">#&#39; @export</span></span>
-<span id="cb22-10"><a href="documentación-de-funciones.html#cb22-10" tabindex="-1"></a><span class="co">#&#39;</span></span>
-<span id="cb22-11"><a href="documentación-de-funciones.html#cb22-11" tabindex="-1"></a><span class="co">#&#39; @examples</span></span>
-<span id="cb22-12"><a href="documentación-de-funciones.html#cb22-12" tabindex="-1"></a></span>
-<span id="cb22-13"><a href="documentación-de-funciones.html#cb22-13" tabindex="-1"></a>getmode <span class="ot">&lt;-</span> <span class="cf">function</span>(serievector) {</span>
-<span id="cb22-14"><a href="documentación-de-funciones.html#cb22-14" tabindex="-1"></a>  uniqv <span class="ot">&lt;-</span> <span class="fu">unique</span>(serievector)</span>
-<span id="cb22-15"><a href="documentación-de-funciones.html#cb22-15" tabindex="-1"></a>  uniqv[<span class="fu">which.max</span>(<span class="fu">tabulate</span>(<span class="fu">match</span>(serievector, uniqv)))]</span>
-<span id="cb22-16"><a href="documentación-de-funciones.html#cb22-16" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="documentación-de-funciones.html#cb30-1" tabindex="-1"></a><span class="co">#&#39; @title Encontrar la Moda de una Serie de Números</span></span>
+<span id="cb30-2"><a href="documentación-de-funciones.html#cb30-2" tabindex="-1"></a><span class="co">#&#39;</span></span>
+<span id="cb30-3"><a href="documentación-de-funciones.html#cb30-3" tabindex="-1"></a><span class="co">#&#39; @description Esta función lee una serie de números en forma de vector y</span></span>
+<span id="cb30-4"><a href="documentación-de-funciones.html#cb30-4" tabindex="-1"></a><span class="co">#&#39; encuentra el elemento que mas se repite, es decir la moda.</span></span>
+<span id="cb30-5"><a href="documentación-de-funciones.html#cb30-5" tabindex="-1"></a><span class="co">#&#39; @usage getmode(serievector)</span></span>
+<span id="cb30-6"><a href="documentación-de-funciones.html#cb30-6" tabindex="-1"></a><span class="co">#&#39; @param serievector</span></span>
+<span id="cb30-7"><a href="documentación-de-funciones.html#cb30-7" tabindex="-1"></a><span class="co">#&#39;</span></span>
+<span id="cb30-8"><a href="documentación-de-funciones.html#cb30-8" tabindex="-1"></a><span class="co">#&#39; @return</span></span>
+<span id="cb30-9"><a href="documentación-de-funciones.html#cb30-9" tabindex="-1"></a><span class="co">#&#39; @export</span></span>
+<span id="cb30-10"><a href="documentación-de-funciones.html#cb30-10" tabindex="-1"></a><span class="co">#&#39;</span></span>
+<span id="cb30-11"><a href="documentación-de-funciones.html#cb30-11" tabindex="-1"></a><span class="co">#&#39; @examples</span></span>
+<span id="cb30-12"><a href="documentación-de-funciones.html#cb30-12" tabindex="-1"></a></span>
+<span id="cb30-13"><a href="documentación-de-funciones.html#cb30-13" tabindex="-1"></a>getmode <span class="ot">&lt;-</span> <span class="cf">function</span>(serievector) {</span>
+<span id="cb30-14"><a href="documentación-de-funciones.html#cb30-14" tabindex="-1"></a>  uniqv <span class="ot">&lt;-</span> <span class="fu">unique</span>(serievector)</span>
+<span id="cb30-15"><a href="documentación-de-funciones.html#cb30-15" tabindex="-1"></a>  uniqv[<span class="fu">which.max</span>(<span class="fu">tabulate</span>(<span class="fu">match</span>(serievector, uniqv)))]</span>
+<span id="cb30-16"><a href="documentación-de-funciones.html#cb30-16" tabindex="-1"></a>}</span></code></pre></div>
 <p>Ahora si vamos a añadir una pequeña descripción de nuestros argumentos. Si tuviéramos mas de un parámetro en nuestra función podríamos llamar las veces que sea necesario el comentario de parámetro con <code>@param</code>, veamoslo.</p>
 <p>Ahora añadimos una pequeña descripción a nuestro único parámetro que es serievector:</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="documentación-de-funciones.html#cb23-1" tabindex="-1"></a><span class="co">#&#39; @title Encontrar la Moda de una Serie de Números</span></span>
-<span id="cb23-2"><a href="documentación-de-funciones.html#cb23-2" tabindex="-1"></a><span class="co">#&#39;</span></span>
-<span id="cb23-3"><a href="documentación-de-funciones.html#cb23-3" tabindex="-1"></a><span class="co">#&#39; @description Esta función lee una serie de números en forma de vector y</span></span>
-<span id="cb23-4"><a href="documentación-de-funciones.html#cb23-4" tabindex="-1"></a><span class="co">#&#39; encuentra el elemento que mas se repite, es decir la moda.</span></span>
-<span id="cb23-5"><a href="documentación-de-funciones.html#cb23-5" tabindex="-1"></a><span class="co">#&#39; </span></span>
-<span id="cb23-6"><a href="documentación-de-funciones.html#cb23-6" tabindex="-1"></a><span class="co">#&#39; @param serievector Es una serie de números en forma de  un vector simple de r.</span></span>
-<span id="cb23-7"><a href="documentación-de-funciones.html#cb23-7" tabindex="-1"></a><span class="co">#&#39;</span></span>
-<span id="cb23-8"><a href="documentación-de-funciones.html#cb23-8" tabindex="-1"></a><span class="co">#&#39; @return</span></span>
-<span id="cb23-9"><a href="documentación-de-funciones.html#cb23-9" tabindex="-1"></a><span class="co">#&#39; @export</span></span>
-<span id="cb23-10"><a href="documentación-de-funciones.html#cb23-10" tabindex="-1"></a><span class="co">#&#39;</span></span>
-<span id="cb23-11"><a href="documentación-de-funciones.html#cb23-11" tabindex="-1"></a><span class="co">#&#39; @examples</span></span>
-<span id="cb23-12"><a href="documentación-de-funciones.html#cb23-12" tabindex="-1"></a></span>
-<span id="cb23-13"><a href="documentación-de-funciones.html#cb23-13" tabindex="-1"></a>getmode <span class="ot">&lt;-</span> <span class="cf">function</span>(serievector) {</span>
-<span id="cb23-14"><a href="documentación-de-funciones.html#cb23-14" tabindex="-1"></a>  uniqv <span class="ot">&lt;-</span> <span class="fu">unique</span>(serievector)</span>
-<span id="cb23-15"><a href="documentación-de-funciones.html#cb23-15" tabindex="-1"></a>  uniqv[<span class="fu">which.max</span>(<span class="fu">tabulate</span>(<span class="fu">match</span>(serievector, uniqv)))]</span>
-<span id="cb23-16"><a href="documentación-de-funciones.html#cb23-16" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="documentación-de-funciones.html#cb31-1" tabindex="-1"></a><span class="co">#&#39; @title Encontrar la Moda de una Serie de Números</span></span>
+<span id="cb31-2"><a href="documentación-de-funciones.html#cb31-2" tabindex="-1"></a><span class="co">#&#39;</span></span>
+<span id="cb31-3"><a href="documentación-de-funciones.html#cb31-3" tabindex="-1"></a><span class="co">#&#39; @description Esta función lee una serie de números en forma de vector y</span></span>
+<span id="cb31-4"><a href="documentación-de-funciones.html#cb31-4" tabindex="-1"></a><span class="co">#&#39; encuentra el elemento que mas se repite, es decir la moda.</span></span>
+<span id="cb31-5"><a href="documentación-de-funciones.html#cb31-5" tabindex="-1"></a><span class="co">#&#39; </span></span>
+<span id="cb31-6"><a href="documentación-de-funciones.html#cb31-6" tabindex="-1"></a><span class="co">#&#39; @param serievector Es una serie de números en forma de  un vector simple de r.</span></span>
+<span id="cb31-7"><a href="documentación-de-funciones.html#cb31-7" tabindex="-1"></a><span class="co">#&#39;</span></span>
+<span id="cb31-8"><a href="documentación-de-funciones.html#cb31-8" tabindex="-1"></a><span class="co">#&#39; @return</span></span>
+<span id="cb31-9"><a href="documentación-de-funciones.html#cb31-9" tabindex="-1"></a><span class="co">#&#39; @export</span></span>
+<span id="cb31-10"><a href="documentación-de-funciones.html#cb31-10" tabindex="-1"></a><span class="co">#&#39;</span></span>
+<span id="cb31-11"><a href="documentación-de-funciones.html#cb31-11" tabindex="-1"></a><span class="co">#&#39; @examples</span></span>
+<span id="cb31-12"><a href="documentación-de-funciones.html#cb31-12" tabindex="-1"></a></span>
+<span id="cb31-13"><a href="documentación-de-funciones.html#cb31-13" tabindex="-1"></a>getmode <span class="ot">&lt;-</span> <span class="cf">function</span>(serievector) {</span>
+<span id="cb31-14"><a href="documentación-de-funciones.html#cb31-14" tabindex="-1"></a>  uniqv <span class="ot">&lt;-</span> <span class="fu">unique</span>(serievector)</span>
+<span id="cb31-15"><a href="documentación-de-funciones.html#cb31-15" tabindex="-1"></a>  uniqv[<span class="fu">which.max</span>(<span class="fu">tabulate</span>(<span class="fu">match</span>(serievector, uniqv)))]</span>
+<span id="cb31-16"><a href="documentación-de-funciones.html#cb31-16" tabindex="-1"></a>}</span></code></pre></div>
 <p>Después, podemos añadir un comentario de detalles de la función con <code>@details</code>.
 Por ejemplo, si en nuestro ejemplo tuviéramos ciertos valores no numéricos en nuestro vector de entrada, por ejemplo letras, ¿nuestra función podría leerlas?, o si le diéramos un vector sin caracteres ¿que pasaría?, veamos:</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="documentación-de-funciones.html#cb24-1" tabindex="-1"></a>serie_numeros <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="st">&quot;d&quot;</span>, <span class="st">&quot;d&quot;</span>,<span class="st">&quot;d&quot;</span>)</span>
-<span id="cb24-2"><a href="documentación-de-funciones.html#cb24-2" tabindex="-1"></a>resultado <span class="ot">&lt;-</span> <span class="fu">getmode</span>(serie_numeros)</span>
-<span id="cb24-3"><a href="documentación-de-funciones.html#cb24-3" tabindex="-1"></a><span class="fu">print</span>(resultado)</span></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="documentación-de-funciones.html#cb32-1" tabindex="-1"></a>serie_numeros <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="st">&quot;d&quot;</span>, <span class="st">&quot;d&quot;</span>,<span class="st">&quot;d&quot;</span>)</span>
+<span id="cb32-2"><a href="documentación-de-funciones.html#cb32-2" tabindex="-1"></a>resultado <span class="ot">&lt;-</span> <span class="fu">getmode</span>(serie_numeros)</span>
+<span id="cb32-3"><a href="documentación-de-funciones.html#cb32-3" tabindex="-1"></a><span class="fu">print</span>(resultado)</span></code></pre></div>
 <pre><code>## [1] &quot;d&quot;</code></pre>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="documentación-de-funciones.html#cb26-1" tabindex="-1"></a>serie_numeros <span class="ot">&lt;-</span> <span class="fu">c</span>()</span>
-<span id="cb26-2"><a href="documentación-de-funciones.html#cb26-2" tabindex="-1"></a>resultado <span class="ot">&lt;-</span> <span class="fu">getmode</span>(serie_numeros)</span>
-<span id="cb26-3"><a href="documentación-de-funciones.html#cb26-3" tabindex="-1"></a><span class="fu">print</span>(resultado)</span></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="documentación-de-funciones.html#cb34-1" tabindex="-1"></a>serie_numeros <span class="ot">&lt;-</span> <span class="fu">c</span>()</span>
+<span id="cb34-2"><a href="documentación-de-funciones.html#cb34-2" tabindex="-1"></a>resultado <span class="ot">&lt;-</span> <span class="fu">getmode</span>(serie_numeros)</span>
+<span id="cb34-3"><a href="documentación-de-funciones.html#cb34-3" tabindex="-1"></a><span class="fu">print</span>(resultado)</span></code></pre></div>
 <pre><code>## NULL</code></pre>
 <p>Entonces, esto es un ejemplo de lo que podríamos poner en el comentario
 <code>@details</code>. Hagamoslo describiendo esto. En details podemos agregar detalles
 un poco mas específicos que en la descripción de la función</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="documentación-de-funciones.html#cb28-1" tabindex="-1"></a><span class="co">#&#39; @title Encontrar la Moda de una Serie de Números</span></span>
-<span id="cb28-2"><a href="documentación-de-funciones.html#cb28-2" tabindex="-1"></a><span class="co">#&#39;</span></span>
-<span id="cb28-3"><a href="documentación-de-funciones.html#cb28-3" tabindex="-1"></a><span class="co">#&#39; @description Esta función lee una serie de números en forma de vector y</span></span>
-<span id="cb28-4"><a href="documentación-de-funciones.html#cb28-4" tabindex="-1"></a><span class="co">#&#39; encuentra el elemento que mas se repite, es decir la moda.</span></span>
-<span id="cb28-5"><a href="documentación-de-funciones.html#cb28-5" tabindex="-1"></a><span class="co">#&#39; </span></span>
-<span id="cb28-6"><a href="documentación-de-funciones.html#cb28-6" tabindex="-1"></a><span class="co">#&#39; @param serievector Es una serie de números en forma de  un vector simple de r.</span></span>
-<span id="cb28-7"><a href="documentación-de-funciones.html#cb28-7" tabindex="-1"></a><span class="co">#&#39;</span></span>
-<span id="cb28-8"><a href="documentación-de-funciones.html#cb28-8" tabindex="-1"></a><span class="co">#&#39; @details si tu vector de entrada puede ser interpretado alternando números y </span></span>
-<span id="cb28-9"><a href="documentación-de-funciones.html#cb28-9" tabindex="-1"></a><span class="co">#&#39; letras escritas entre comillas &quot;&quot;. Si un vector esta vacío, dará como </span></span>
-<span id="cb28-10"><a href="documentación-de-funciones.html#cb28-10" tabindex="-1"></a><span class="co">#&#39; resultado un NULL.</span></span>
-<span id="cb28-11"><a href="documentación-de-funciones.html#cb28-11" tabindex="-1"></a><span class="co">#&#39; @return</span></span>
-<span id="cb28-12"><a href="documentación-de-funciones.html#cb28-12" tabindex="-1"></a><span class="co">#&#39; @export</span></span>
-<span id="cb28-13"><a href="documentación-de-funciones.html#cb28-13" tabindex="-1"></a><span class="co">#&#39;</span></span>
-<span id="cb28-14"><a href="documentación-de-funciones.html#cb28-14" tabindex="-1"></a><span class="co">#&#39; @examples</span></span>
-<span id="cb28-15"><a href="documentación-de-funciones.html#cb28-15" tabindex="-1"></a></span>
-<span id="cb28-16"><a href="documentación-de-funciones.html#cb28-16" tabindex="-1"></a>getmode <span class="ot">&lt;-</span> <span class="cf">function</span>(serievector) {</span>
-<span id="cb28-17"><a href="documentación-de-funciones.html#cb28-17" tabindex="-1"></a>  uniqv <span class="ot">&lt;-</span> <span class="fu">unique</span>(serievector)</span>
-<span id="cb28-18"><a href="documentación-de-funciones.html#cb28-18" tabindex="-1"></a>  uniqv[<span class="fu">which.max</span>(<span class="fu">tabulate</span>(<span class="fu">match</span>(serievector, uniqv)))]</span>
-<span id="cb28-19"><a href="documentación-de-funciones.html#cb28-19" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="documentación-de-funciones.html#cb36-1" tabindex="-1"></a><span class="co">#&#39; @title Encontrar la Moda de una Serie de Números</span></span>
+<span id="cb36-2"><a href="documentación-de-funciones.html#cb36-2" tabindex="-1"></a><span class="co">#&#39;</span></span>
+<span id="cb36-3"><a href="documentación-de-funciones.html#cb36-3" tabindex="-1"></a><span class="co">#&#39; @description Esta función lee una serie de números en forma de vector y</span></span>
+<span id="cb36-4"><a href="documentación-de-funciones.html#cb36-4" tabindex="-1"></a><span class="co">#&#39; encuentra el elemento que mas se repite, es decir la moda.</span></span>
+<span id="cb36-5"><a href="documentación-de-funciones.html#cb36-5" tabindex="-1"></a><span class="co">#&#39; </span></span>
+<span id="cb36-6"><a href="documentación-de-funciones.html#cb36-6" tabindex="-1"></a><span class="co">#&#39; @param serievector Es una serie de números en forma de  un vector simple de r.</span></span>
+<span id="cb36-7"><a href="documentación-de-funciones.html#cb36-7" tabindex="-1"></a><span class="co">#&#39;</span></span>
+<span id="cb36-8"><a href="documentación-de-funciones.html#cb36-8" tabindex="-1"></a><span class="co">#&#39; @details si tu vector de entrada puede ser interpretado alternando números y </span></span>
+<span id="cb36-9"><a href="documentación-de-funciones.html#cb36-9" tabindex="-1"></a><span class="co">#&#39; letras escritas entre comillas &quot;&quot;. Si un vector esta vacío, dará como </span></span>
+<span id="cb36-10"><a href="documentación-de-funciones.html#cb36-10" tabindex="-1"></a><span class="co">#&#39; resultado un NULL.</span></span>
+<span id="cb36-11"><a href="documentación-de-funciones.html#cb36-11" tabindex="-1"></a><span class="co">#&#39; @return</span></span>
+<span id="cb36-12"><a href="documentación-de-funciones.html#cb36-12" tabindex="-1"></a><span class="co">#&#39; @export</span></span>
+<span id="cb36-13"><a href="documentación-de-funciones.html#cb36-13" tabindex="-1"></a><span class="co">#&#39;</span></span>
+<span id="cb36-14"><a href="documentación-de-funciones.html#cb36-14" tabindex="-1"></a><span class="co">#&#39; @examples</span></span>
+<span id="cb36-15"><a href="documentación-de-funciones.html#cb36-15" tabindex="-1"></a></span>
+<span id="cb36-16"><a href="documentación-de-funciones.html#cb36-16" tabindex="-1"></a>getmode <span class="ot">&lt;-</span> <span class="cf">function</span>(serievector) {</span>
+<span id="cb36-17"><a href="documentación-de-funciones.html#cb36-17" tabindex="-1"></a>  uniqv <span class="ot">&lt;-</span> <span class="fu">unique</span>(serievector)</span>
+<span id="cb36-18"><a href="documentación-de-funciones.html#cb36-18" tabindex="-1"></a>  uniqv[<span class="fu">which.max</span>(<span class="fu">tabulate</span>(<span class="fu">match</span>(serievector, uniqv)))]</span>
+<span id="cb36-19"><a href="documentación-de-funciones.html#cb36-19" tabindex="-1"></a>}</span></code></pre></div>
 <p>Ya casi terminamos de llenar nuestra documentación, pero antes vamos a ver algunos
 otros arrobas que pudieran ser importantes.
 El <code>@import</code> e <code>@importfrom</code> importan funciones de otros paquetes en caso
@@ -467,27 +480,27 @@ todas las que usamos están en r base. Pero imaginemos que tu función, por
 ejemplo necesita leer un archivo <code>.tsv</code> con la función read_tsv del paquete
 readr y después reconvertir la tabla resultante en un archivo con <code>write.table</code>
 pero solo necesitas esa función del paquete <code>utils</code>, entonces haríamos:</p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="documentación-de-funciones.html#cb29-1" tabindex="-1"></a><span class="co">#&#39; @title Encontrar la Moda de una Serie de Números</span></span>
-<span id="cb29-2"><a href="documentación-de-funciones.html#cb29-2" tabindex="-1"></a><span class="co">#&#39;</span></span>
-<span id="cb29-3"><a href="documentación-de-funciones.html#cb29-3" tabindex="-1"></a><span class="co">#&#39; @description Esta función lee una serie de números en forma de vector y</span></span>
-<span id="cb29-4"><a href="documentación-de-funciones.html#cb29-4" tabindex="-1"></a><span class="co">#&#39; encuentra el elemento que mas se repite, es decir la moda.</span></span>
-<span id="cb29-5"><a href="documentación-de-funciones.html#cb29-5" tabindex="-1"></a><span class="co">#&#39; </span></span>
-<span id="cb29-6"><a href="documentación-de-funciones.html#cb29-6" tabindex="-1"></a><span class="co">#&#39; @param serievector Es una serie de números en forma de  un vector simple de r.</span></span>
-<span id="cb29-7"><a href="documentación-de-funciones.html#cb29-7" tabindex="-1"></a><span class="co">#&#39;</span></span>
-<span id="cb29-8"><a href="documentación-de-funciones.html#cb29-8" tabindex="-1"></a><span class="co">#&#39; @details si tu vector de entrada puede ser interpretado alternando números y </span></span>
-<span id="cb29-9"><a href="documentación-de-funciones.html#cb29-9" tabindex="-1"></a><span class="co">#&#39; letras escritas entre comillas &quot;&quot;. Si un vector esta vacío, dará como </span></span>
-<span id="cb29-10"><a href="documentación-de-funciones.html#cb29-10" tabindex="-1"></a><span class="co">#&#39; resultado un NULL.</span></span>
-<span id="cb29-11"><a href="documentación-de-funciones.html#cb29-11" tabindex="-1"></a><span class="co">#&#39; @import readr</span></span>
-<span id="cb29-12"><a href="documentación-de-funciones.html#cb29-12" tabindex="-1"></a><span class="co">#&#39; @importFrom utils write.table</span></span>
-<span id="cb29-13"><a href="documentación-de-funciones.html#cb29-13" tabindex="-1"></a><span class="co">#&#39; @return</span></span>
-<span id="cb29-14"><a href="documentación-de-funciones.html#cb29-14" tabindex="-1"></a><span class="co">#&#39; @export</span></span>
-<span id="cb29-15"><a href="documentación-de-funciones.html#cb29-15" tabindex="-1"></a><span class="co">#&#39;</span></span>
-<span id="cb29-16"><a href="documentación-de-funciones.html#cb29-16" tabindex="-1"></a><span class="co">#&#39; @examples</span></span>
-<span id="cb29-17"><a href="documentación-de-funciones.html#cb29-17" tabindex="-1"></a></span>
-<span id="cb29-18"><a href="documentación-de-funciones.html#cb29-18" tabindex="-1"></a>getmode <span class="ot">&lt;-</span> <span class="cf">function</span>(serievector) {</span>
-<span id="cb29-19"><a href="documentación-de-funciones.html#cb29-19" tabindex="-1"></a>  uniqv <span class="ot">&lt;-</span> <span class="fu">unique</span>(serievector)</span>
-<span id="cb29-20"><a href="documentación-de-funciones.html#cb29-20" tabindex="-1"></a>  uniqv[<span class="fu">which.max</span>(<span class="fu">tabulate</span>(<span class="fu">match</span>(serievector, uniqv)))]</span>
-<span id="cb29-21"><a href="documentación-de-funciones.html#cb29-21" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="documentación-de-funciones.html#cb37-1" tabindex="-1"></a><span class="co">#&#39; @title Encontrar la Moda de una Serie de Números</span></span>
+<span id="cb37-2"><a href="documentación-de-funciones.html#cb37-2" tabindex="-1"></a><span class="co">#&#39;</span></span>
+<span id="cb37-3"><a href="documentación-de-funciones.html#cb37-3" tabindex="-1"></a><span class="co">#&#39; @description Esta función lee una serie de números en forma de vector y</span></span>
+<span id="cb37-4"><a href="documentación-de-funciones.html#cb37-4" tabindex="-1"></a><span class="co">#&#39; encuentra el elemento que mas se repite, es decir la moda.</span></span>
+<span id="cb37-5"><a href="documentación-de-funciones.html#cb37-5" tabindex="-1"></a><span class="co">#&#39; </span></span>
+<span id="cb37-6"><a href="documentación-de-funciones.html#cb37-6" tabindex="-1"></a><span class="co">#&#39; @param serievector Es una serie de números en forma de  un vector simple de r.</span></span>
+<span id="cb37-7"><a href="documentación-de-funciones.html#cb37-7" tabindex="-1"></a><span class="co">#&#39;</span></span>
+<span id="cb37-8"><a href="documentación-de-funciones.html#cb37-8" tabindex="-1"></a><span class="co">#&#39; @details si tu vector de entrada puede ser interpretado alternando números y </span></span>
+<span id="cb37-9"><a href="documentación-de-funciones.html#cb37-9" tabindex="-1"></a><span class="co">#&#39; letras escritas entre comillas &quot;&quot;. Si un vector esta vacío, dará como </span></span>
+<span id="cb37-10"><a href="documentación-de-funciones.html#cb37-10" tabindex="-1"></a><span class="co">#&#39; resultado un NULL.</span></span>
+<span id="cb37-11"><a href="documentación-de-funciones.html#cb37-11" tabindex="-1"></a><span class="co">#&#39; @import readr</span></span>
+<span id="cb37-12"><a href="documentación-de-funciones.html#cb37-12" tabindex="-1"></a><span class="co">#&#39; @importFrom utils write.table</span></span>
+<span id="cb37-13"><a href="documentación-de-funciones.html#cb37-13" tabindex="-1"></a><span class="co">#&#39; @return</span></span>
+<span id="cb37-14"><a href="documentación-de-funciones.html#cb37-14" tabindex="-1"></a><span class="co">#&#39; @export</span></span>
+<span id="cb37-15"><a href="documentación-de-funciones.html#cb37-15" tabindex="-1"></a><span class="co">#&#39;</span></span>
+<span id="cb37-16"><a href="documentación-de-funciones.html#cb37-16" tabindex="-1"></a><span class="co">#&#39; @examples</span></span>
+<span id="cb37-17"><a href="documentación-de-funciones.html#cb37-17" tabindex="-1"></a></span>
+<span id="cb37-18"><a href="documentación-de-funciones.html#cb37-18" tabindex="-1"></a>getmode <span class="ot">&lt;-</span> <span class="cf">function</span>(serievector) {</span>
+<span id="cb37-19"><a href="documentación-de-funciones.html#cb37-19" tabindex="-1"></a>  uniqv <span class="ot">&lt;-</span> <span class="fu">unique</span>(serievector)</span>
+<span id="cb37-20"><a href="documentación-de-funciones.html#cb37-20" tabindex="-1"></a>  uniqv[<span class="fu">which.max</span>(<span class="fu">tabulate</span>(<span class="fu">match</span>(serievector, uniqv)))]</span>
+<span id="cb37-21"><a href="documentación-de-funciones.html#cb37-21" tabindex="-1"></a>}</span></code></pre></div>
 <p>Así podemos importar las funciones que necesitemos de otros paquetes y se
 incluirán en la documentación y se cargaran automáticamente al cargar tu paquete.</p>
 <p>:eyes::exclamation: Para un correcto funcionamiento de tu paquete y al estar los
@@ -498,52 +511,52 @@ usuario del paquete para conocer cual sera el resultado de la función, que pued
 ser un archivo, una tabla, un numero,etc. Entonces retomando la función que
 usamos al inicio, vamos a escribir una descripción corta del resultado de la
 función <code>getmode()</code>.</p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="documentación-de-funciones.html#cb30-1" tabindex="-1"></a><span class="co">#&#39; @title Encontrar la Moda de una Serie de Números</span></span>
-<span id="cb30-2"><a href="documentación-de-funciones.html#cb30-2" tabindex="-1"></a><span class="co">#&#39;</span></span>
-<span id="cb30-3"><a href="documentación-de-funciones.html#cb30-3" tabindex="-1"></a><span class="co">#&#39; @description Esta función lee una serie de números en forma de vector y</span></span>
-<span id="cb30-4"><a href="documentación-de-funciones.html#cb30-4" tabindex="-1"></a><span class="co">#&#39; encuentra el elemento que mas se repite, es decir la moda.</span></span>
-<span id="cb30-5"><a href="documentación-de-funciones.html#cb30-5" tabindex="-1"></a><span class="co">#&#39; </span></span>
-<span id="cb30-6"><a href="documentación-de-funciones.html#cb30-6" tabindex="-1"></a><span class="co">#&#39; @param serievector Es una serie de números en forma de  un vector simple de r.</span></span>
-<span id="cb30-7"><a href="documentación-de-funciones.html#cb30-7" tabindex="-1"></a><span class="co">#&#39;</span></span>
-<span id="cb30-8"><a href="documentación-de-funciones.html#cb30-8" tabindex="-1"></a><span class="co">#&#39; @details si tu vector de entrada puede ser interpretado alternando números y </span></span>
-<span id="cb30-9"><a href="documentación-de-funciones.html#cb30-9" tabindex="-1"></a><span class="co">#&#39; letras escritas entre comillas &quot;&quot;. Si un vector esta vacío, dará como </span></span>
-<span id="cb30-10"><a href="documentación-de-funciones.html#cb30-10" tabindex="-1"></a><span class="co">#&#39; resultado un NULL.</span></span>
-<span id="cb30-11"><a href="documentación-de-funciones.html#cb30-11" tabindex="-1"></a><span class="co">#&#39; @return El carácter con mas frecuencia de el vector de entrada.</span></span>
-<span id="cb30-12"><a href="documentación-de-funciones.html#cb30-12" tabindex="-1"></a><span class="co">#&#39; @export</span></span>
-<span id="cb30-13"><a href="documentación-de-funciones.html#cb30-13" tabindex="-1"></a><span class="co">#&#39;</span></span>
-<span id="cb30-14"><a href="documentación-de-funciones.html#cb30-14" tabindex="-1"></a><span class="co">#&#39; @examples</span></span>
-<span id="cb30-15"><a href="documentación-de-funciones.html#cb30-15" tabindex="-1"></a></span>
-<span id="cb30-16"><a href="documentación-de-funciones.html#cb30-16" tabindex="-1"></a>getmode <span class="ot">&lt;-</span> <span class="cf">function</span>(serievector) {</span>
-<span id="cb30-17"><a href="documentación-de-funciones.html#cb30-17" tabindex="-1"></a>  uniqv <span class="ot">&lt;-</span> <span class="fu">unique</span>(serievector)</span>
-<span id="cb30-18"><a href="documentación-de-funciones.html#cb30-18" tabindex="-1"></a>  uniqv[<span class="fu">which.max</span>(<span class="fu">tabulate</span>(<span class="fu">match</span>(serievector, uniqv)))]</span>
-<span id="cb30-19"><a href="documentación-de-funciones.html#cb30-19" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="documentación-de-funciones.html#cb38-1" tabindex="-1"></a><span class="co">#&#39; @title Encontrar la Moda de una Serie de Números</span></span>
+<span id="cb38-2"><a href="documentación-de-funciones.html#cb38-2" tabindex="-1"></a><span class="co">#&#39;</span></span>
+<span id="cb38-3"><a href="documentación-de-funciones.html#cb38-3" tabindex="-1"></a><span class="co">#&#39; @description Esta función lee una serie de números en forma de vector y</span></span>
+<span id="cb38-4"><a href="documentación-de-funciones.html#cb38-4" tabindex="-1"></a><span class="co">#&#39; encuentra el elemento que mas se repite, es decir la moda.</span></span>
+<span id="cb38-5"><a href="documentación-de-funciones.html#cb38-5" tabindex="-1"></a><span class="co">#&#39; </span></span>
+<span id="cb38-6"><a href="documentación-de-funciones.html#cb38-6" tabindex="-1"></a><span class="co">#&#39; @param serievector Es una serie de números en forma de  un vector simple de r.</span></span>
+<span id="cb38-7"><a href="documentación-de-funciones.html#cb38-7" tabindex="-1"></a><span class="co">#&#39;</span></span>
+<span id="cb38-8"><a href="documentación-de-funciones.html#cb38-8" tabindex="-1"></a><span class="co">#&#39; @details si tu vector de entrada puede ser interpretado alternando números y </span></span>
+<span id="cb38-9"><a href="documentación-de-funciones.html#cb38-9" tabindex="-1"></a><span class="co">#&#39; letras escritas entre comillas &quot;&quot;. Si un vector esta vacío, dará como </span></span>
+<span id="cb38-10"><a href="documentación-de-funciones.html#cb38-10" tabindex="-1"></a><span class="co">#&#39; resultado un NULL.</span></span>
+<span id="cb38-11"><a href="documentación-de-funciones.html#cb38-11" tabindex="-1"></a><span class="co">#&#39; @return El carácter con mas frecuencia de el vector de entrada.</span></span>
+<span id="cb38-12"><a href="documentación-de-funciones.html#cb38-12" tabindex="-1"></a><span class="co">#&#39; @export</span></span>
+<span id="cb38-13"><a href="documentación-de-funciones.html#cb38-13" tabindex="-1"></a><span class="co">#&#39;</span></span>
+<span id="cb38-14"><a href="documentación-de-funciones.html#cb38-14" tabindex="-1"></a><span class="co">#&#39; @examples</span></span>
+<span id="cb38-15"><a href="documentación-de-funciones.html#cb38-15" tabindex="-1"></a></span>
+<span id="cb38-16"><a href="documentación-de-funciones.html#cb38-16" tabindex="-1"></a>getmode <span class="ot">&lt;-</span> <span class="cf">function</span>(serievector) {</span>
+<span id="cb38-17"><a href="documentación-de-funciones.html#cb38-17" tabindex="-1"></a>  uniqv <span class="ot">&lt;-</span> <span class="fu">unique</span>(serievector)</span>
+<span id="cb38-18"><a href="documentación-de-funciones.html#cb38-18" tabindex="-1"></a>  uniqv[<span class="fu">which.max</span>(<span class="fu">tabulate</span>(<span class="fu">match</span>(serievector, uniqv)))]</span>
+<span id="cb38-19"><a href="documentación-de-funciones.html#cb38-19" tabindex="-1"></a>}</span></code></pre></div>
 <p>Por ultimo tenemos <code>@export</code> que es el encargado de renderizar la documentación
 para que pueda aparecer en la ventana de Ayuda (abajo a la derecha). esta opción la dejamos para funciones principales que el usuario va a utilizar, aunque puede que existan alguna funciones internas que no queremos que el usuario vea. En ese caso vamos a usar
 <code>@noRd</code> en lugar de este.</p>
 <p>Antes de terminar podemos incluir ejemplos de como funciona nuestra función para
 un mejor entendimiento, pongamos los que ya realizamos:</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="documentación-de-funciones.html#cb31-1" tabindex="-1"></a><span class="co">#&#39; @title Encontrar la Moda de una Serie de Números</span></span>
-<span id="cb31-2"><a href="documentación-de-funciones.html#cb31-2" tabindex="-1"></a><span class="co">#&#39;</span></span>
-<span id="cb31-3"><a href="documentación-de-funciones.html#cb31-3" tabindex="-1"></a><span class="co">#&#39; @description Esta función lee una serie de números en forma de vector y</span></span>
-<span id="cb31-4"><a href="documentación-de-funciones.html#cb31-4" tabindex="-1"></a><span class="co">#&#39; encuentra el elemento que mas se repite, es decir la moda.</span></span>
-<span id="cb31-5"><a href="documentación-de-funciones.html#cb31-5" tabindex="-1"></a><span class="co">#&#39; </span></span>
-<span id="cb31-6"><a href="documentación-de-funciones.html#cb31-6" tabindex="-1"></a><span class="co">#&#39; @param serievector Es una serie de números en forma de  un vector simple de r.</span></span>
-<span id="cb31-7"><a href="documentación-de-funciones.html#cb31-7" tabindex="-1"></a><span class="co">#&#39;</span></span>
-<span id="cb31-8"><a href="documentación-de-funciones.html#cb31-8" tabindex="-1"></a><span class="co">#&#39; @details si tu vector de entrada puede ser interpretado alternando números y </span></span>
-<span id="cb31-9"><a href="documentación-de-funciones.html#cb31-9" tabindex="-1"></a><span class="co">#&#39; letras escritas entre comillas &quot;&quot;. Si un vector esta vacío, dará como </span></span>
-<span id="cb31-10"><a href="documentación-de-funciones.html#cb31-10" tabindex="-1"></a><span class="co">#&#39; resultado un NULL.</span></span>
-<span id="cb31-11"><a href="documentación-de-funciones.html#cb31-11" tabindex="-1"></a><span class="co">#&#39; @return El carácter con mas frecuencia de el vector de entrada.</span></span>
-<span id="cb31-12"><a href="documentación-de-funciones.html#cb31-12" tabindex="-1"></a><span class="co">#&#39; @export</span></span>
-<span id="cb31-13"><a href="documentación-de-funciones.html#cb31-13" tabindex="-1"></a><span class="co">#&#39;</span></span>
-<span id="cb31-14"><a href="documentación-de-funciones.html#cb31-14" tabindex="-1"></a><span class="co">#&#39; @examples</span></span>
-<span id="cb31-15"><a href="documentación-de-funciones.html#cb31-15" tabindex="-1"></a><span class="co">#&#39; serie_números &lt;- c(1, 2, 2, 2, 2, 3, 3, 4, 4, 4)</span></span>
-<span id="cb31-16"><a href="documentación-de-funciones.html#cb31-16" tabindex="-1"></a><span class="co">#&#39; resultado &lt;- getmode(serie_números)</span></span>
-<span id="cb31-17"><a href="documentación-de-funciones.html#cb31-17" tabindex="-1"></a><span class="co">#&#39; print(resultado)</span></span>
-<span id="cb31-18"><a href="documentación-de-funciones.html#cb31-18" tabindex="-1"></a></span>
-<span id="cb31-19"><a href="documentación-de-funciones.html#cb31-19" tabindex="-1"></a>getmode <span class="ot">&lt;-</span> <span class="cf">function</span>(serievector) {</span>
-<span id="cb31-20"><a href="documentación-de-funciones.html#cb31-20" tabindex="-1"></a>  uniqv <span class="ot">&lt;-</span> <span class="fu">unique</span>(serievector)</span>
-<span id="cb31-21"><a href="documentación-de-funciones.html#cb31-21" tabindex="-1"></a>  uniqv[<span class="fu">which.max</span>(<span class="fu">tabulate</span>(<span class="fu">match</span>(serievector, uniqv)))]</span>
-<span id="cb31-22"><a href="documentación-de-funciones.html#cb31-22" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="documentación-de-funciones.html#cb39-1" tabindex="-1"></a><span class="co">#&#39; @title Encontrar la Moda de una Serie de Números</span></span>
+<span id="cb39-2"><a href="documentación-de-funciones.html#cb39-2" tabindex="-1"></a><span class="co">#&#39;</span></span>
+<span id="cb39-3"><a href="documentación-de-funciones.html#cb39-3" tabindex="-1"></a><span class="co">#&#39; @description Esta función lee una serie de números en forma de vector y</span></span>
+<span id="cb39-4"><a href="documentación-de-funciones.html#cb39-4" tabindex="-1"></a><span class="co">#&#39; encuentra el elemento que mas se repite, es decir la moda.</span></span>
+<span id="cb39-5"><a href="documentación-de-funciones.html#cb39-5" tabindex="-1"></a><span class="co">#&#39; </span></span>
+<span id="cb39-6"><a href="documentación-de-funciones.html#cb39-6" tabindex="-1"></a><span class="co">#&#39; @param serievector Es una serie de números en forma de  un vector simple de r.</span></span>
+<span id="cb39-7"><a href="documentación-de-funciones.html#cb39-7" tabindex="-1"></a><span class="co">#&#39;</span></span>
+<span id="cb39-8"><a href="documentación-de-funciones.html#cb39-8" tabindex="-1"></a><span class="co">#&#39; @details si tu vector de entrada puede ser interpretado alternando números y </span></span>
+<span id="cb39-9"><a href="documentación-de-funciones.html#cb39-9" tabindex="-1"></a><span class="co">#&#39; letras escritas entre comillas &quot;&quot;. Si un vector esta vacío, dará como </span></span>
+<span id="cb39-10"><a href="documentación-de-funciones.html#cb39-10" tabindex="-1"></a><span class="co">#&#39; resultado un NULL.</span></span>
+<span id="cb39-11"><a href="documentación-de-funciones.html#cb39-11" tabindex="-1"></a><span class="co">#&#39; @return El carácter con mas frecuencia de el vector de entrada.</span></span>
+<span id="cb39-12"><a href="documentación-de-funciones.html#cb39-12" tabindex="-1"></a><span class="co">#&#39; @export</span></span>
+<span id="cb39-13"><a href="documentación-de-funciones.html#cb39-13" tabindex="-1"></a><span class="co">#&#39;</span></span>
+<span id="cb39-14"><a href="documentación-de-funciones.html#cb39-14" tabindex="-1"></a><span class="co">#&#39; @examples</span></span>
+<span id="cb39-15"><a href="documentación-de-funciones.html#cb39-15" tabindex="-1"></a><span class="co">#&#39; serie_números &lt;- c(1, 2, 2, 2, 2, 3, 3, 4, 4, 4)</span></span>
+<span id="cb39-16"><a href="documentación-de-funciones.html#cb39-16" tabindex="-1"></a><span class="co">#&#39; resultado &lt;- getmode(serie_números)</span></span>
+<span id="cb39-17"><a href="documentación-de-funciones.html#cb39-17" tabindex="-1"></a><span class="co">#&#39; print(resultado)</span></span>
+<span id="cb39-18"><a href="documentación-de-funciones.html#cb39-18" tabindex="-1"></a></span>
+<span id="cb39-19"><a href="documentación-de-funciones.html#cb39-19" tabindex="-1"></a>getmode <span class="ot">&lt;-</span> <span class="cf">function</span>(serievector) {</span>
+<span id="cb39-20"><a href="documentación-de-funciones.html#cb39-20" tabindex="-1"></a>  uniqv <span class="ot">&lt;-</span> <span class="fu">unique</span>(serievector)</span>
+<span id="cb39-21"><a href="documentación-de-funciones.html#cb39-21" tabindex="-1"></a>  uniqv[<span class="fu">which.max</span>(<span class="fu">tabulate</span>(<span class="fu">match</span>(serievector, uniqv)))]</span>
+<span id="cb39-22"><a href="documentación-de-funciones.html#cb39-22" tabindex="-1"></a>}</span></code></pre></div>
 <p>Ahora si, una vez teniendo listo el bloque de comentarios para la documentación, vamos a ejecutar <code>devtools::load_all()</code> para cargar nuestras funciones y hecho esto, ejecutamos
 <code>devtools::document()</code> o presionamos Ctrl/Cmd + Shift + D para convertir los comentarios en archivo <code>.Rd</code> y poder renderizarlo.</p>
 <p>💯 Listo, tenemos nuestra documentación para una función. Así se verá cuando el paquete esté terminado.</p>
