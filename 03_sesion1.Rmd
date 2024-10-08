@@ -8,6 +8,6 @@ Mirna Vázquez Rosas-Landa
 
 [
 ```{r,echo=FALSE}
-knitr::include_url("https://comunidadbioinfo.github.io/cdsb2023/Pruebas_04_sesion01.html", height = "380px")
+knitr::include_url("https://comunidadbioinfo.github.io/cdsb2024/pruebas.html", height = "380px")
 ```
-](https://comunidadbioinfo.github.io/cdsb2023/Pruebas_04_sesion01.html)
+](https://comunidadbioinfo.github.io/cdsb2024/pruebas.html)

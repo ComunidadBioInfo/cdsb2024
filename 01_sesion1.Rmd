@@ -8,8 +8,8 @@ Joselyn Cristina Chávez Fuentes
 
 [
 ```{r,echo=FALSE}
-knitr::include_url("https://comunidadbioinfo.github.io/cdsb2023/dia1_sesion1_slides.html", height = "380px")
+knitr::include_url("https://comunidadbioinfo.github.io/cdsb2024/proyectos.html", height = "380px")
 ```
-](https://comunidadbioinfo.github.io/cdsb2023/dia1_sesion1_slides.html)
+](https://comunidadbioinfo.github.io/cdsb2024/proyectos.html)
 
 ## Paths seguros

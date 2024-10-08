@@ -8,9 +8,9 @@ Joselyn Cristina Chávez Fuentes
 
 [
 ```{r,echo=FALSE}
-knitr::include_url("https://comunidadbioinfo.github.io/cdsb2023/dia4_sesion3_slides.html", height = "380px")
+knitr::include_url("https://comunidadbioinfo.github.io/cdsb2024/compilacion_paquetes.html", height = "380px")
 ```
-](https://comunidadbioinfo.github.io/cdsb2023/dia4_sesion3_slides.html)
+](https://comunidadbioinfo.github.io/cdsb2024/compilacion_paquetes.html)
 
 
 ## Metadatos de una paquetería
