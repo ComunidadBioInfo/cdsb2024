@@ -137,7 +137,7 @@ Este es un título breve pero descriptivo para el paquete.
 
 Todos los paquetes de Bioconductor utilizan un esquema de versión x.y.z. Cuando se envía por primera vez a Bioconductor, un paquete debe tener la versión 0.99.0.
 
-Se aplican las siguientes reglas:
+- Se aplican las siguientes reglas:
 
     - x es normalmente 0 para paquetes que aún no han sido liberados.
     - y es par para paquetes liberados, e impar para paquetes en desarrollo. Generalmente, no se debe aumentar este número en el pre-release.
@@ -181,14 +181,13 @@ Para paquetes que incluyen datos, se recomienda NO incluir LazyData: TRUE. Inclu
 
 Todos los paquetes deben estar disponibles a través de biocViews o CRAN de Bioconductor; el uso del campo Remotes: no es soportado, por lo tanto las dependencias sólo disponibles en otros repositorios (e.g. GitHub) no están permitidas.
 
-Un paquete puede ser listado sólo una vez entre Depends, Imports, Suggests, o Enhances. 
-
+- Un paquete puede ser listado sólo una vez entre Depends, Imports, Suggests, o Enhances: 
 
     - Imports: es para paquetes que proporcionan funciones, métodos o clases que se usan dentro del código del paquete. La mayoría de los paquetes están listados aquí.
-
     - Depends: es para paquetes que proporcionan funcionalidad esencial para los usuarios del paquete, por ejemplo, el paquete GenomicRanges se enumera en el campo Depends: de GenomicAlignments. Es poco común que más de tres paquetes aparezcan como Depends:.
-
     - Suggests: es para paquetes usados en viñetas, ejemplos y código condicional. Comúnmente, los paquetes de anotaciones y experimentos (por ejemplo, TxDb*) usados en viñetas y código de ejemplo se incluyen en este campo, evitando así una descarga costosa. 
+    - Enhances: es para paquetes como parallel que mejoran el rendimiento del paquete, pero no son estrictamente necesarios para su funcionalidad.
+
 
 En el caso de que se requiera una función única externa para el código del paquete, la disponibilidad y el uso del paquete pueden hacerse a través de:
 
@@ -198,7 +197,7 @@ if (!requireNamespace('suggPKG', quietly = TRUE))
 suggPKG::function()
 ```
 
-    - Enhances: es para paquetes como parallel que mejoran el rendimiento del paquete, pero no son estrictamente necesarios para su funcionalidad.
+    
 
 - biocViews
 
