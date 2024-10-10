@@ -1,6 +1,6 @@
 # Creando la infraestructura de un paquete
 
-Instructora: Joselyn Chávez
+Joselyn Cristina Chávez Fuentes
 
 29 de octubre de 2024
 
@@ -8,6 +8,228 @@ Instructora: Joselyn Chávez
 
 [
 ```{r,echo=FALSE}
-knitr::include_url("https://comunidadbioinfo.github.io/cdsb2023/solucion_problemas.html", height = "380px")
+knitr::include_url("https://comunidadbioinfo.github.io/cdsb2024/infraestructura.html", height = "380px")
 ```
-](https://comunidadbioinfo.github.io/cdsb2023/solucion_problemas.html)
+](https://comunidadbioinfo.github.io/cdsb2024/infraestructura.html)
+
+
+## Los primeros pasos
+
+- Revisar si podemos usar el nombre del paquete
+
+```{r, eval=FALSE}
+available::available("mipaquete")
+```
+
+- Crear la estructura inicial del paquete
+
+```{r, eval=FALSE}
+usethis::create_package("mipaquete")
+```
+
+- Podemos agregar la estructura de biocthis
+
+```{r, eval=FALSE}
+biocthis::use_bioc_pkg_templates()
+```
+
+- Pedir que Git ignore el archivo .Rproj
+
+```{r, eval=FALSE}
+usethis::use_git_ignore("*.Rproj")
+```
+
+- Crear el respositorio de GitHub
+
+```{r, eval=FALSE}
+usethis::use_github()
+```
+
+- Crear el archivo Description estilo Bioconductor
+
+```{r, eval=FALSE}
+biocthis::use_bioc_description()
+```
+
+- Crear el archivo README estilo Bioconductor
+
+```{r, eval=FALSE}
+biocthis::use_bioc_readme_rmd()
+
+devtools::build_readme()
+```
+
+Recuerda guardar los cambios, hacer commit y push.
+
+- Crear el archivo NEWS estilo Bioconductor
+
+```{r, eval=FALSE}
+biocthis::use_bioc_news_md()
+```
+
+- Crear los archivos de ayuda para usuarios y contribuidores
+
+```{r, eval=FALSE}
+biocthis::use_bioc_coc()
+usethis::use_tidy_contributing()
+biocthis::use_bioc_support()
+biocthis::use_bioc_issue_template()
+biocthis::use_bioc_citation()
+```
+
+
+## Checks
+
+### BiocCheck
+
+```{r, eval=FALSE}
+BiocManager::install("BiocCheck")
+```
+
+```{r, eval=FALSE}
+BiocCheck::BiocCheck()
+```
+
+- Algunas reglas de BiocCheck:
+
+    - Utilizar el símbolo <- en lugar de = para definir funciones y variables.
+    - Utilizar TRUE y FALSE en lugar de T y F.
+    - Indentar el código usando 4 espacios.
+    - Las líneas de código y documentación no deben ser mayores a 80 caracteres.
+    - Las funciones deben tener 50 líneas de código o menos.
+    - El paquete debe contener al menos una viñeta.
+    - Al menos 80% de las funciones deben tener ejemplos reproducibles.
+    - Las dependencias deben ser declaradas en el archivo DESCRIPTION.
+    - El paquete debe tener al menos un biocView.
+    - El tamaño del paquete no debe ser mayor 5Mb.
+    - El maintainer debe estar suscrito a la lista de correo de Bioconductor.
+    - El maintainer debe agregar su paquete en los tags de Bioconductor.
+
+### rcmdcheck
+
+```{r, eval=FALSE}
+install.packages("rcmdcheck")
+```
+
+```{r, eval=FALSE}
+rcmdcheck::rcmdcheck()
+```
+
+- Algunas reglas de rcmdcheck:
+
+    - El paquete debe ser instalable.
+    - Los ejemplos de las funciones deben ser reproducibles.
+    - Las viñetas deben ser reproducibles.
+    - Todas las unidades de prueba deben pasar sin errores.
+    - El archivo DESCRIPTON debe tener el formato adecuado.
+
+## Modificando el archivo DESCRIPTION
+
+- Paquete
+
+Este es el nombre del paquete. El nombre del repositorio y el nombre del paquete en la descripción deben coincidir (incluyendo mayúsculas y minúsculas).
+
+- Título
+
+Este es un título breve pero descriptivo para el paquete.
+
+- Versión
+
+Todos los paquetes de Bioconductor utilizan un esquema de versión x.y.z. Cuando se envía por primera vez a Bioconductor, un paquete debe tener la versión 0.99.0.
+
+Se aplican las siguientes reglas:
+
+    - x es normalmente 0 para paquetes que aún no han sido liberados.
+    - y es par para paquetes liberados, e impar para paquetes en desarrollo. Generalmente, no se debe aumentar este número en el pre-release.
+    - z se incrementa siempre que se realizan cambios en el paquete.
+
+- Descripción
+
+La descripción debe ser una visión general relativamente breve pero detallada de lo que implica la funcionalidad del paquete. Debe ser de al menos tres oraciones completas.
+
+- Autores
+
+Se requiere una designación de maintainer (cre) con una dirección de correo electrónico que se mantenga activamente. Esta dirección de correo se utilizará para el contacto con respecto a cualquier problema que surja con el paquete en el futuro.
+
+Idealmente, se debe incluir el ORCiD por lo menos del maintainer.
+
+```{r, eval=FALSE}
+person("Lori", "Shepherd",
+  email = Lori.Shepherd@roswellpark.org,
+  role = c("cre", "aut"),
+  comment = c(ORCID = "0000-0002-5910-4010"))
+```
+
+Sólo debe figurar una persona como responsable para garantizar un único punto de contacto. Esta persona tendrá acceso al repositorio git en git.bioconductor.org. El acceso a Commit puede ser dado a otros desarrolladores por solicitud en la lista de correo bioc-devel.
+
+Otra opción es añadir colaboradores al repositorio de GitHub. Este enfoque permite el desarrollo por muchos pero restringe el acceso a git.bioconductor.org.
+
+
+- Licencia
+
+El campo de licencia debe referirse preferentemente a una licencia estándar no restrictiva.
+
+Las licencias que restringen el uso, por ejemplo, a investigadores académicos o sin fines de lucro, no son adecuadas para Bioconductor. Los paquetes de bioconductor básico suelen estar licenciados bajo Artistic-2.0.
+
+El paquete debe contener sólo código que pueda ser redistribuido de acuerdo con la licencia del paquete. 
+
+- LazyData
+
+Para paquetes que incluyen datos, se recomienda NO incluir LazyData: TRUE. Incluirlo en ese caso, ralentiza la carga de paquetes con datos grandes.
+
+- Dependencias
+
+Todos los paquetes deben estar disponibles a través de biocViews o CRAN de Bioconductor; el uso del campo Remotes: no es soportado, por lo tanto las dependencias sólo disponibles en otros repositorios (e.g. GitHub) no están permitidas.
+
+Un paquete puede ser listado sólo una vez entre Depends, Imports, Suggests, o Enhances. 
+
+
+    - Imports: es para paquetes que proporcionan funciones, métodos o clases que se usan dentro del código del paquete. La mayoría de los paquetes están listados aquí.
+
+    - Depends: es para paquetes que proporcionan funcionalidad esencial para los usuarios del paquete, por ejemplo, el paquete GenomicRanges se enumera en el campo Depends: de GenomicAlignments. Es poco común que más de tres paquetes aparezcan como Depends:.
+
+    - Suggests: es para paquetes usados en viñetas, ejemplos y código condicional. Comúnmente, los paquetes de anotaciones y experimentos (por ejemplo, TxDb*) usados en viñetas y código de ejemplo se incluyen en este campo, evitando así una descarga costosa. 
+
+En el caso de que se requiera una función única externa para el código del paquete, la disponibilidad y el uso del paquete pueden hacerse a través de:
+
+```{r, eval=FALSE}
+if (!requireNamespace('suggPKG', quietly = TRUE))
+    stop("Install 'suggPKG' to use this function.")
+suggPKG::function()
+```
+
+    - Enhances: es para paquetes como parallel que mejoran el rendimiento del paquete, pero no son estrictamente necesarios para su funcionalidad.
+
+- biocViews
+
+Este campo es obligatorio!
+
+Especifica al menos dos biocViews. Los términos deben provenir del mismo tipo de paquete (Software, AnnotationData, ExperimentData o Workflow). 
+
+Puedes encontrar más información en: <https://www.bioconductor.org/packages/release/BiocViews.html>
+
+- BugReports
+
+Se recomienda apuntar hacia el repositorio de GitHub, por ejemplo: https://github.com/usuario/paquete/issues.
+
+- URL
+
+Se incluyen los links importantes, como el repositorio con el código fuente y el sitio web de pkgdown si se cuenta con él. Por ejemplo: https://github.com/usuario/paquete https://usuario.github.io/paquete
+
+## Modificando el archivo NEWS
+
+- Secciones:
+
+    - New: Nuevas funciones.
+    - Bug fixes: Reparación de errores en las funciones previas o en la documentación.
+    - Changes: Cambios en el código de las funciones, incluyendo modificaciones en los argumentos.
+    - Breaking changes: Cambios importantes que romperían el código en caso de no ser atendidos, por ejemplo el uso de funciones o argumentos antiguos.
+    - Enhancements: Mejoras a las funciones existentes.
+
+- Formato
+
+El archivo NEWS se ve similar a este ejemplo:
+
+```{r, echo=FALSE, out.width="80%", fig.align='center'}
+knitr::include_graphics("img/news.png")
+```
