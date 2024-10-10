@@ -205,6 +205,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4" data-path="creando-la-infraestructura-de-un-paquete.html"><a href="creando-la-infraestructura-de-un-paquete.html"><i class="fa fa-check"></i><b>4</b> Creando la infraestructura de un paquete</a>
 <ul>
 <li class="chapter" data-level="4.1" data-path="creando-la-infraestructura-de-un-paquete.html"><a href="creando-la-infraestructura-de-un-paquete.html#diapositivas-3"><i class="fa fa-check"></i><b>4.1</b> Diapositivas</a></li>
+<li class="chapter" data-level="4.2" data-path="creando-la-infraestructura-de-un-paquete.html"><a href="creando-la-infraestructura-de-un-paquete.html#los-primeros-pasos"><i class="fa fa-check"></i><b>4.2</b> Los primeros pasos</a></li>
+<li class="chapter" data-level="4.3" data-path="creando-la-infraestructura-de-un-paquete.html"><a href="creando-la-infraestructura-de-un-paquete.html#checks"><i class="fa fa-check"></i><b>4.3</b> Checks</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="creando-la-infraestructura-de-un-paquete.html"><a href="creando-la-infraestructura-de-un-paquete.html#bioccheck"><i class="fa fa-check"></i><b>4.3.1</b> BiocCheck</a></li>
+<li class="chapter" data-level="4.3.2" data-path="creando-la-infraestructura-de-un-paquete.html"><a href="creando-la-infraestructura-de-un-paquete.html#rcmdcheck"><i class="fa fa-check"></i><b>4.3.2</b> rcmdcheck</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="creando-la-infraestructura-de-un-paquete.html"><a href="creando-la-infraestructura-de-un-paquete.html#modificando-el-archivo-description"><i class="fa fa-check"></i><b>4.4</b> Modificando el archivo DESCRIPTION</a></li>
+<li class="chapter" data-level="4.5" data-path="creando-la-infraestructura-de-un-paquete.html"><a href="creando-la-infraestructura-de-un-paquete.html#modificando-el-archivo-news"><i class="fa fa-check"></i><b>4.5</b> Modificando el archivo NEWS</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="creando-mis-primeras-funciones.html"><a href="creando-mis-primeras-funciones.html"><i class="fa fa-check"></i><b>5</b> Creando mis primeras funciones</a>
 <ul>
@@ -283,11 +291,186 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="creando-la-infraestructura-de-un-paquete" class="section level1 hasAnchor" number="4">
 <h1><span class="header-section-number">4</span> Creando la infraestructura de un paquete<a href="creando-la-infraestructura-de-un-paquete.html#creando-la-infraestructura-de-un-paquete" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Instructora: Joselyn Chávez</p>
+<p>Joselyn Cristina Chávez Fuentes</p>
 <p>29 de octubre de 2024</p>
 <div id="diapositivas-3" class="section level2 hasAnchor" number="4.1">
 <h2><span class="header-section-number">4.1</span> Diapositivas<a href="creando-la-infraestructura-de-un-paquete.html#diapositivas-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p><a href="https://comunidadbioinfo.github.io/cdsb2023/solucion_problemas.html"><iframe src="https://comunidadbioinfo.github.io/cdsb2023/solucion_problemas.html" width="672" height="380px" data-external="1"></iframe></a></p>
+<p><a href="https://comunidadbioinfo.github.io/cdsb2024/infraestructura.html"><iframe src="https://comunidadbioinfo.github.io/cdsb2024/infraestructura.html" width="672" height="380px" data-external="1"></iframe></a></p>
+</div>
+<div id="los-primeros-pasos" class="section level2 hasAnchor" number="4.2">
+<h2><span class="header-section-number">4.2</span> Los primeros pasos<a href="creando-la-infraestructura-de-un-paquete.html#los-primeros-pasos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>Revisar si podemos usar el nombre del paquete</li>
+</ul>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="creando-la-infraestructura-de-un-paquete.html#cb24-1" tabindex="-1"></a>available<span class="sc">::</span><span class="fu">available</span>(<span class="st">&quot;mipaquete&quot;</span>)</span></code></pre></div>
+<ul>
+<li>Crear la estructura inicial del paquete</li>
+</ul>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="creando-la-infraestructura-de-un-paquete.html#cb25-1" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">create_package</span>(<span class="st">&quot;mipaquete&quot;</span>)</span></code></pre></div>
+<ul>
+<li>Podemos agregar la estructura de biocthis</li>
+</ul>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="creando-la-infraestructura-de-un-paquete.html#cb26-1" tabindex="-1"></a>biocthis<span class="sc">::</span><span class="fu">use_bioc_pkg_templates</span>()</span></code></pre></div>
+<ul>
+<li>Pedir que Git ignore el archivo .Rproj</li>
+</ul>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="creando-la-infraestructura-de-un-paquete.html#cb27-1" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_git_ignore</span>(<span class="st">&quot;*.Rproj&quot;</span>)</span></code></pre></div>
+<ul>
+<li>Crear el respositorio de GitHub</li>
+</ul>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="creando-la-infraestructura-de-un-paquete.html#cb28-1" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_github</span>()</span></code></pre></div>
+<ul>
+<li>Crear el archivo Description estilo Bioconductor</li>
+</ul>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="creando-la-infraestructura-de-un-paquete.html#cb29-1" tabindex="-1"></a>biocthis<span class="sc">::</span><span class="fu">use_bioc_description</span>()</span></code></pre></div>
+<ul>
+<li>Crear el archivo README estilo Bioconductor</li>
+</ul>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="creando-la-infraestructura-de-un-paquete.html#cb30-1" tabindex="-1"></a>biocthis<span class="sc">::</span><span class="fu">use_bioc_readme_rmd</span>()</span>
+<span id="cb30-2"><a href="creando-la-infraestructura-de-un-paquete.html#cb30-2" tabindex="-1"></a></span>
+<span id="cb30-3"><a href="creando-la-infraestructura-de-un-paquete.html#cb30-3" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">build_readme</span>()</span></code></pre></div>
+<p>Recuerda guardar los cambios, hacer commit y push.</p>
+<ul>
+<li>Crear el archivo NEWS estilo Bioconductor</li>
+</ul>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="creando-la-infraestructura-de-un-paquete.html#cb31-1" tabindex="-1"></a>biocthis<span class="sc">::</span><span class="fu">use_bioc_news_md</span>()</span></code></pre></div>
+<ul>
+<li>Crear los archivos de ayuda para usuarios y contribuidores</li>
+</ul>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="creando-la-infraestructura-de-un-paquete.html#cb32-1" tabindex="-1"></a>biocthis<span class="sc">::</span><span class="fu">use_bioc_coc</span>()</span>
+<span id="cb32-2"><a href="creando-la-infraestructura-de-un-paquete.html#cb32-2" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_tidy_contributing</span>()</span>
+<span id="cb32-3"><a href="creando-la-infraestructura-de-un-paquete.html#cb32-3" tabindex="-1"></a>biocthis<span class="sc">::</span><span class="fu">use_bioc_support</span>()</span>
+<span id="cb32-4"><a href="creando-la-infraestructura-de-un-paquete.html#cb32-4" tabindex="-1"></a>biocthis<span class="sc">::</span><span class="fu">use_bioc_issue_template</span>()</span>
+<span id="cb32-5"><a href="creando-la-infraestructura-de-un-paquete.html#cb32-5" tabindex="-1"></a>biocthis<span class="sc">::</span><span class="fu">use_bioc_citation</span>()</span></code></pre></div>
+</div>
+<div id="checks" class="section level2 hasAnchor" number="4.3">
+<h2><span class="header-section-number">4.3</span> Checks<a href="creando-la-infraestructura-de-un-paquete.html#checks" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="bioccheck" class="section level3 hasAnchor" number="4.3.1">
+<h3><span class="header-section-number">4.3.1</span> BiocCheck<a href="creando-la-infraestructura-de-un-paquete.html#bioccheck" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="creando-la-infraestructura-de-un-paquete.html#cb33-1" tabindex="-1"></a>BiocManager<span class="sc">::</span><span class="fu">install</span>(<span class="st">&quot;BiocCheck&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="creando-la-infraestructura-de-un-paquete.html#cb34-1" tabindex="-1"></a>BiocCheck<span class="sc">::</span><span class="fu">BiocCheck</span>()</span></code></pre></div>
+<ul>
+<li><p>Algunas reglas de BiocCheck:</p>
+<ul>
+<li>Utilizar el símbolo &lt;- en lugar de = para definir funciones y variables.</li>
+<li>Utilizar TRUE y FALSE en lugar de T y F.</li>
+<li>Indentar el código usando 4 espacios.</li>
+<li>Las líneas de código y documentación no deben ser mayores a 80 caracteres.</li>
+<li>Las funciones deben tener 50 líneas de código o menos.</li>
+<li>El paquete debe contener al menos una viñeta.</li>
+<li>Al menos 80% de las funciones deben tener ejemplos reproducibles.</li>
+<li>Las dependencias deben ser declaradas en el archivo DESCRIPTION.</li>
+<li>El paquete debe tener al menos un biocView.</li>
+<li>El tamaño del paquete no debe ser mayor 5Mb.</li>
+<li>El maintainer debe estar suscrito a la lista de correo de Bioconductor.</li>
+<li>El maintainer debe agregar su paquete en los tags de Bioconductor.</li>
+</ul></li>
+</ul>
+</div>
+<div id="rcmdcheck" class="section level3 hasAnchor" number="4.3.2">
+<h3><span class="header-section-number">4.3.2</span> rcmdcheck<a href="creando-la-infraestructura-de-un-paquete.html#rcmdcheck" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="creando-la-infraestructura-de-un-paquete.html#cb35-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;rcmdcheck&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="creando-la-infraestructura-de-un-paquete.html#cb36-1" tabindex="-1"></a>rcmdcheck<span class="sc">::</span><span class="fu">rcmdcheck</span>()</span></code></pre></div>
+<ul>
+<li><p>Algunas reglas de rcmdcheck:</p>
+<ul>
+<li>El paquete debe ser instalable.</li>
+<li>Los ejemplos de las funciones deben ser reproducibles.</li>
+<li>Las viñetas deben ser reproducibles.</li>
+<li>Todas las unidades de prueba deben pasar sin errores.</li>
+<li>El archivo DESCRIPTON debe tener el formato adecuado.</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="modificando-el-archivo-description" class="section level2 hasAnchor" number="4.4">
+<h2><span class="header-section-number">4.4</span> Modificando el archivo DESCRIPTION<a href="creando-la-infraestructura-de-un-paquete.html#modificando-el-archivo-description" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>Paquete</li>
+</ul>
+<p>Este es el nombre del paquete. El nombre del repositorio y el nombre del paquete en la descripción deben coincidir (incluyendo mayúsculas y minúsculas).</p>
+<ul>
+<li>Título</li>
+</ul>
+<p>Este es un título breve pero descriptivo para el paquete.</p>
+<ul>
+<li>Versión</li>
+</ul>
+<p>Todos los paquetes de Bioconductor utilizan un esquema de versión x.y.z. Cuando se envía por primera vez a Bioconductor, un paquete debe tener la versión 0.99.0.</p>
+<p>Se aplican las siguientes reglas:</p>
+<pre><code>- x es normalmente 0 para paquetes que aún no han sido liberados.
+- y es par para paquetes liberados, e impar para paquetes en desarrollo. Generalmente, no se debe aumentar este número en el pre-release.
+- z se incrementa siempre que se realizan cambios en el paquete.</code></pre>
+<ul>
+<li>Descripción</li>
+</ul>
+<p>La descripción debe ser una visión general relativamente breve pero detallada de lo que implica la funcionalidad del paquete. Debe ser de al menos tres oraciones completas.</p>
+<ul>
+<li>Autores</li>
+</ul>
+<p>Se requiere una designación de maintainer (cre) con una dirección de correo electrónico que se mantenga activamente. Esta dirección de correo se utilizará para el contacto con respecto a cualquier problema que surja con el paquete en el futuro.</p>
+<p>Idealmente, se debe incluir el ORCiD por lo menos del maintainer.</p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="creando-la-infraestructura-de-un-paquete.html#cb38-1" tabindex="-1"></a><span class="fu">person</span>(<span class="st">&quot;Lori&quot;</span>, <span class="st">&quot;Shepherd&quot;</span>,</span>
+<span id="cb38-2"><a href="creando-la-infraestructura-de-un-paquete.html#cb38-2" tabindex="-1"></a>  <span class="at">email =</span> Lori.Shepherd<span class="sc">@</span>roswellpark.org,</span>
+<span id="cb38-3"><a href="creando-la-infraestructura-de-un-paquete.html#cb38-3" tabindex="-1"></a>  <span class="at">role =</span> <span class="fu">c</span>(<span class="st">&quot;cre&quot;</span>, <span class="st">&quot;aut&quot;</span>),</span>
+<span id="cb38-4"><a href="creando-la-infraestructura-de-un-paquete.html#cb38-4" tabindex="-1"></a>  <span class="at">comment =</span> <span class="fu">c</span>(<span class="at">ORCID =</span> <span class="st">&quot;0000-0002-5910-4010&quot;</span>))</span></code></pre></div>
+<p>Sólo debe figurar una persona como responsable para garantizar un único punto de contacto. Esta persona tendrá acceso al repositorio git en git.bioconductor.org. El acceso a Commit puede ser dado a otros desarrolladores por solicitud en la lista de correo bioc-devel.</p>
+<p>Otra opción es añadir colaboradores al repositorio de GitHub. Este enfoque permite el desarrollo por muchos pero restringe el acceso a git.bioconductor.org.</p>
+<ul>
+<li>Licencia</li>
+</ul>
+<p>El campo de licencia debe referirse preferentemente a una licencia estándar no restrictiva.</p>
+<p>Las licencias que restringen el uso, por ejemplo, a investigadores académicos o sin fines de lucro, no son adecuadas para Bioconductor. Los paquetes de bioconductor básico suelen estar licenciados bajo Artistic-2.0.</p>
+<p>El paquete debe contener sólo código que pueda ser redistribuido de acuerdo con la licencia del paquete.</p>
+<ul>
+<li>LazyData</li>
+</ul>
+<p>Para paquetes que incluyen datos, se recomienda NO incluir LazyData: TRUE. Incluirlo en ese caso, ralentiza la carga de paquetes con datos grandes.</p>
+<ul>
+<li>Dependencias</li>
+</ul>
+<p>Todos los paquetes deben estar disponibles a través de biocViews o CRAN de Bioconductor; el uso del campo Remotes: no es soportado, por lo tanto las dependencias sólo disponibles en otros repositorios (e.g. GitHub) no están permitidas.</p>
+<p>Un paquete puede ser listado sólo una vez entre Depends, Imports, Suggests, o Enhances.</p>
+<pre><code>- Imports: es para paquetes que proporcionan funciones, métodos o clases que se usan dentro del código del paquete. La mayoría de los paquetes están listados aquí.
+
+- Depends: es para paquetes que proporcionan funcionalidad esencial para los usuarios del paquete, por ejemplo, el paquete GenomicRanges se enumera en el campo Depends: de GenomicAlignments. Es poco común que más de tres paquetes aparezcan como Depends:.
+
+- Suggests: es para paquetes usados en viñetas, ejemplos y código condicional. Comúnmente, los paquetes de anotaciones y experimentos (por ejemplo, TxDb*) usados en viñetas y código de ejemplo se incluyen en este campo, evitando así una descarga costosa. </code></pre>
+<p>En el caso de que se requiera una función única externa para el código del paquete, la disponibilidad y el uso del paquete pueden hacerse a través de:</p>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="creando-la-infraestructura-de-un-paquete.html#cb40-1" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">requireNamespace</span>(<span class="st">&#39;suggPKG&#39;</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb40-2"><a href="creando-la-infraestructura-de-un-paquete.html#cb40-2" tabindex="-1"></a>    <span class="fu">stop</span>(<span class="st">&quot;Install &#39;suggPKG&#39; to use this function.&quot;</span>)</span>
+<span id="cb40-3"><a href="creando-la-infraestructura-de-un-paquete.html#cb40-3" tabindex="-1"></a>suggPKG<span class="sc">::</span><span class="cf">function</span>()</span></code></pre></div>
+<pre><code>- Enhances: es para paquetes como parallel que mejoran el rendimiento del paquete, pero no son estrictamente necesarios para su funcionalidad.</code></pre>
+<ul>
+<li>biocViews</li>
+</ul>
+<p>Este campo es obligatorio!</p>
+<p>Especifica al menos dos biocViews. Los términos deben provenir del mismo tipo de paquete (Software, AnnotationData, ExperimentData o Workflow).</p>
+<p>Puedes encontrar más información en: <a href="https://www.bioconductor.org/packages/release/BiocViews.html" class="uri">https://www.bioconductor.org/packages/release/BiocViews.html</a></p>
+<ul>
+<li>BugReports</li>
+</ul>
+<p>Se recomienda apuntar hacia el repositorio de GitHub, por ejemplo: <a href="https://github.com/usuario/paquete/issues" class="uri">https://github.com/usuario/paquete/issues</a>.</p>
+<ul>
+<li>URL</li>
+</ul>
+<p>Se incluyen los links importantes, como el repositorio con el código fuente y el sitio web de pkgdown si se cuenta con él. Por ejemplo: <a href="https://github.com/usuario/paquete" class="uri">https://github.com/usuario/paquete</a> <a href="https://usuario.github.io/paquete" class="uri">https://usuario.github.io/paquete</a></p>
+</div>
+<div id="modificando-el-archivo-news" class="section level2 hasAnchor" number="4.5">
+<h2><span class="header-section-number">4.5</span> Modificando el archivo NEWS<a href="creando-la-infraestructura-de-un-paquete.html#modificando-el-archivo-news" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li><p>Secciones:</p>
+<ul>
+<li>New: Nuevas funciones.</li>
+<li>Bug fixes: Reparación de errores en las funciones previas o en la documentación.</li>
+<li>Changes: Cambios en el código de las funciones, incluyendo modificaciones en los argumentos.</li>
+<li>Breaking changes: Cambios importantes que romperían el código en caso de no ser atendidos, por ejemplo el uso de funciones o argumentos antiguos.</li>
+<li>Enhancements: Mejoras a las funciones existentes.</li>
+</ul></li>
+<li><p>Formato</p></li>
+</ul>
+<p>El archivo NEWS se ve similar a este ejemplo:</p>
+<p><img src="img/news.png" width="80%" style="display: block; margin: auto;" /></p>
 
 </div>
 </div>

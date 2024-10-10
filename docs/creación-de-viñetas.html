@@ -205,6 +205,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4" data-path="creando-la-infraestructura-de-un-paquete.html"><a href="creando-la-infraestructura-de-un-paquete.html"><i class="fa fa-check"></i><b>4</b> Creando la infraestructura de un paquete</a>
 <ul>
 <li class="chapter" data-level="4.1" data-path="creando-la-infraestructura-de-un-paquete.html"><a href="creando-la-infraestructura-de-un-paquete.html#diapositivas-3"><i class="fa fa-check"></i><b>4.1</b> Diapositivas</a></li>
+<li class="chapter" data-level="4.2" data-path="creando-la-infraestructura-de-un-paquete.html"><a href="creando-la-infraestructura-de-un-paquete.html#los-primeros-pasos"><i class="fa fa-check"></i><b>4.2</b> Los primeros pasos</a></li>
+<li class="chapter" data-level="4.3" data-path="creando-la-infraestructura-de-un-paquete.html"><a href="creando-la-infraestructura-de-un-paquete.html#checks"><i class="fa fa-check"></i><b>4.3</b> Checks</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="creando-la-infraestructura-de-un-paquete.html"><a href="creando-la-infraestructura-de-un-paquete.html#bioccheck"><i class="fa fa-check"></i><b>4.3.1</b> BiocCheck</a></li>
+<li class="chapter" data-level="4.3.2" data-path="creando-la-infraestructura-de-un-paquete.html"><a href="creando-la-infraestructura-de-un-paquete.html#rcmdcheck"><i class="fa fa-check"></i><b>4.3.2</b> rcmdcheck</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="creando-la-infraestructura-de-un-paquete.html"><a href="creando-la-infraestructura-de-un-paquete.html#modificando-el-archivo-description"><i class="fa fa-check"></i><b>4.4</b> Modificando el archivo DESCRIPTION</a></li>
+<li class="chapter" data-level="4.5" data-path="creando-la-infraestructura-de-un-paquete.html"><a href="creando-la-infraestructura-de-un-paquete.html#modificando-el-archivo-news"><i class="fa fa-check"></i><b>4.5</b> Modificando el archivo NEWS</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="creando-mis-primeras-funciones.html"><a href="creando-mis-primeras-funciones.html"><i class="fa fa-check"></i><b>5</b> Creando mis primeras funciones</a>
 <ul>
@@ -306,11 +314,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="cómo-consultar-la-viñeta-de-un-paquete" class="section level2 hasAnchor" number="8.4">
 <h2><span class="header-section-number">8.4</span> ¿Cómo consultar la viñeta de un paquete?<a href="creación-de-viñetas.html#cómo-consultar-la-viñeta-de-un-paquete" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="creación-de-viñetas.html#cb40-1" tabindex="-1"></a><span class="fu">browseVignettes</span>(<span class="at">package =</span> <span class="st">&quot;ggplot2&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="creación-de-viñetas.html#cb58-1" tabindex="-1"></a><span class="fu">browseVignettes</span>(<span class="at">package =</span> <span class="st">&quot;ggplot2&quot;</span>)</span></code></pre></div>
 </div>
 <div id="cómo-crear-una-viñeta" class="section level2 hasAnchor" number="8.5">
 <h2><span class="header-section-number">8.5</span> ¿Cómo crear una viñeta?<a href="creación-de-viñetas.html#cómo-crear-una-viñeta" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="creación-de-viñetas.html#cb41-1" tabindex="-1"></a>biocthis<span class="sc">::</span><span class="fu">use_bioc_vignette</span>(<span class="st">&quot;mi_vignette&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="creación-de-viñetas.html#cb59-1" tabindex="-1"></a>biocthis<span class="sc">::</span><span class="fu">use_bioc_vignette</span>(<span class="st">&quot;mi_vignette&quot;</span>)</span></code></pre></div>
 <p>Esta función tendrá tres efectos:</p>
 <ul>
 <li>Generar el directorio vignettes en caso que no exista.</li>
@@ -321,7 +329,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="cómo-guardar-y-actualizar-la-viñeta" class="section level2 hasAnchor" number="8.6">
 <h2><span class="header-section-number">8.6</span> ¿Cómo guardar y actualizar la viñeta?<a href="creación-de-viñetas.html#cómo-guardar-y-actualizar-la-viñeta" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Una vez que se ha generado el archivo vignettes/mi_vignette.Rmd se hacen las modificaciones necesarias. Puedes usar el comando:</p>
-<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="creación-de-viñetas.html#cb42-1" tabindex="-1"></a><span class="fu">edit_file</span>(<span class="st">&quot;vignettes/mi_vignette.Rmd&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="creación-de-viñetas.html#cb60-1" tabindex="-1"></a><span class="fu">edit_file</span>(<span class="st">&quot;vignettes/mi_vignette.Rmd&quot;</span>)</span></code></pre></div>
 <p>Para guardar los cambios debes hacer click en el botón Knit o utiliza la combinación de teclas Ctrl/Cmd-Shift-K.</p>
 </div>
 <div id="veamos-un-ejemplo" class="section level2 hasAnchor" number="8.7">

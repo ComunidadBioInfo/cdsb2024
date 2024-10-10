@@ -44,6 +44,12 @@ solución-de-problemas-con-las-versiones-de-paquetes-de-rstudio
 diapositivas-2
 creando-la-infraestructura-de-un-paquete
 diapositivas-3
+los-primeros-pasos
+checks
+bioccheck
+rcmdcheck
+modificando-el-archivo-description
+modificando-el-archivo-news
 creando-mis-primeras-funciones
 diapositivas-4
 documentación-de-funciones
