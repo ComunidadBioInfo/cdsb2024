@@ -36,7 +36,7 @@ En este taller aprenderás cuáles son los pasos cruciales para desarrollar un p
 
 ## Ayudantes
 
-- Dra. Evelia Coss
+- [Dra. Evelia Coss](https://github.com/EveliaCoss): Posdoctoral en el Laboratorio Internacional de Investigación de Medicina Genómica, UNAM. 
 
 ## Temario 
 
