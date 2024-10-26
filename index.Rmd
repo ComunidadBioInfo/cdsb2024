@@ -37,6 +37,7 @@ En este taller aprenderás cuáles son los pasos cruciales para desarrollar un p
 ## Ayudantes
 
 - [Dra. Evelia Coss](https://github.com/EveliaCoss): Posdoctoral en el Laboratorio Internacional de Investigación de Medicina Genómica, UNAM. 
+- [M.C. José Antonio Ovando Ricárdez](https://comunidadbioinfo.github.io/es/authors/joseovando/): Estudiante de Doctorado en el Instituto Nacional de Enfermedades Respiratorias Ismael Cosío Villegas.
 
 ## Temario 
 
