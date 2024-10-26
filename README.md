@@ -28,7 +28,7 @@ Todas las sesiones serán teóricas y prácticas. Nos enfocaremos en dos temas p
 
 ## Ayudantes
 
-- Dra. Evelia Coss
+- [Dra. Evelia Coss](https://github.com/EveliaCoss): Posdoctoral en el Laboratorio Internacional de Investigación de Medicina Genómica, UNAM. 
 
 ## Temario 
 
