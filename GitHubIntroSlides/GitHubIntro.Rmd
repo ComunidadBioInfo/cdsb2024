@@ -290,12 +290,6 @@ output:
 ---
 ```
 
-## Si les gustó Rmarkdown
-
-```{r, out.width = '100%'}
-knitr::include_graphics('Figure11.jpg')
-```
-
 
 ## Git basics: commands
 
