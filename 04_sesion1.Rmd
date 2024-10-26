@@ -1,13 +1,13 @@
 # Creación de sitios web con pkgdown
 
-Erick Cuevas
-
+Joselyn Cristina Chávez Fuentes
+ 
 31 de octubre de 2024
 
 ## Diapositivas
 
 [
 ```{r,echo=FALSE}
-knitr::include_url("https://comunidadbioinfo.github.io/cdsb2023/Pruebas_04_sesion01.html", height = "380px")
+knitr::include_url("https://comunidadbioinfo.github.io/cdsb2024/sitios_web.html", height = "380px")
 ```
-](https://comunidadbioinfo.github.io/cdsb2023/Pruebas_04_sesion01.html)
+](https://comunidadbioinfo.github.io/cdsb2024/sitios_web.html)
