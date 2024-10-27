@@ -11,3 +11,352 @@ Joselyn Cristina Chávez Fuentes
 knitr::include_url("https://comunidadbioinfo.github.io/cdsb2024/sitios_web.html", height = "380px")
 ```
 ](https://comunidadbioinfo.github.io/cdsb2024/sitios_web.html)
+
+<style>
+div.grey { 
+background-color: #bfbfbf;
+}
+</style>
+
+<style>
+div.center {
+text-align:center;
+}
+</style>
+
+
+## Instalación
+
+```{r, eval=FALSE}
+install.packages("pkgdown")
+```
+
+## Configura el paquete para crear el sitio con pkgdown
+
+Este paso se ejecuta solamente una vez, dentro del proyecto del paquete.
+
+```{r, eval=FALSE}
+usethis::use_pkgdown_github_pages()
+```
+
+Este paso genera las acciones automáticas de GitHub para renderizar el sitio. El archivo README.md será tu página de inicio, la documentación en man/ va a crear una sección de referencias, y las viñetas serán renderizadas como articles.
+
+## Genera la estructura de pkgdown
+
+Este paso se ejecuta solamente una vez.
+
+```{r, eval=FALSE}
+usethis::use_pkgdown()
+```
+
+## Pre-visualiza el sitio de manera local
+
+Este paso lo puedes ejecutar para visualizar el sitio cada vez que hagas una modificación, antes de enviar los cambios a GitHub.
+
+```{r, eval=FALSE}
+pkgdown::build_site()
+```
+
+## Personalizando el _pkgdown.yml
+
+### Metadatos 
+
+- URL
+
+Este es el link donde se va a renderizar el sitio, revisa que sea correcto y, de ser necesario, actualízalo.
+
+```{r, eval=FALSE}
+url: https://pkgdown.r-lib.org
+```
+
+- template
+
+Esta sección permite personalizar la apariencia general del sitio.
+
+```{r, eval=FALSE}
+template:
+  bootstrap: 5
+  bootswatch: cerulean
+```
+
+### Temas
+
+- Light switch
+
+Puedes proporcionar un "light switch" para permitir a tus usuarios cambiar entre temas oscuros y claros configurando la opción de light-switch a true:
+
+```{r, eval=FALSE}
+template:
+  light-switch: true
+```
+
+- Bootswatch themes
+
+La forma más fácil de cambiar toda la apariencia de tu sitio web es usar un tema de Bootswatch:
+
+```{r, eval=FALSE}
+template:
+  bootstrap: 5
+  bootswatch: materia
+```
+
+Puedes ver los temas disponibles en <https://bootswatch.com/>
+
+Estos temas suelen no ser compatibles con el light switch, pero puedes intentar.
+
+Al cambiar el bootswatch theme necesitas renderizar el sitio para ver por completo los efectos del tema.
+
+```{r, eval=FALSE}
+build_site()
+```
+
+Mientras estás experimentando, puedes acelerar las cosas simplemente reconstruyendo la página de inicio y el CSS ejecutando:
+
+```{r, eval=FALSE}
+build_home_index()
+
+init_site()
+```
+
+y luego actualizando el navegador.
+
+Los bootswatch theme con barras de navegación altas (lux, pulse) también requieren que se modifique la variable pkgdown-nav-height. 
+
+Debido a que los temas de bootswatch son proporcionados por el paquete bslib, se puede anidar el campo bootswatch debajo del campo bslib.
+
+```{r, eval=FALSE}
+template:
+  bootstrap: 5
+  bslib:
+    bootswatch: lux
+    pkgdown-nav-height: 100px
+```
+
+## Las variables bslib
+
+Hay tres variables clave que afectan al color:
+
+- bg (fondo) determina el fondo de la página.
+- fg (primer plano) determina el color del texto. 
+- primary establece el color del enlace y el color translúcido en la barra de navegación y la barra lateral.
+
+```{r, eval=FALSE}
+template:
+  bootstrap: 5
+  bslib:
+    bg: "#202123"
+    fg: "#B8BCC2"
+    primary: "#306cc9"
+```
+
+También se pueden personalizar las fuentes predeterminadas utilizadas para la mayoría del texto (base_font), para los encabezados (heading_font) y para el código (code_font). 
+
+La forma más fácil es proporcionar el nombre de una fuente de Google con la siguiente sintaxis:
+
+```{r, eval=FALSE}
+template:
+  bootstrap: 5
+  bslib:
+    base_font: {google: "Roboto"}
+    heading_font: {google: "Roboto Slab"}
+    code_font: {google: "JetBrains Mono"}
+```
+
+### Syntax highlighting
+
+Los colores utilizados para el resaltado de sintaxis en bloques de código están controlados por la configuración theme:
+
+```{r, eval=FALSE}
+template:
+  bootstrap: 5
+  theme: breeze-light
+```
+
+Puedes elegir entre: a11y-dark, a11y-light, arrow-dark, arrow-light, atom-one-dark, atom-one-light, ayu-dark, ayu-light, ayu-mirage, breeze-dark, breeze-light, breezedark, dracula, espresso, github-dark, github-light, gruvbox-dark, gruvbox-light, haddock, kate, monochrome-dark, monochrome-light, monochrome, monokai, nord, oblivion, printing, pygments, radical, solarized-dark, solarized-light, solarized, tango, vim-dark, zenburn.
+
+### Navbar style
+
+Los campos bg y type de la barra de navegación controlan los colores del fondo y el primer plano respectivamente. Normalmente bg será light, dark, o primary:
+
+```{r, eval=FALSE}
+navbar:
+  bg: primary
+```
+
+## Layout
+
+Puedes personalizar el contenido de la barra de navegación, pie de página, utilizando los campos navbar y footer. Todos ellos utilizan una estructura similar que define por separado la estructura global y los componentes individuales.
+
+### Navbar
+
+Esta es la estructura default:
+
+```{r, eval=FALSE}
+navbar:
+  structure:
+    left:  [intro, reference, articles, tutorials, news]
+    right: [search, github, lightswitch]
+```
+
+- intro: "Get Started", enlaza a una viñeta o artículo con el mismo nombre que el paquete.
+- reference: si hay archivos . Rd.
+- articles: si hay viñetas o artículos.
+- tutorials: si hay algún tutorial.
+- news: si existe NEWS.md.
+- search: la barra de búsqueda.
+- github: un enlace al repositorio de origen (con un icono), es determinado automáticamente a partir del archivo DESCRIPTION.
+- lightswitch; un "interruptor de luz" para seleccionar el modo claro, modo oscuro o modo automático.
+
+Puedes utilizar el campo structure para reorganizar la barra de navegación:
+
+```{r, eval=FALSE}
+navbar:
+  structure:
+    left:  [search]
+    right: [reference, articles]
+```
+
+Puedes usar la misma sintaxis para organizar el menú de artículos:
+
+```{r, eval=FALSE}
+navbar:
+ components:
+   articles:
+    text: Articles
+    menu:
+    - text: Category A
+    - text: Title A1
+      href: articles/a1.html
+    - text: Title A2
+      href: articles/a2.html
+    - text: -------
+    - text: "Category B"
+    - text: Article B1
+      href: articles/b1.html
+```
+
+### Footer
+
+Esta es la estructura por defecto::
+
+```{r, eval=FALSE}
+footer:
+  structure: 
+    left: developed_by
+    right: built_with
+```
+
+Que utiliza dos de los tres componentes incorporados:
+
+- developed_by: una frase que describe a los principales autores del paquete.
+- built_with: una frase que hace publicidad de la misma.
+- package: el nombre del paquete.
+
+Puedes personalizar la organización del pie de página:
+
+```{r, eval=FALSE}
+footer:
+  structure: 
+    left: pkgdown
+    right: [developed_by, legal]
+  components:
+    legal: Provided without **any warranty**.
+```
+
+## Accessibilidad
+
+Las configuraciones default de pkgdown tratan de hacer el sitio lo más accesible posible para todos, pero hay algunos puntos a tomar en cuenta:
+
+### Colores
+
+- Si ajustas cualquier color del tema default, verifica que el contraste entre el fondo y el primer plano no haga difícil leer ningún texto. Puedes utilizar la herramienta de evaluación de accessibilidad en https://wave.webaim.org.
+
+- El color default genera un contraste demasiado bajo contra el fondo gris pálido de la barra de navegación. Este color viene de la paleta "danger" de bootstrap, así que puedes arreglarlo sobreescribiendo esa variable en tu _pkgdown.yml:
+
+```{r, eval=FALSE}
+template:
+  bootstrap: 5
+  bslib:
+    danger: "#A6081A"
+```
+
+- Si utilizas entradas de barra de navegación personalizadas que sólo muestran un icono, asegúrate de utilizar también el campo aria-label para proporcionar una etiqueta accesible que describa el icono.
+
+```{r, eval=FALSE}
+cran:
+  icon: fab fa-r-project
+  href: https://cloud.r-project.org/package=pkgdown
+  aria-label: View on CRAN
+```
+
+### Imágenes
+
+Para hacer tu sitio completamente accessible, agrega una descripción del contenido de las imágenes en las viñetas usando el campo "fig.alt" de las opciones del chunk de R. 
+
+## La página de inicio
+
+Los contenidos del home page son automáticamente generados desde el archivo  index.md o el README.md. pkgdown les asigna diferentes prioridades, por lo que es possible tener contenidos diferentes en el repositorio de GitHub y la página de pkgdown si provees ambos archivos. 
+
+La página de inicio también incluye una barra de contenidos con links importantes, como la guía de contribución, el código de conducta, etc. 
+
+## La página de referencias
+
+pkgdown crea una página de referencia en reference/ para cada una de las funciones del paquete, basado en la documentación. 
+
+pkgdown ejecuta todos los ejemplos de las funciones, insertando los resultados renderizados en los archivos HTML generados.
+
+Por defecto, pkgdown genera un índice de referencia que es sólo una lista de funciones ordenadas alfabéticamente. El índice es mucho más útil con la curación manual porque las funciones pueden agruparse y describirse en categorías. 
+
+Cada entrada de referencia puede adoptar una de las tres formas siguientes:
+
+- Un título, definido por los campos title y desc (descripción) opcionales.
+- Un subtítulo, definido por los campos de subtítulo y desc (descripción) opcionales.
+- Lista de temas definidos por un campo de contenido.
+
+Mientras editas el índice de referencias, puedes ejecuar la siguiente función para renderizar solamente el índice, lo que permite ver de forma rápida el efecto de los cambios sin tener que renderizar todo el sitio.
+
+```{r, eval=FALSE}
+pkgdown::build_reference_index()
+```
+
+```{r, eval=FALSE}
+reference:
+- title: "Connecting to Spark"
+  desc: >
+    Functions for installing Spark components and managing
+    connections to Spark
+  contents: 
+  - spark_config
+  - spark_connect
+  - spark_disconnect
+  - spark_install
+  - spark_log
+```
+
+## Articles
+
+pkgdown creará automáticamente todas las viñetas que se encuentran en la carpeta vignettes/, traduciéndolas a archivos HTML en articles/. 
+
+Se puede nombrar el artículo de introducción con el nombre del paquete para generar una página "Get Started" automáticamente.
+
+## News
+
+Si el archivo NEWS.md está presente, se procesará en un changelog de una sola página basado en los títulos de las secciones del archivo. 
+
+pkgdown asume que el archivo NEWS.md está formateado con encabezados de nivel uno (#) para especificar el nombre del paquete y el número de versión, y con encabezados de nivel dos (##) para proporcionar una organización temática para cada versión.
+
+```{r, eval=FALSE}
+# pkgdown 1.1.0
+
+## Bug Fixes
+
+* Lots of them
+```
+
+## Publicando el sitio web
+
+Haz commit de los cambios y luego push.
+
+Ve al repositorio del paquete en GitHub y espera a que la acción de GitHub termine de renderizar el sitio.
+
+Ve al sitio web, el formato debe ser similar a <https://usuario.github.io/paquete>
