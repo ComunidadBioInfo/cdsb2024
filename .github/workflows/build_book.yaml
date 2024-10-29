@@ -46,6 +46,14 @@ jobs:
         run: |
           Rscript -e "install.packages('cowplot')"
 
+      - name: Install BiocManager
+        run: |
+          Rscript -e "install.packages('BiocManager')"
+
+      - name: Install ComplexHeatmap
+        run: |
+          Rscript -e "BiocManager::install('ComplexHeatmap')"
+
       - name: Render book
         run: |
           Rscript -e "bookdown::render_book()"
