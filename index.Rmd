@@ -29,8 +29,9 @@ En este taller aprenderás cuáles son los pasos cruciales para desarrollar un p
 ## Instructores
 
 - [Dra. Joselyn Cristina Chávez Fuentes](https://comunidadbioinfo.github.io/es/authors/josschavezf/): Estancia Postdoctoral en Icahn School of Medicine at Mount Sinai.
+- [Dra. Alejandra Medina Rivera](https://comunidadbioinfo.github.io/es/authors/amedina/): Investigadora Asociada en el Laboratorio Internacional de Investigación de Medicina Genómica, UNAM.
+- [Dra. Yalbi I. Balderas-Martínez](https://comunidadbioinfo.github.io/es/authors/yalbibalderas/): Investigadora en el Instituto Nacional de Enfermedades Respiratorias Ismael Cosío Villegas.
 - [Dra. Mirna Vázquez Rosas Landa](https://comunidadbioinfo.github.io/es/authors/mirnavrl/): Investigadora en el Instituto de Ciencias de Mar y Limnología de la UNAM.
-- [Dra. Alejandra Medina Rivera](https://comunidadbioinfo.github.io/es/authors/amedina/): Investigadora Asociada en el Laboratorio Internacional de Investigación de Medicina Genómica, UNAM. 
 - [M.C. Erick Cuevas Fernández](https://comunidadbioinfo.github.io/es/authors/erickcufe/): Estudiante de Doctorado en la Universidad Nacional Autónoma de México.
 - [M.C. José Antonio Ovando Ricárdez](https://comunidadbioinfo.github.io/es/authors/joseovando/): Estudiante de Doctorado en el Instituto Nacional de Enfermedades Respiratorias Ismael Cosío Villegas.
 
