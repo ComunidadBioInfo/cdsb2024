@@ -217,6 +217,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5" data-path="creando-mis-primeras-funciones.html"><a href="creando-mis-primeras-funciones.html"><i class="fa fa-check"></i><b>5</b> Creando mis primeras funciones</a>
 <ul>
 <li class="chapter" data-level="5.1" data-path="creando-mis-primeras-funciones.html"><a href="creando-mis-primeras-funciones.html#diapositivas-4"><i class="fa fa-check"></i><b>5.1</b> Diapositivas</a></li>
+<li class="chapter" data-level="5.2" data-path="creando-mis-primeras-funciones.html"><a href="creando-mis-primeras-funciones.html#nombre-de-la-función"><i class="fa fa-check"></i><b>5.2</b> Nombre de la función</a></li>
+<li class="chapter" data-level="5.3" data-path="creando-mis-primeras-funciones.html"><a href="creando-mis-primeras-funciones.html#estructura-de-la-función"><i class="fa fa-check"></i><b>5.3</b> Estructura de la función</a></li>
+<li class="chapter" data-level="5.4" data-path="creando-mis-primeras-funciones.html"><a href="creando-mis-primeras-funciones.html#tu-turno"><i class="fa fa-check"></i><b>5.4</b> ¡Tu turno!</a></li>
+<li class="chapter" data-level="5.5" data-path="creando-mis-primeras-funciones.html"><a href="creando-mis-primeras-funciones.html#argumentos"><i class="fa fa-check"></i><b>5.5</b> Argumentos</a></li>
+<li class="chapter" data-level="5.6" data-path="creando-mis-primeras-funciones.html"><a href="creando-mis-primeras-funciones.html#tu-turno-1"><i class="fa fa-check"></i><b>5.6</b> ¡Tu turno!</a></li>
+<li class="chapter" data-level="5.7" data-path="creando-mis-primeras-funciones.html"><a href="creando-mis-primeras-funciones.html#indentación"><i class="fa fa-check"></i><b>5.7</b> Indentación</a></li>
+<li class="chapter" data-level="5.8" data-path="creando-mis-primeras-funciones.html"><a href="creando-mis-primeras-funciones.html#uso-de-espacios"><i class="fa fa-check"></i><b>5.8</b> Uso de espacios</a></li>
+<li class="chapter" data-level="5.9" data-path="creando-mis-primeras-funciones.html"><a href="creando-mis-primeras-funciones.html#comentarios"><i class="fa fa-check"></i><b>5.9</b> Comentarios</a></li>
+<li class="chapter" data-level="5.10" data-path="creando-mis-primeras-funciones.html"><a href="creando-mis-primeras-funciones.html#mensajes-para-el-usuario"><i class="fa fa-check"></i><b>5.10</b> Mensajes para el usuario</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="documentación-de-funciones.html"><a href="documentación-de-funciones.html"><i class="fa fa-check"></i><b>6</b> Documentación de funciones</a>
 <ul>
@@ -343,11 +352,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="cómo-consultar-la-viñeta-de-un-paquete" class="section level2 hasAnchor" number="8.4">
 <h2><span class="header-section-number">8.4</span> ¿Cómo consultar la viñeta de un paquete?<a href="creación-de-viñetas.html#cómo-consultar-la-viñeta-de-un-paquete" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="creación-de-viñetas.html#cb55-1" tabindex="-1"></a><span class="fu">browseVignettes</span>(<span class="at">package =</span> <span class="st">&quot;ggplot2&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="creación-de-viñetas.html#cb74-1" tabindex="-1"></a><span class="fu">browseVignettes</span>(<span class="at">package =</span> <span class="st">&quot;ggplot2&quot;</span>)</span></code></pre></div>
 </div>
 <div id="cómo-crear-una-viñeta" class="section level2 hasAnchor" number="8.5">
 <h2><span class="header-section-number">8.5</span> ¿Cómo crear una viñeta?<a href="creación-de-viñetas.html#cómo-crear-una-viñeta" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="creación-de-viñetas.html#cb56-1" tabindex="-1"></a>biocthis<span class="sc">::</span><span class="fu">use_bioc_vignette</span>(<span class="st">&quot;mi_vignette&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="creación-de-viñetas.html#cb75-1" tabindex="-1"></a>biocthis<span class="sc">::</span><span class="fu">use_bioc_vignette</span>(<span class="st">&quot;mi_vignette&quot;</span>)</span></code></pre></div>
 <p>Esta función tendrá tres efectos:</p>
 <ul>
 <li>Generar el directorio vignettes en caso que no exista.</li>
@@ -358,7 +367,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="cómo-guardar-y-actualizar-la-viñeta" class="section level2 hasAnchor" number="8.6">
 <h2><span class="header-section-number">8.6</span> ¿Cómo guardar y actualizar la viñeta?<a href="creación-de-viñetas.html#cómo-guardar-y-actualizar-la-viñeta" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Una vez que se ha generado el archivo vignettes/mi_vignette.Rmd se hacen las modificaciones necesarias. Puedes usar el comando:</p>
-<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="creación-de-viñetas.html#cb57-1" tabindex="-1"></a><span class="fu">edit_file</span>(<span class="st">&quot;vignettes/mi_vignette.Rmd&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="creación-de-viñetas.html#cb76-1" tabindex="-1"></a><span class="fu">edit_file</span>(<span class="st">&quot;vignettes/mi_vignette.Rmd&quot;</span>)</span></code></pre></div>
 <p>Para guardar los cambios debes hacer click en el botón Knit o utiliza la combinación de teclas Ctrl/Cmd-Shift-K.</p>
 </div>
 <div id="veamos-un-ejemplo" class="section level2 hasAnchor" number="8.7">

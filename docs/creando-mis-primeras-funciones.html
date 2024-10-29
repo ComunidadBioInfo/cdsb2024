@@ -217,6 +217,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5" data-path="creando-mis-primeras-funciones.html"><a href="creando-mis-primeras-funciones.html"><i class="fa fa-check"></i><b>5</b> Creando mis primeras funciones</a>
 <ul>
 <li class="chapter" data-level="5.1" data-path="creando-mis-primeras-funciones.html"><a href="creando-mis-primeras-funciones.html#diapositivas-4"><i class="fa fa-check"></i><b>5.1</b> Diapositivas</a></li>
+<li class="chapter" data-level="5.2" data-path="creando-mis-primeras-funciones.html"><a href="creando-mis-primeras-funciones.html#nombre-de-la-función"><i class="fa fa-check"></i><b>5.2</b> Nombre de la función</a></li>
+<li class="chapter" data-level="5.3" data-path="creando-mis-primeras-funciones.html"><a href="creando-mis-primeras-funciones.html#estructura-de-la-función"><i class="fa fa-check"></i><b>5.3</b> Estructura de la función</a></li>
+<li class="chapter" data-level="5.4" data-path="creando-mis-primeras-funciones.html"><a href="creando-mis-primeras-funciones.html#tu-turno"><i class="fa fa-check"></i><b>5.4</b> ¡Tu turno!</a></li>
+<li class="chapter" data-level="5.5" data-path="creando-mis-primeras-funciones.html"><a href="creando-mis-primeras-funciones.html#argumentos"><i class="fa fa-check"></i><b>5.5</b> Argumentos</a></li>
+<li class="chapter" data-level="5.6" data-path="creando-mis-primeras-funciones.html"><a href="creando-mis-primeras-funciones.html#tu-turno-1"><i class="fa fa-check"></i><b>5.6</b> ¡Tu turno!</a></li>
+<li class="chapter" data-level="5.7" data-path="creando-mis-primeras-funciones.html"><a href="creando-mis-primeras-funciones.html#indentación"><i class="fa fa-check"></i><b>5.7</b> Indentación</a></li>
+<li class="chapter" data-level="5.8" data-path="creando-mis-primeras-funciones.html"><a href="creando-mis-primeras-funciones.html#uso-de-espacios"><i class="fa fa-check"></i><b>5.8</b> Uso de espacios</a></li>
+<li class="chapter" data-level="5.9" data-path="creando-mis-primeras-funciones.html"><a href="creando-mis-primeras-funciones.html#comentarios"><i class="fa fa-check"></i><b>5.9</b> Comentarios</a></li>
+<li class="chapter" data-level="5.10" data-path="creando-mis-primeras-funciones.html"><a href="creando-mis-primeras-funciones.html#mensajes-para-el-usuario"><i class="fa fa-check"></i><b>5.10</b> Mensajes para el usuario</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="documentación-de-funciones.html"><a href="documentación-de-funciones.html"><i class="fa fa-check"></i><b>6</b> Documentación de funciones</a>
 <ul>
@@ -324,7 +333,224 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>29 de octubre de 2024</p>
 <div id="diapositivas-4" class="section level2 hasAnchor" number="5.1">
 <h2><span class="header-section-number">5.1</span> Diapositivas<a href="creando-mis-primeras-funciones.html#diapositivas-4" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p><a href="https://comunidadbioinfo.github.io/cdsb2023/solucion_problemas.html"><iframe src="https://comunidadbioinfo.github.io/cdsb2023/solucion_problemas.html" width="672" height="380px" data-external="1"></iframe></a></p>
+<p><a href="https://comunidadbioinfo.github.io/cdsb2024/creando_funciones.html"><iframe src="https://comunidadbioinfo.github.io/cdsb2024/creando_funciones.html" width="672" height="380px" data-external="1"></iframe></a></p>
+</div>
+<div id="nombre-de-la-función" class="section level2 hasAnchor" number="5.2">
+<h2><span class="header-section-number">5.2</span> Nombre de la función<a href="creando-mis-primeras-funciones.html#nombre-de-la-función" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>Cortos pero descriptivos</li>
+<li>Recomendable: Separar las palabras con _</li>
+<li>Establecer una palabra en común al inicio para familias de funciones</li>
+</ul>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="creando-mis-primeras-funciones.html#cb39-1" tabindex="-1"></a><span class="fu">use_bioc_citation</span>() <span class="co"># es mejor que</span></span>
+<span id="cb39-2"><a href="creando-mis-primeras-funciones.html#cb39-2" tabindex="-1"></a></span>
+<span id="cb39-3"><a href="creando-mis-primeras-funciones.html#cb39-3" tabindex="-1"></a><span class="fu">citation</span>()</span>
+<span id="cb39-4"><a href="creando-mis-primeras-funciones.html#cb39-4" tabindex="-1"></a><span class="fu">bioc_cit</span>()</span>
+<span id="cb39-5"><a href="creando-mis-primeras-funciones.html#cb39-5" tabindex="-1"></a><span class="fu">usebioccitation</span>()</span>
+<span id="cb39-6"><a href="creando-mis-primeras-funciones.html#cb39-6" tabindex="-1"></a><span class="fu">useBiocCitation</span>()</span>
+<span id="cb39-7"><a href="creando-mis-primeras-funciones.html#cb39-7" tabindex="-1"></a><span class="fu">use.bioc.citation</span>()</span></code></pre></div>
+</div>
+<div id="estructura-de-la-función" class="section level2 hasAnchor" number="5.3">
+<h2><span class="header-section-number">5.3</span> Estructura de la función<a href="creando-mis-primeras-funciones.html#estructura-de-la-función" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>Indentar las líneas de código.</li>
+<li>Agregar comentarios para separar/describir las secciones importantes.</li>
+<li>Usar la sintaxis paquete::funcion() cuando hacemos llamado a funciones de otros paquetes.</li>
+</ul>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="creando-mis-primeras-funciones.html#cb40-1" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_r</span>(<span class="st">&quot;subset_heatmap&quot;</span>)</span></code></pre></div>
+<p>Generemos el código de manera regular.</p>
+<p>Simulemos una matriz con diversas mediciones y grafiquemos los datos en un heatmap.</p>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="creando-mis-primeras-funciones.html#cb41-1" tabindex="-1"></a>mi_matriz <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">rnorm</span>(<span class="dv">100</span>), <span class="at">nrow =</span> <span class="dv">10</span>)</span>
+<span id="cb41-2"><a href="creando-mis-primeras-funciones.html#cb41-2" tabindex="-1"></a><span class="fu">rownames</span>(mi_matriz) <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&quot;medicion_&quot;</span>,letters[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>])</span>
+<span id="cb41-3"><a href="creando-mis-primeras-funciones.html#cb41-3" tabindex="-1"></a><span class="fu">colnames</span>(mi_matriz) <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&quot;grupo_&quot;</span>,letters[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>])</span>
+<span id="cb41-4"><a href="creando-mis-primeras-funciones.html#cb41-4" tabindex="-1"></a></span>
+<span id="cb41-5"><a href="creando-mis-primeras-funciones.html#cb41-5" tabindex="-1"></a><span class="fu">library</span>(ComplexHeatmap)</span>
+<span id="cb41-6"><a href="creando-mis-primeras-funciones.html#cb41-6" tabindex="-1"></a></span>
+<span id="cb41-7"><a href="creando-mis-primeras-funciones.html#cb41-7" tabindex="-1"></a><span class="fu">Heatmap</span>(mi_matriz,</span>
+<span id="cb41-8"><a href="creando-mis-primeras-funciones.html#cb41-8" tabindex="-1"></a>        <span class="at">cluster_columns =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb41-9"><a href="creando-mis-primeras-funciones.html#cb41-9" tabindex="-1"></a>        <span class="at">heatmap_legend_param =</span> <span class="fu">list</span>(<span class="at">title =</span> <span class="st">&quot;valores&quot;</span>))</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-61-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>Escribamos una función que permita seleccionar algunos grupos de interés y genere el heatmap.</p>
+<p>No la mejor opción:</p>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="creando-mis-primeras-funciones.html#cb42-1" tabindex="-1"></a><span class="fu">library</span>(ComplexHeatmap)</span>
+<span id="cb42-2"><a href="creando-mis-primeras-funciones.html#cb42-2" tabindex="-1"></a></span>
+<span id="cb42-3"><a href="creando-mis-primeras-funciones.html#cb42-3" tabindex="-1"></a>subset_heatmap <span class="ot">&lt;-</span> <span class="cf">function</span>(x,<span class="at">mediciones=</span><span class="cn">NULL</span>,<span class="at">grupos=</span><span class="cn">NULL</span>) {</span>
+<span id="cb42-4"><a href="creando-mis-primeras-funciones.html#cb42-4" tabindex="-1"></a>x_subset <span class="ot">&lt;-</span> x[mediciones,grupos]</span>
+<span id="cb42-5"><a href="creando-mis-primeras-funciones.html#cb42-5" tabindex="-1"></a><span class="fu">Heatmap</span>(mi_matriz,</span>
+<span id="cb42-6"><a href="creando-mis-primeras-funciones.html#cb42-6" tabindex="-1"></a>        <span class="at">cluster_columns=</span><span class="cn">FALSE</span>,</span>
+<span id="cb42-7"><a href="creando-mis-primeras-funciones.html#cb42-7" tabindex="-1"></a>        <span class="at">heatmap_legend_param=</span><span class="fu">list</span>(<span class="at">title=</span><span class="st">&quot;valores&quot;</span>))</span>
+<span id="cb42-8"><a href="creando-mis-primeras-funciones.html#cb42-8" tabindex="-1"></a>}</span></code></pre></div>
+<p>Un poco mejor:</p>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="creando-mis-primeras-funciones.html#cb43-1" tabindex="-1"></a><span class="fu">library</span>(ComplexHeatmap)</span>
+<span id="cb43-2"><a href="creando-mis-primeras-funciones.html#cb43-2" tabindex="-1"></a>subset_heatmap <span class="ot">&lt;-</span> <span class="cf">function</span>(x, <span class="at">mediciones =</span> <span class="cn">NULL</span>, </span>
+<span id="cb43-3"><a href="creando-mis-primeras-funciones.html#cb43-3" tabindex="-1"></a>                           <span class="at">grupos =</span> <span class="cn">NULL</span>) {</span>
+<span id="cb43-4"><a href="creando-mis-primeras-funciones.html#cb43-4" tabindex="-1"></a>    x_subset <span class="ot">&lt;-</span> x[mediciones,grupos]</span>
+<span id="cb43-5"><a href="creando-mis-primeras-funciones.html#cb43-5" tabindex="-1"></a>    <span class="fu">Heatmap</span>(mi_matriz,</span>
+<span id="cb43-6"><a href="creando-mis-primeras-funciones.html#cb43-6" tabindex="-1"></a>            <span class="at">cluster_columns =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb43-7"><a href="creando-mis-primeras-funciones.html#cb43-7" tabindex="-1"></a>            <span class="at">heatmap_legend_param =</span> <span class="fu">list</span>(<span class="at">title =</span> <span class="st">&quot;valores&quot;</span>))</span>
+<span id="cb43-8"><a href="creando-mis-primeras-funciones.html#cb43-8" tabindex="-1"></a>}</span></code></pre></div>
+<p>Mucho mejor:</p>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="creando-mis-primeras-funciones.html#cb44-1" tabindex="-1"></a>subset_heatmap <span class="ot">&lt;-</span> <span class="cf">function</span>(x, <span class="at">mediciones =</span> <span class="cn">NULL</span>, </span>
+<span id="cb44-2"><a href="creando-mis-primeras-funciones.html#cb44-2" tabindex="-1"></a>                           <span class="at">grupos =</span> <span class="cn">NULL</span>) {</span>
+<span id="cb44-3"><a href="creando-mis-primeras-funciones.html#cb44-3" tabindex="-1"></a>    <span class="co"># subset matrix</span></span>
+<span id="cb44-4"><a href="creando-mis-primeras-funciones.html#cb44-4" tabindex="-1"></a>    x_subset <span class="ot">&lt;-</span> x[mediciones, grupos]</span>
+<span id="cb44-5"><a href="creando-mis-primeras-funciones.html#cb44-5" tabindex="-1"></a>    </span>
+<span id="cb44-6"><a href="creando-mis-primeras-funciones.html#cb44-6" tabindex="-1"></a>    <span class="co"># plot heatmap</span></span>
+<span id="cb44-7"><a href="creando-mis-primeras-funciones.html#cb44-7" tabindex="-1"></a>    ComplexHeatmap<span class="sc">::</span><span class="fu">Heatmap</span>(</span>
+<span id="cb44-8"><a href="creando-mis-primeras-funciones.html#cb44-8" tabindex="-1"></a>      x_subset,</span>
+<span id="cb44-9"><a href="creando-mis-primeras-funciones.html#cb44-9" tabindex="-1"></a>      <span class="at">cluster_columns =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb44-10"><a href="creando-mis-primeras-funciones.html#cb44-10" tabindex="-1"></a>      <span class="at">heatmap_legend_param =</span> <span class="fu">list</span>(<span class="at">title =</span> <span class="st">&quot;valores&quot;</span>))</span>
+<span id="cb44-11"><a href="creando-mis-primeras-funciones.html#cb44-11" tabindex="-1"></a>}</span></code></pre></div>
+<p>Ejecutemos la función:</p>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="creando-mis-primeras-funciones.html#cb45-1" tabindex="-1"></a><span class="fu">subset_heatmap</span>(</span>
+<span id="cb45-2"><a href="creando-mis-primeras-funciones.html#cb45-2" tabindex="-1"></a>  mi_matriz,</span>
+<span id="cb45-3"><a href="creando-mis-primeras-funciones.html#cb45-3" tabindex="-1"></a>  <span class="at">mediciones =</span> <span class="fu">c</span>(<span class="st">&quot;medicion_a&quot;</span>, <span class="st">&quot;medicion_b&quot;</span>, <span class="st">&quot;medicion_c&quot;</span>),</span>
+<span id="cb45-4"><a href="creando-mis-primeras-funciones.html#cb45-4" tabindex="-1"></a>  <span class="at">grupos =</span> <span class="fu">c</span>(<span class="st">&quot;grupo_d&quot;</span>,<span class="st">&quot;grupo_e&quot;</span>,<span class="st">&quot;grupo_f&quot;</span>))</span></code></pre></div>
+</div>
+<div id="tu-turno" class="section level2 hasAnchor" number="5.4">
+<h2><span class="header-section-number">5.4</span> ¡Tu turno!<a href="creando-mis-primeras-funciones.html#tu-turno" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Escribe una función que:</p>
+<ul>
+<li>Filtre la matriz y mantenga sólo los valores por encima de cierto valor.</li>
+<li>Genere el heatmap filtrado.</li>
+</ul>
+<p>Recuerda seguir las recomendaciones para escribir funciones.</p>
+</div>
+<div id="argumentos" class="section level2 hasAnchor" number="5.5">
+<h2><span class="header-section-number">5.5</span> Argumentos<a href="creando-mis-primeras-funciones.html#argumentos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>Los argumentos deben tener un nombre descriptivo y bien documentado.</li>
+</ul>
+<p>No la mejor opción:</p>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="creando-mis-primeras-funciones.html#cb46-1" tabindex="-1"></a>subset_heatmap <span class="ot">&lt;-</span> <span class="cf">function</span>(x, m, g) {</span>
+<span id="cb46-2"><a href="creando-mis-primeras-funciones.html#cb46-2" tabindex="-1"></a></span>
+<span id="cb46-3"><a href="creando-mis-primeras-funciones.html#cb46-3" tabindex="-1"></a>  <span class="co"># subset matrix</span></span>
+<span id="cb46-4"><a href="creando-mis-primeras-funciones.html#cb46-4" tabindex="-1"></a>    x_subset <span class="ot">&lt;-</span> x[mediciones, grupos]</span>
+<span id="cb46-5"><a href="creando-mis-primeras-funciones.html#cb46-5" tabindex="-1"></a>}</span></code></pre></div>
+<p>Una mejor opción:</p>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="creando-mis-primeras-funciones.html#cb47-1" tabindex="-1"></a>subset_heatmap <span class="ot">&lt;-</span> <span class="cf">function</span>(x, mediciones, </span>
+<span id="cb47-2"><a href="creando-mis-primeras-funciones.html#cb47-2" tabindex="-1"></a>                           grupos) {</span>
+<span id="cb47-3"><a href="creando-mis-primeras-funciones.html#cb47-3" tabindex="-1"></a>    <span class="co"># subset matrix</span></span>
+<span id="cb47-4"><a href="creando-mis-primeras-funciones.html#cb47-4" tabindex="-1"></a>    x_subset <span class="ot">&lt;-</span> x[mediciones, grupos]</span>
+<span id="cb47-5"><a href="creando-mis-primeras-funciones.html#cb47-5" tabindex="-1"></a>    </span>
+<span id="cb47-6"><a href="creando-mis-primeras-funciones.html#cb47-6" tabindex="-1"></a>    <span class="co"># plot heatmap</span></span>
+<span id="cb47-7"><a href="creando-mis-primeras-funciones.html#cb47-7" tabindex="-1"></a>    ComplexHeatmap<span class="sc">::</span><span class="fu">Heatmap</span>(</span>
+<span id="cb47-8"><a href="creando-mis-primeras-funciones.html#cb47-8" tabindex="-1"></a>      x_subset,</span>
+<span id="cb47-9"><a href="creando-mis-primeras-funciones.html#cb47-9" tabindex="-1"></a>      <span class="at">cluster_columns =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb47-10"><a href="creando-mis-primeras-funciones.html#cb47-10" tabindex="-1"></a>      <span class="at">heatmap_legend_param =</span> <span class="fu">list</span>(<span class="at">title =</span> <span class="st">&quot;valores&quot;</span>))</span>
+<span id="cb47-11"><a href="creando-mis-primeras-funciones.html#cb47-11" tabindex="-1"></a>}</span></code></pre></div>
+<ul>
+<li>Los argumentos generalmente deben tener valores default.</li>
+</ul>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="creando-mis-primeras-funciones.html#cb48-1" tabindex="-1"></a>subset_heatmap <span class="ot">&lt;-</span> <span class="cf">function</span>(x, <span class="at">mediciones =</span> <span class="cn">NULL</span>, </span>
+<span id="cb48-2"><a href="creando-mis-primeras-funciones.html#cb48-2" tabindex="-1"></a>                           <span class="at">grupos =</span> <span class="cn">NULL</span>, <span class="at">return_plot =</span> <span class="cn">TRUE</span>) {</span>
+<span id="cb48-3"><a href="creando-mis-primeras-funciones.html#cb48-3" tabindex="-1"></a>    <span class="co"># subset matrix</span></span>
+<span id="cb48-4"><a href="creando-mis-primeras-funciones.html#cb48-4" tabindex="-1"></a>    x_subset <span class="ot">&lt;-</span> x[mediciones, grupos]</span>
+<span id="cb48-5"><a href="creando-mis-primeras-funciones.html#cb48-5" tabindex="-1"></a>    </span>
+<span id="cb48-6"><a href="creando-mis-primeras-funciones.html#cb48-6" tabindex="-1"></a>    <span class="co"># plot heatmap</span></span>
+<span id="cb48-7"><a href="creando-mis-primeras-funciones.html#cb48-7" tabindex="-1"></a>    ComplexHeatmap<span class="sc">::</span><span class="fu">Heatmap</span>(</span>
+<span id="cb48-8"><a href="creando-mis-primeras-funciones.html#cb48-8" tabindex="-1"></a>      x_subset,</span>
+<span id="cb48-9"><a href="creando-mis-primeras-funciones.html#cb48-9" tabindex="-1"></a>      <span class="at">cluster_columns =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb48-10"><a href="creando-mis-primeras-funciones.html#cb48-10" tabindex="-1"></a>      <span class="at">heatmap_legend_param =</span> <span class="fu">list</span>(<span class="at">title =</span> <span class="st">&quot;valores&quot;</span>))</span>
+<span id="cb48-11"><a href="creando-mis-primeras-funciones.html#cb48-11" tabindex="-1"></a>}</span></code></pre></div>
+<ul>
+<li>Evalúa la validez de los argumentos</li>
+</ul>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="creando-mis-primeras-funciones.html#cb49-1" tabindex="-1"></a>subset_heatmap <span class="ot">&lt;-</span> <span class="cf">function</span>(x, <span class="at">mediciones =</span> <span class="cn">NULL</span>, </span>
+<span id="cb49-2"><a href="creando-mis-primeras-funciones.html#cb49-2" tabindex="-1"></a>                           <span class="at">grupos =</span> <span class="cn">NULL</span>, <span class="at">return_plot =</span> <span class="cn">TRUE</span>) {</span>
+<span id="cb49-3"><a href="creando-mis-primeras-funciones.html#cb49-3" tabindex="-1"></a>  </span>
+<span id="cb49-4"><a href="creando-mis-primeras-funciones.html#cb49-4" tabindex="-1"></a>    <span class="fu">stopifnot</span>(<span class="fu">is.matrix</span>(x))</span>
+<span id="cb49-5"><a href="creando-mis-primeras-funciones.html#cb49-5" tabindex="-1"></a>  </span>
+<span id="cb49-6"><a href="creando-mis-primeras-funciones.html#cb49-6" tabindex="-1"></a>    <span class="co"># subset matrix</span></span>
+<span id="cb49-7"><a href="creando-mis-primeras-funciones.html#cb49-7" tabindex="-1"></a>    x_subset <span class="ot">&lt;-</span> x[mediciones, grupos]</span>
+<span id="cb49-8"><a href="creando-mis-primeras-funciones.html#cb49-8" tabindex="-1"></a>    </span>
+<span id="cb49-9"><a href="creando-mis-primeras-funciones.html#cb49-9" tabindex="-1"></a>    <span class="co"># plot heatmap</span></span>
+<span id="cb49-10"><a href="creando-mis-primeras-funciones.html#cb49-10" tabindex="-1"></a>    heatmap <span class="ot">&lt;-</span> ComplexHeatmap<span class="sc">::</span><span class="fu">Heatmap</span>(</span>
+<span id="cb49-11"><a href="creando-mis-primeras-funciones.html#cb49-11" tabindex="-1"></a>      x_subset,</span>
+<span id="cb49-12"><a href="creando-mis-primeras-funciones.html#cb49-12" tabindex="-1"></a>      <span class="at">cluster_columns =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb49-13"><a href="creando-mis-primeras-funciones.html#cb49-13" tabindex="-1"></a>      <span class="at">heatmap_legend_param =</span> <span class="fu">list</span>(<span class="at">title =</span> <span class="st">&quot;valores&quot;</span>))</span>
+<span id="cb49-14"><a href="creando-mis-primeras-funciones.html#cb49-14" tabindex="-1"></a>    </span>
+<span id="cb49-15"><a href="creando-mis-primeras-funciones.html#cb49-15" tabindex="-1"></a>    <span class="cf">if</span>(return_plot <span class="sc">==</span> <span class="cn">TRUE</span>) {<span class="fu">return</span>(heatmap)}</span>
+<span id="cb49-16"><a href="creando-mis-primeras-funciones.html#cb49-16" tabindex="-1"></a>}</span></code></pre></div>
+<p>Este código no debe funcionar:</p>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="creando-mis-primeras-funciones.html#cb50-1" tabindex="-1"></a><span class="fu">subset_heatmap</span>(</span>
+<span id="cb50-2"><a href="creando-mis-primeras-funciones.html#cb50-2" tabindex="-1"></a>    <span class="fu">as.data.frame</span>(mi_matriz),</span>
+<span id="cb50-3"><a href="creando-mis-primeras-funciones.html#cb50-3" tabindex="-1"></a>    <span class="at">mediciones =</span> <span class="fu">c</span>(<span class="st">&quot;medicion_a&quot;</span>, <span class="st">&quot;medicion_b&quot;</span>, <span class="st">&quot;medicion_c&quot;</span>),</span>
+<span id="cb50-4"><a href="creando-mis-primeras-funciones.html#cb50-4" tabindex="-1"></a>    <span class="at">grupos =</span> <span class="fu">c</span>(<span class="st">&quot;grupo_d&quot;</span>,<span class="st">&quot;grupo_e&quot;</span>,<span class="st">&quot;grupo_f&quot;</span>))</span></code></pre></div>
+<p>Nota: Usa las funciones is() para evaluar la clase de los objects, no uses class() == ni class() !=.</p>
+<ul>
+<li>Proporciona pistas para entender los errores.</li>
+</ul>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="creando-mis-primeras-funciones.html#cb51-1" tabindex="-1"></a>subset_heatmap <span class="ot">&lt;-</span> <span class="cf">function</span>(x, <span class="at">mediciones =</span> <span class="cn">NULL</span>, </span>
+<span id="cb51-2"><a href="creando-mis-primeras-funciones.html#cb51-2" tabindex="-1"></a>                           <span class="at">grupos =</span> <span class="cn">NULL</span>, <span class="at">return_plot =</span> <span class="cn">TRUE</span>) {</span>
+<span id="cb51-3"><a href="creando-mis-primeras-funciones.html#cb51-3" tabindex="-1"></a>  </span>
+<span id="cb51-4"><a href="creando-mis-primeras-funciones.html#cb51-4" tabindex="-1"></a>    <span class="cf">if</span>(<span class="sc">!</span><span class="fu">is.matrix</span>(x)) {<span class="fu">stop</span>(<span class="st">&quot;x debe ser una matriz&quot;</span>)}</span>
+<span id="cb51-5"><a href="creando-mis-primeras-funciones.html#cb51-5" tabindex="-1"></a>  </span>
+<span id="cb51-6"><a href="creando-mis-primeras-funciones.html#cb51-6" tabindex="-1"></a>    <span class="co"># subset matrix</span></span>
+<span id="cb51-7"><a href="creando-mis-primeras-funciones.html#cb51-7" tabindex="-1"></a>    x_subset <span class="ot">&lt;-</span> x[mediciones, grupos]</span>
+<span id="cb51-8"><a href="creando-mis-primeras-funciones.html#cb51-8" tabindex="-1"></a>    </span>
+<span id="cb51-9"><a href="creando-mis-primeras-funciones.html#cb51-9" tabindex="-1"></a>    <span class="co"># plot heatmap</span></span>
+<span id="cb51-10"><a href="creando-mis-primeras-funciones.html#cb51-10" tabindex="-1"></a>    heatmap <span class="ot">&lt;-</span> ComplexHeatmap<span class="sc">::</span><span class="fu">Heatmap</span>(</span>
+<span id="cb51-11"><a href="creando-mis-primeras-funciones.html#cb51-11" tabindex="-1"></a>      x_subset,</span>
+<span id="cb51-12"><a href="creando-mis-primeras-funciones.html#cb51-12" tabindex="-1"></a>      <span class="at">cluster_columns =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb51-13"><a href="creando-mis-primeras-funciones.html#cb51-13" tabindex="-1"></a>      <span class="at">heatmap_legend_param =</span> <span class="fu">list</span>(<span class="at">title =</span> <span class="st">&quot;valores&quot;</span>))</span>
+<span id="cb51-14"><a href="creando-mis-primeras-funciones.html#cb51-14" tabindex="-1"></a>    </span>
+<span id="cb51-15"><a href="creando-mis-primeras-funciones.html#cb51-15" tabindex="-1"></a>    <span class="cf">if</span>(return_plot <span class="sc">==</span> <span class="cn">TRUE</span>) {<span class="fu">return</span>(heatmap)}</span>
+<span id="cb51-16"><a href="creando-mis-primeras-funciones.html#cb51-16" tabindex="-1"></a>}</span></code></pre></div>
+<p>Este código debe dar un error, más un mensaje de ayuda.</p>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="creando-mis-primeras-funciones.html#cb52-1" tabindex="-1"></a><span class="fu">subset_heatmap</span>(</span>
+<span id="cb52-2"><a href="creando-mis-primeras-funciones.html#cb52-2" tabindex="-1"></a>    <span class="fu">as.data.frame</span>(mi_matriz),</span>
+<span id="cb52-3"><a href="creando-mis-primeras-funciones.html#cb52-3" tabindex="-1"></a>    <span class="at">mediciones =</span> <span class="fu">c</span>(<span class="st">&quot;medicion_a&quot;</span>, <span class="st">&quot;medicion_b&quot;</span>, <span class="st">&quot;medicion_c&quot;</span>),</span>
+<span id="cb52-4"><a href="creando-mis-primeras-funciones.html#cb52-4" tabindex="-1"></a>    <span class="at">grupos =</span> <span class="fu">c</span>(<span class="st">&quot;grupo_d&quot;</span>,<span class="st">&quot;grupo_e&quot;</span>,<span class="st">&quot;grupo_f&quot;</span>))</span></code></pre></div>
+</div>
+<div id="tu-turno-1" class="section level2 hasAnchor" number="5.6">
+<h2><span class="header-section-number">5.6</span> ¡Tu turno!<a href="creando-mis-primeras-funciones.html#tu-turno-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>Agrega pasos de evaluación para los otros argumentos de la función.</li>
+<li>Incluye mensajes de ayuda cuando el formato de los argumentos no es el esperado.</li>
+</ul>
+</div>
+<div id="indentación" class="section level2 hasAnchor" number="5.7">
+<h2><span class="header-section-number">5.7</span> Indentación<a href="creando-mis-primeras-funciones.html#indentación" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>Usa 4 espacios para indentar, evita los tabs.</li>
+<li>No uses líneas de más de 80 caracteres.</li>
+</ul>
+</div>
+<div id="uso-de-espacios" class="section level2 hasAnchor" number="5.8">
+<h2><span class="header-section-number">5.8</span> Uso de espacios<a href="creando-mis-primeras-funciones.html#uso-de-espacios" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>Usa un espacio después de la coma: a, b, c.</li>
+<li>Usa espacio después de operadores binarios: a == b.</li>
+</ul>
+</div>
+<div id="comentarios" class="section level2 hasAnchor" number="5.9">
+<h2><span class="header-section-number">5.9</span> Comentarios<a href="creando-mis-primeras-funciones.html#comentarios" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>Usa “##” para comenzar las líneas de comentarios.</li>
+<li>Los comentarios deben usarse como notas y documentación solamente.</li>
+<li>No dejes código comentado que no se va a usar.</li>
+<li>Evita los TODO’s comentados cuando vayas a publicar el paquete.</li>
+</ul>
+</div>
+<div id="mensajes-para-el-usuario" class="section level2 hasAnchor" number="5.10">
+<h2><span class="header-section-number">5.10</span> Mensajes para el usuario<a href="creando-mis-primeras-funciones.html#mensajes-para-el-usuario" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Si deseas imprimir mensajes para el usuario, como el progreso del análisis en la función o advertir sobre los valores de los argumentos, evita el uso de cat(), mejor usa:</p>
+<ul>
+<li>message() comunica mensajes diagnóstico, como el progreso de la función.</li>
+</ul>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="creando-mis-primeras-funciones.html#cb53-1" tabindex="-1"></a><span class="fu">message</span>(<span class="st">&quot;Paso 1: completo&quot;</span>)</span></code></pre></div>
+<pre><code>## Paso 1: completo</code></pre>
+<ul>
+<li>warning() comunica situaciones inusuales que pueden ser manejadas por tu código.</li>
+</ul>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="creando-mis-primeras-funciones.html#cb55-1" tabindex="-1"></a><span class="fu">warning</span>(<span class="st">&quot;El número de elementos esperados es mayor a uno, se tomará el primer valor del vector&quot;</span>)</span></code></pre></div>
+<pre><code>## Warning: El número de elementos esperados es mayor a uno,
+## se tomará el primer valor del vector</code></pre>
+<ul>
+<li>stop() indica una condición errónea.</li>
+</ul>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="creando-mis-primeras-funciones.html#cb57-1" tabindex="-1"></a><span class="fu">stop</span>(<span class="st">&quot;x debe ser numérico&quot;</span>)</span></code></pre></div>
 
 </div>
 </div>

@@ -217,6 +217,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5" data-path="creando-mis-primeras-funciones.html"><a href="creando-mis-primeras-funciones.html"><i class="fa fa-check"></i><b>5</b> Creando mis primeras funciones</a>
 <ul>
 <li class="chapter" data-level="5.1" data-path="creando-mis-primeras-funciones.html"><a href="creando-mis-primeras-funciones.html#diapositivas-4"><i class="fa fa-check"></i><b>5.1</b> Diapositivas</a></li>
+<li class="chapter" data-level="5.2" data-path="creando-mis-primeras-funciones.html"><a href="creando-mis-primeras-funciones.html#nombre-de-la-función"><i class="fa fa-check"></i><b>5.2</b> Nombre de la función</a></li>
+<li class="chapter" data-level="5.3" data-path="creando-mis-primeras-funciones.html"><a href="creando-mis-primeras-funciones.html#estructura-de-la-función"><i class="fa fa-check"></i><b>5.3</b> Estructura de la función</a></li>
+<li class="chapter" data-level="5.4" data-path="creando-mis-primeras-funciones.html"><a href="creando-mis-primeras-funciones.html#tu-turno"><i class="fa fa-check"></i><b>5.4</b> ¡Tu turno!</a></li>
+<li class="chapter" data-level="5.5" data-path="creando-mis-primeras-funciones.html"><a href="creando-mis-primeras-funciones.html#argumentos"><i class="fa fa-check"></i><b>5.5</b> Argumentos</a></li>
+<li class="chapter" data-level="5.6" data-path="creando-mis-primeras-funciones.html"><a href="creando-mis-primeras-funciones.html#tu-turno-1"><i class="fa fa-check"></i><b>5.6</b> ¡Tu turno!</a></li>
+<li class="chapter" data-level="5.7" data-path="creando-mis-primeras-funciones.html"><a href="creando-mis-primeras-funciones.html#indentación"><i class="fa fa-check"></i><b>5.7</b> Indentación</a></li>
+<li class="chapter" data-level="5.8" data-path="creando-mis-primeras-funciones.html"><a href="creando-mis-primeras-funciones.html#uso-de-espacios"><i class="fa fa-check"></i><b>5.8</b> Uso de espacios</a></li>
+<li class="chapter" data-level="5.9" data-path="creando-mis-primeras-funciones.html"><a href="creando-mis-primeras-funciones.html#comentarios"><i class="fa fa-check"></i><b>5.9</b> Comentarios</a></li>
+<li class="chapter" data-level="5.10" data-path="creando-mis-primeras-funciones.html"><a href="creando-mis-primeras-funciones.html#mensajes-para-el-usuario"><i class="fa fa-check"></i><b>5.10</b> Mensajes para el usuario</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="documentación-de-funciones.html"><a href="documentación-de-funciones.html"><i class="fa fa-check"></i><b>6</b> Documentación de funciones</a>
 <ul>
@@ -333,9 +342,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3><span class="header-section-number">9.2.1</span> Description<a href="compilación-e-instalación-de-paquetes.html#description" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>El campo Description describe lo que hace tu paquetería. Suele ser extenso, si requieres escribir múltiples líneas, deben estar indentadas.</p>
 <p>Por ejemplo:</p>
-<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="compilación-e-instalación-de-paquetes.html#cb58-1" tabindex="-1"></a><span class="co"># Description: Este paquete contiene todas las funciones generadas en el curso </span></span>
-<span id="cb58-2"><a href="compilación-e-instalación-de-paquetes.html#cb58-2" tabindex="-1"></a><span class="co">#   de escritura de paqueterías en R. También contiene las funciones que cada </span></span>
-<span id="cb58-3"><a href="compilación-e-instalación-de-paquetes.html#cb58-3" tabindex="-1"></a><span class="co">#   participante propuso para solucionar un problema relacionado con su trabajo.</span></span></code></pre></div>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="compilación-e-instalación-de-paquetes.html#cb77-1" tabindex="-1"></a><span class="co"># Description: Este paquete contiene todas las funciones generadas en el curso </span></span>
+<span id="cb77-2"><a href="compilación-e-instalación-de-paquetes.html#cb77-2" tabindex="-1"></a><span class="co">#   de escritura de paqueterías en R. También contiene las funciones que cada </span></span>
+<span id="cb77-3"><a href="compilación-e-instalación-de-paquetes.html#cb77-3" tabindex="-1"></a><span class="co">#   participante propuso para solucionar un problema relacionado con su trabajo.</span></span></code></pre></div>
 </div>
 <div id="dependencias" class="section level3 hasAnchor" number="9.2.2">
 <h3><span class="header-section-number">9.2.2</span> Dependencias<a href="compilación-e-instalación-de-paquetes.html#dependencias" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -352,14 +361,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><strong>Nota Importante</strong></p>
 <p>Se recomienda listar los paquetes necesarios para el funcionamiento de nuestro paquete en <em>Imports</em> porque cuando se ponen en <em>Depends</em> se cargan los paquetes completos y probablemente solamente requerimos una o dos funciones.</p>
 <p>Cargar demasiados paquetes completos, sin ser necesario, sólo hace que nuestro paquete se vuelva pesado y lento. Es mejor llamar particularmente a las funciones usando la sintaxis explícita:</p>
-<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="compilación-e-instalación-de-paquetes.html#cb59-1" tabindex="-1"></a>Biostrings<span class="sc">::</span><span class="fu">translate</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="compilación-e-instalación-de-paquetes.html#cb78-1" tabindex="-1"></a>Biostrings<span class="sc">::</span><span class="fu">translate</span>()</span></code></pre></div>
 </div>
 <div id="cómo-añadir-dependencias" class="section level3 hasAnchor" number="9.2.3">
 <h3><span class="header-section-number">9.2.3</span> ¿Cómo añadir dependencias?<a href="compilación-e-instalación-de-paquetes.html#cómo-añadir-dependencias" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li>Usando usethis:</li>
 </ul>
-<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="compilación-e-instalación-de-paquetes.html#cb60-1" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_package</span>(<span class="st">&quot;ggplot2&quot;</span>, <span class="at">type =</span> <span class="st">&quot;Imports&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="compilación-e-instalación-de-paquetes.html#cb79-1" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_package</span>(<span class="st">&quot;ggplot2&quot;</span>, <span class="at">type =</span> <span class="st">&quot;Imports&quot;</span>)</span></code></pre></div>
 <ul>
 <li>Editando manualmente el archivo DESCRIPTION.</li>
 </ul>
@@ -403,22 +412,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li>Si el paquete se encuentra depositado en CRAN podemos usar la función</li>
 </ul>
-<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="compilación-e-instalación-de-paquetes.html#cb61-1" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_dev</span>(<span class="st">&quot;pkgname&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="compilación-e-instalación-de-paquetes.html#cb80-1" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_dev</span>(<span class="st">&quot;pkgname&quot;</span>)</span></code></pre></div>
 <p>Por ejemplo, para instalar la versión en desarrollo de dplyr usaremos el comando</p>
-<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="compilación-e-instalación-de-paquetes.html#cb62-1" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_dev</span>(<span class="st">&quot;dplyr&quot;</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="compilación-e-instalación-de-paquetes.html#cb81-1" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_dev</span>(<span class="st">&quot;dplyr&quot;</span>) </span></code></pre></div>
 <ul>
 <li>Si el paquete se encuentra en Bioconductor usaremos la siguiente función:</li>
 </ul>
-<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="compilación-e-instalación-de-paquetes.html#cb63-1" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_bioc</span>(<span class="st">&quot;pkgname&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="compilación-e-instalación-de-paquetes.html#cb82-1" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_bioc</span>(<span class="st">&quot;pkgname&quot;</span>)</span></code></pre></div>
 <p>Por ejemplo, para instalar la versión en desarrollo de regutools, el paquete desarrollado por miembros de la CDSB, usaremos el comando</p>
-<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="compilación-e-instalación-de-paquetes.html#cb64-1" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_bioc</span>(<span class="st">&quot;regutools&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="compilación-e-instalación-de-paquetes.html#cb83-1" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_bioc</span>(<span class="st">&quot;regutools&quot;</span>)</span></code></pre></div>
 </div>
 <div id="instalando-paquetes-desde-github" class="section level2 hasAnchor" number="9.7">
 <h2><span class="header-section-number">9.7</span> Instalando paquetes desde GitHub<a href="compilación-e-instalación-de-paquetes.html#instalando-paquetes-desde-github" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Para poder instalar un paquete desde GitHub necesitaremos conocer el usuario del creador y el nombre del repositorio.</p>
-<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="compilación-e-instalación-de-paquetes.html#cb65-1" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;usuario/repositorio&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="compilación-e-instalación-de-paquetes.html#cb84-1" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;usuario/repositorio&quot;</span>)</span></code></pre></div>
 <p>Por ejemplo, para instalar el paquete starwarssay desarrollado por Erick Cuevas (Erickcufe) utilizaremos el siguiente comando:</p>
-<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="compilación-e-instalación-de-paquetes.html#cb66-1" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;Erickcufe/starwarssay&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="compilación-e-instalación-de-paquetes.html#cb85-1" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;Erickcufe/starwarssay&quot;</span>)</span></code></pre></div>
 <p>Independientemente de si el paquete se encuentra en CRAN, Bioconductor, o ninguno de ellos, podemos instalar un paquete depositado en una cuenta de GitHub.</p>
 <p>Para poder instalar un paquete desde GitHub necesitaremos conocer el usuario del creador y el nombre del repositorio donde se encuentra depositado el paquete. Con esta información usaremos la siguiente función:</p>
 </div>
@@ -428,15 +437,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>Paso 1: Abre el proyecto del paquete que estás desarrollando.</p></li>
 <li><p>Paso opcional: Ejecuta la documentación si realizaste algún cambio.</p></li>
 </ul>
-<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="compilación-e-instalación-de-paquetes.html#cb67-1" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">document</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="compilación-e-instalación-de-paquetes.html#cb86-1" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">document</span>()</span></code></pre></div>
 <ul>
 <li>Paso 2: Construye el paquete:</li>
 </ul>
-<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="compilación-e-instalación-de-paquetes.html#cb68-1" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">build</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="compilación-e-instalación-de-paquetes.html#cb87-1" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">build</span>()</span></code></pre></div>
 <ul>
 <li>Paso 3: Instala el paquete desde tu proyecto actual:</li>
 </ul>
-<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="compilación-e-instalación-de-paquetes.html#cb69-1" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="compilación-e-instalación-de-paquetes.html#cb88-1" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install</span>()</span></code></pre></div>
 </div>
 <div id="contribuyendo-código" class="section level2 hasAnchor" number="9.9">
 <h2><span class="header-section-number">9.9</span> Contribuyendo código<a href="compilación-e-instalación-de-paquetes.html#contribuyendo-código" class="anchor-section" aria-label="Anchor link to header"></a></h2>

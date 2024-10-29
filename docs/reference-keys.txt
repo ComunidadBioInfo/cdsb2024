@@ -52,6 +52,15 @@ modificando-el-archivo-description
 modificando-el-archivo-news
 creando-mis-primeras-funciones
 diapositivas-4
+nombre-de-la-función
+estructura-de-la-función
+tu-turno
+argumentos
+tu-turno-1
+indentación
+uso-de-espacios
+comentarios
+mensajes-para-el-usuario
 documentación-de-funciones
 diapositivas-5
 links-importantes

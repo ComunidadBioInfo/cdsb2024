@@ -8,6 +8,263 @@ Instructora: Joselyn Chávez
 
 [
 ```{r,echo=FALSE}
-knitr::include_url("https://comunidadbioinfo.github.io/cdsb2023/solucion_problemas.html", height = "380px")
+knitr::include_url("https://comunidadbioinfo.github.io/cdsb2024/creando_funciones.html", height = "380px")
 ```
-](https://comunidadbioinfo.github.io/cdsb2023/solucion_problemas.html)
+](https://comunidadbioinfo.github.io/cdsb2024/creando_funciones.html)
+
+## Nombre de la función
+
+- Cortos pero descriptivos
+- Recomendable: Separar las palabras con _
+- Establecer una palabra en común al inicio para familias de funciones
+
+```{r, eval=FALSE}
+use_bioc_citation() # es mejor que
+
+citation()
+bioc_cit()
+usebioccitation()
+useBiocCitation()
+use.bioc.citation()
+```
+
+## Estructura de la función
+
+- Indentar las líneas de código.
+- Agregar comentarios para separar/describir las secciones importantes.
+- Usar la sintaxis paquete::funcion() cuando hacemos llamado a funciones de otros paquetes.
+
+```{r, eval=FALSE}
+usethis::use_r("subset_heatmap")
+```
+
+Generemos el código de manera regular.
+
+Simulemos una matriz con diversas mediciones y grafiquemos los datos en un heatmap.
+
+```{r, message=FALSE, error=FALSE, fig.align='center'}
+mi_matriz <- matrix(rnorm(100), nrow = 10)
+rownames(mi_matriz) <- paste0("medicion_",letters[1:10])
+colnames(mi_matriz) <- paste0("grupo_",letters[1:10])
+
+library(ComplexHeatmap)
+
+Heatmap(mi_matriz,
+        cluster_columns = FALSE,
+        heatmap_legend_param = list(title = "valores"))
+```
+
+Escribamos una función que permita seleccionar algunos grupos de interés y genere el heatmap.
+
+No la mejor opción:
+
+```{r, eval=FALSE}
+library(ComplexHeatmap)
+
+subset_heatmap <- function(x,mediciones=NULL,grupos=NULL) {
+x_subset <- x[mediciones,grupos]
+Heatmap(mi_matriz,
+        cluster_columns=FALSE,
+        heatmap_legend_param=list(title="valores"))
+}
+```
+
+Un poco mejor:
+
+```{r, eval=FALSE}
+library(ComplexHeatmap)
+subset_heatmap <- function(x, mediciones = NULL, 
+                           grupos = NULL) {
+    x_subset <- x[mediciones,grupos]
+    Heatmap(mi_matriz,
+            cluster_columns = FALSE,
+            heatmap_legend_param = list(title = "valores"))
+}
+```
+
+Mucho mejor:
+
+```{r, eval=FALSE}
+subset_heatmap <- function(x, mediciones = NULL, 
+                           grupos = NULL) {
+    # subset matrix
+    x_subset <- x[mediciones, grupos]
+    
+    # plot heatmap
+    ComplexHeatmap::Heatmap(
+      x_subset,
+      cluster_columns = FALSE,
+      heatmap_legend_param = list(title = "valores"))
+}
+```
+
+Ejecutemos la función:
+
+```{r, eval=FALSE}
+subset_heatmap(
+  mi_matriz,
+  mediciones = c("medicion_a", "medicion_b", "medicion_c"),
+  grupos = c("grupo_d","grupo_e","grupo_f"))
+```
+
+## ¡Tu turno!
+
+Escribe una función que: 
+
+- Filtre la matriz y mantenga sólo los valores por encima de cierto valor.
+- Genere el heatmap filtrado.
+
+Recuerda seguir las recomendaciones para escribir funciones.
+
+## Argumentos
+
+- Los argumentos deben tener un nombre descriptivo y bien documentado.
+
+No la mejor opción:
+
+```{r, eval=FALSE}
+subset_heatmap <- function(x, m, g) {
+
+  # subset matrix
+    x_subset <- x[mediciones, grupos]
+}
+```
+
+Una mejor opción: 
+
+```{r, eval=FALSE}
+subset_heatmap <- function(x, mediciones, 
+                           grupos) {
+    # subset matrix
+    x_subset <- x[mediciones, grupos]
+    
+    # plot heatmap
+    ComplexHeatmap::Heatmap(
+      x_subset,
+      cluster_columns = FALSE,
+      heatmap_legend_param = list(title = "valores"))
+}
+```
+
+- Los argumentos generalmente deben tener valores default. 
+
+```{r, eval=FALSE}
+subset_heatmap <- function(x, mediciones = NULL, 
+                           grupos = NULL, return_plot = TRUE) {
+    # subset matrix
+    x_subset <- x[mediciones, grupos]
+    
+    # plot heatmap
+    ComplexHeatmap::Heatmap(
+      x_subset,
+      cluster_columns = FALSE,
+      heatmap_legend_param = list(title = "valores"))
+}
+```
+
+- Evalúa la validez de los argumentos
+
+```{r, eval=FALSE}
+subset_heatmap <- function(x, mediciones = NULL, 
+                           grupos = NULL, return_plot = TRUE) {
+  
+    stopifnot(is.matrix(x))
+  
+    # subset matrix
+    x_subset <- x[mediciones, grupos]
+    
+    # plot heatmap
+    heatmap <- ComplexHeatmap::Heatmap(
+      x_subset,
+      cluster_columns = FALSE,
+      heatmap_legend_param = list(title = "valores"))
+    
+    if(return_plot == TRUE) {return(heatmap)}
+}
+```
+
+Este código no debe funcionar:
+
+```{r, eval=FALSE}
+subset_heatmap(
+    as.data.frame(mi_matriz),
+    mediciones = c("medicion_a", "medicion_b", "medicion_c"),
+    grupos = c("grupo_d","grupo_e","grupo_f"))
+```
+
+Nota: Usa las funciones is() para evaluar la clase de los objects, no uses class() == ni class() !=.
+
+- Proporciona pistas para entender los errores.
+
+```{r, eval=FALSE}
+subset_heatmap <- function(x, mediciones = NULL, 
+                           grupos = NULL, return_plot = TRUE) {
+  
+    if(!is.matrix(x)) {stop("x debe ser una matriz")}
+  
+    # subset matrix
+    x_subset <- x[mediciones, grupos]
+    
+    # plot heatmap
+    heatmap <- ComplexHeatmap::Heatmap(
+      x_subset,
+      cluster_columns = FALSE,
+      heatmap_legend_param = list(title = "valores"))
+    
+    if(return_plot == TRUE) {return(heatmap)}
+}
+```
+
+Este código debe dar un error, más un mensaje de ayuda.
+
+```{r, eval=FALSE}
+subset_heatmap(
+    as.data.frame(mi_matriz),
+    mediciones = c("medicion_a", "medicion_b", "medicion_c"),
+    grupos = c("grupo_d","grupo_e","grupo_f"))
+```
+
+## ¡Tu turno!
+
+- Agrega pasos de evaluación para los otros argumentos de la función.
+- Incluye mensajes de ayuda cuando el formato de los argumentos no es el esperado.
+
+## Indentación
+
+- Usa 4 espacios para indentar, evita los tabs.
+- No uses líneas de más de 80 caracteres.
+
+## Uso de espacios
+
+- Usa un espacio después de la coma: a, b, c.
+- Usa espacio después de operadores binarios: a == b.
+
+## Comentarios
+
+- Usa “##” para comenzar las líneas de comentarios.
+- Los comentarios deben usarse como notas y documentación solamente.
+- No dejes código comentado que no se va a usar.
+- Evita los TODO’s comentados cuando vayas a publicar el paquete. 
+
+## Mensajes para el usuario
+
+Si deseas imprimir mensajes para el usuario, como el progreso del análisis en la función o advertir sobre los valores de los argumentos, evita el uso de cat(), mejor usa:
+
+- message() comunica mensajes diagnóstico, como el progreso de la función. 
+
+```{r}
+message("Paso 1: completo")
+```
+
+- warning() comunica situaciones inusuales que pueden ser manejadas por tu código. 
+
+```{r}
+warning("El número de elementos esperados es mayor a uno, se tomará el primer valor del vector")
+```
+
+- stop() indica una condición errónea.
+
+```{r, eval=FALSE}
+stop("x debe ser numérico")
+```
+
