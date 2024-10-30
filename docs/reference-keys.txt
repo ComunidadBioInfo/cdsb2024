@@ -95,6 +95,7 @@ instalando-la-última-versión-en-desarrollo
 instalando-paquetes-desde-github
 instalando-un-paquete-local
 contribuyendo-código
+agregando-datos-de-ejemplo-en-el-paquete
 creación-de-sitios-web-con-pkgdown
 diapositivas-8
 instalación

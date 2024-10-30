@@ -203,4 +203,18 @@ git clone https://github.com/ComunidadBioInfo/saludo.git
 
 Ahora puedes abrir el proyecto del paquete y agregar tu código. 
 
+## Agregando datos de ejemplo en el paquete
+
+Guarda el archivo con los datos de ejemplo en: inst/extdata.
+
+Para acceder al archivo, usa el siguiente comando:
+
+```{r, eval=FALSE}
+datasets_file <- system.file("extdata", 
+                             "datasets.csv", 
+                             package = "mi_paquete")
+
+read.csv(datasets_file)
+```
+
 

@@ -71,45 +71,60 @@ knitr::include_graphics("img/regutools.png")
   
   - ¿Consideras que alguna viñeta está mejor desarrollada que la otra? Explica por qué 💭📊.
 
+</div>
+
 <div class = "orange color">
 
 ### Ejercicio 2: Creación de viñetas en R 🛠️📄
 
 Pasos:
+
 1. Cargar los paquetes necesarios
+
 ```{r}
 library(usethis)
 library(biocthis)
 ```
 
 2. Crear un nuevo paquete de R (si no tienes uno ya creado)
-```{r}
-# usethis::create_package("CDSB2024")
+
+```{r, eval=FALSE}
+usethis::create_package("CDSB2024")
 ```
 
 3. Configurar el paquete para Bioconductor
+
 Ejecuta el siguiente comando para configurar el paquete con las mejores prácticas de Bioconductor:
-```{r}
-# biocthis::use_bioc_pkg_templates()
+
+```{r, eval=FALSE}
+biocthis::use_bioc_pkg_templates()
 ```
+
 Esto agregará varios archivos de configuración y plantillas útiles para trabajar con Bioconductor.
 
 4. Crear una viñeta con biocthis
+
 Ejecuta el siguiente comando para agregar una viñeta en formato R Markdown. Cambia "mi_vignette" por el título de la viñeta que prefieran.
-```{r}
-# usethis::use_vignette("mi_vignette_usethis")
-# biocthis::use_bioc_vignette("mi_vignette_biocthis")
+
+```{r, eval=FALSE}
+usethis::use_vignette("mi_vignette_usethis")
+biocthis::use_bioc_vignette("mi_vignette_biocthis")
 ```
+
 Esto creará un archivo R Markdown en la carpeta vignettes/ dentro del paquete.
 
 5. Editar la viñeta
+
 Abre el archivo creado en vignettes .Rmd. Incluye contenido que describa una función del paquete.
 
 6. Abrir la viñeta en el navegador y renderiza el archivo .Rmd
 
-```{r}
-# browseVignettes("CDSB2024")
+```{r, eval=FALSE}
+browseVignettes("CDSB2024")
 ```
+
+</div>
+
 ### Preguntas de Reflexión 🤔💭
 
 - ¿Cuál es la ventaja de documentar ejemplos de uso en una viñeta? 📚✨
@@ -117,7 +132,4 @@ Abre el archivo creado en vignettes .Rmd. Incluye contenido que describa una fun
 - ¿Qué estructura consideras útil para presentar ejemplos en una viñeta? 🏗️🔍
   
 - ¿Cómo aplicarías esta clase en tu proyecto colaborativo? 🤝📈
-
-</div>
-
 
