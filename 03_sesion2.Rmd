@@ -4,63 +4,54 @@ José Antonio Ovando Ricárdez
 
 30 de octubre de 2024
 
-## Diapositivas
+## ¿Qué es una viñeta/vignette? 📝✨
 
-[
-```{r,echo=FALSE}
-knitr::include_url("https://comunidadbioinfo.github.io/cdsb2023/dia4_sesion2_slides.html", height = "380px")
-```
-](https://comunidadbioinfo.github.io/cdsb2023/dia4_sesion2_slides.html)
-
-
-## ¿Qué es una viñeta? 
-
-Es una guía extendida sobre cómo funciona el paquete. Es recomendable que muestre cómo utilizar las funciones del paquete, aplicado en un flujo de trabajo; por ejemplo: el análisis estadístico de una encuesta o el análisis de expresión diferencial de genes.
+Es una guía extendida sobre cómo funciona el paquete. Es recomendable que muestre cómo utilizar las funciones del paquete, aplicado en un flujo de trabajo; por ejemplo: el análisis estadístico de una encuesta 📊 o el análisis de expresión diferencial de genes.
 
 Podemos estructurarlo como haríamos con la escritura de un capítulo de libro o de un artículo científico: debe mostrar el problema a resolver y la metodología paso a paso sobre cómo el paquete lo resuelve.
 
-Si el paquete contiene funciones que se complementan entre sí para alcanzar un fin específico, entonces debes mostrar su uso de forma compartamentalizada.
+Si el paquete contiene funciones que se complementan entre sí para alcanzar un fin específico, entonces debes mostrar su uso de forma compartamentalizada. 
 
-## Características de una vignette
+## Características de una vignette 🌟
 
-- Debe mostrar un flujo de análisis explotando el potencial de tu paquete.
-- Implementa tantas funciones de tu paquete como sea posible, pero no es necesario que incluya todas.
-- Los datos a usar deben ser pequeños o fáciles de acceder. 
-- Puedes crear múltiples viñetas para mostrar diferentes casos de análisis y cubrir una mayor cantidad de funciones.
+- Debe mostrar un flujo de análisis explotando el potencial de tu paquete 📊🚀.
+- Implementa tantas funciones de tu paquete como sea posible, pero no es necesario que incluya todas 🛠️✨.
+- Los datos a usar deben ser pequeños o fáciles de acceder 📂🔍.
+- Puedes crear múltiples viñetas para mostrar diferentes casos de análisis y cubrir una mayor cantidad de funciones 📝📚.
 
-## ¿Cómo consultar la viñeta de un paquete?
+## ¿Cómo consultar la viñeta de un paquete? ❓🔍
 
 ```{r, eval=FALSE}
 browseVignettes(package = "ggplot2")
 ```
 
-## ¿Cómo crear una viñeta?
+## ¿Cómo crear una viñeta? ❓🔍
 
 ```{r, eval=FALSE}
 biocthis::use_bioc_vignette("mi_vignette")
 ```
 
-Esta función tendrá tres efectos:
+Esta función tendrá tres efectos ✨:
 
-- Generar el directorio vignettes en caso que no exista.
-- Agregar dependencias en el archivo DESCRIPTION (por ejemplo, _knitr_ necesario para construir viñetas dentro del paquete).
-- Abrir un templado en formato .Rmd para comenzar a escribir la viñeta, que se va a guardar en vignettes/mi_vignette.Rmd
+- Generar el directorio **vignettes** en caso que no exista 📂🔧.
+- Agregar dependencias en el archivo **DESCRIPTION** (por ejemplo, _knitr_ necesario para construir viñetas dentro del paquete) 📄📦.
+- Abrir un template en formato **.Rmd** para comenzar a escribir la viñeta, que se va a guardar en **vignettes/mi_vignette.Rmd** 📝💾.
 
-## ¿Cómo guardar y actualizar la viñeta?
+## ¿Cómo guardar y actualizar la viñeta? 🔄💻
 
-Una vez que se ha generado el archivo vignettes/mi_vignette.Rmd se hacen las modificaciones necesarias. Puedes usar el comando:
+Una vez que se ha generado el archivo **vignettes/mi_vignette.Rmd**, se hacen las modificaciones necesarias. Puedes usar el comando:
 
 ```{r, eval=FALSE}
 edit_file("vignettes/mi_vignette.Rmd")
 ```
 
-Para guardar los cambios debes hacer click en el botón Knit o utiliza la combinación de teclas Ctrl/Cmd-Shift-K.
+Para guardar los cambios, debes hacer clic en el botón **Knit** o utiliza la combinación de teclas **Ctrl/Cmd-Shift-K** 💾✨.
 
-## Veamos un ejemplo
+## Veamos un ejemplo 🔍👨‍💻
 
-Busca la viñeta del paquete regutools en la página de Bioconductor
+Busca la viñeta del paquete **regutools** en la página de Bioconductor 🌐:
 
-https://bioconductor.org/packages/release/bioc/html/regutools.html
+[Viñeta de regutools en Bioconductor](https://bioconductor.org/packages/release/bioc/html/regutools.html) 📦📄
 
 ```{r, echo=FALSE, fig.align='center', out.width='50%'}
 knitr::include_graphics("img/regutools.png")
@@ -70,7 +61,62 @@ knitr::include_graphics("img/regutools.png")
 
 <div class = "orange color">
 
-- Escribe una viñeta que muestre cómo utilizar las funciones para cargar y filtrar los datos de pbmc.
+### Ejercicio 1: Identificación de viñetas en paquetes de interés en Bioconductor 📚🔍
+
+- En equipos selecciona dos paquetes almacenados en Bioconductor que sean de tu interés y responde las siguientes preguntas:
+
+  - ¿Ambos paquetes incluyen viñetas? 📝❓
+  
+  - ¿Qué aspectos de la viñeta del paquete A versus el paquete B te llaman más la atención? 🔍🤔
+  
+  - ¿Consideras que alguna viñeta está mejor desarrollada que la otra? Explica por qué 💭📊.
+
+<div class = "orange color">
+
+### Ejercicio 2: Creación de viñetas en R 🛠️📄
+
+Pasos:
+1. Cargar los paquetes necesarios
+```{r}
+library(usethis)
+library(biocthis)
+```
+
+2. Crear un nuevo paquete de R (si no tienes uno ya creado)
+```{r}
+# usethis::create_package("CDSB2024")
+```
+
+3. Configurar el paquete para Bioconductor
+Ejecuta el siguiente comando para configurar el paquete con las mejores prácticas de Bioconductor:
+```{r}
+# biocthis::use_bioc_pkg_templates()
+```
+Esto agregará varios archivos de configuración y plantillas útiles para trabajar con Bioconductor.
+
+4. Crear una viñeta con biocthis
+Ejecuta el siguiente comando para agregar una viñeta en formato R Markdown. Cambia "mi_vignette" por el título de la viñeta que prefieran.
+```{r}
+# usethis::use_vignette("mi_vignette_usethis")
+# biocthis::use_bioc_vignette("mi_vignette_biocthis")
+```
+Esto creará un archivo R Markdown en la carpeta vignettes/ dentro del paquete.
+
+5. Editar la viñeta
+Abre el archivo creado en vignettes .Rmd. Incluye contenido que describa una función del paquete.
+
+6. Abrir la viñeta en el navegador y renderiza el archivo .Rmd
+
+```{r}
+# browseVignettes("CDSB2024")
+```
+### Preguntas de Reflexión 🤔💭
+
+- ¿Cuál es la ventaja de documentar ejemplos de uso en una viñeta? 📚✨
+  
+- ¿Qué estructura consideras útil para presentar ejemplos en una viñeta? 🏗️🔍
+  
+- ¿Cómo aplicarías esta clase en tu proyecto colaborativo? 🤝📈
 
 </div>
 
