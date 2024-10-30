@@ -4,6 +4,39 @@ José Antonio Ovando Ricárdez
 
 30 de octubre de 2024
 
+<style>
+
+div.color { 
+border-radius: 5px; 
+padding: 20px;
+margin: 30px 0px 30px;}
+
+div.red { background-color:#f67155; }
+
+div.orange{ background-color:#f0BB51;}
+
+div.pair { 	
+display: flex;
+flex-direction: row;
+justify-content: center;
+text-align:center;
+padding:0px}
+
+div.inside { width: 49%; padding: 0px}
+
+div.scroll { 
+max-height: 400px; 
+overflow-y: auto; 
+background: #111111;
+border-radius:5px;
+padding: 10px;
+margin: 30px 0px 30px;
+color: #999999;}
+
+div.alert{color:#bd475d; background-color:transparent}
+</style>
+
+
 ## ¿Qué es una viñeta/vignette? 📝✨
 
 Es una guía extendida sobre cómo funciona el paquete. Es recomendable que muestre cómo utilizar las funciones del paquete, aplicado en un flujo de trabajo; por ejemplo: el análisis estadístico de una encuesta 📊 o el análisis de expresión diferencial de genes.
