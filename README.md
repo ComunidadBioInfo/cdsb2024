@@ -60,6 +60,10 @@ Consulta el calendario de este curso en: <http://bit.ly/calendarcdsb2024>
   - Presentación de proyectos.
   - Clausura.
 
+# Materiales
+
+Puedes consultar el libro electrónico en: https://comunidadbioinfo.github.io/cdsb2024/
+
 # Patrocinadores
 
 Agradecemos el apoyo de:
